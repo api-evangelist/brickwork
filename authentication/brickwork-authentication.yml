@@ -1,0 +1,16 @@
+generated: '2026-07-18'
+method: derived
+source: openapi/brickwork-openapi.yml
+summary:
+  types:
+  - apiKey
+  api_key_in:
+  - query
+schemes:
+- name: apiKeyAuth
+  type: apiKey
+  in: query
+  parameter: api_key
+  description: Company API key passed as the api_key query parameter.
+  sources:
+  - openapi/brickwork-openapi.yml
