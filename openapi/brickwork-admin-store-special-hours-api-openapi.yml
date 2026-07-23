@@ -1,0 +1,265 @@
+openapi: 3.0.3
+info:
+  title: Brickwork Admin Appointments Admin Store Special Hours API
+  version: v3
+  description: Brickwork (now part of DevHub) omnichannel retail platform API v3. Powers store pages, store locators, appointments, events, RSVPs, in-store services, customers, and local store content for physical retail. Admin endpoints are authenticated with an api_key; front-end store endpoints surface public store, service, and event data. Derived from the provider-published apiDoc reference at production.brickworksoftware.com/api_docs.
+  contact:
+    name: Brickwork / DevHub
+    url: https://www.devhub.com/
+  x-apievangelist:
+    generated: '2026-07-18'
+    method: searched
+    source: https://production.brickworksoftware.com/api_docs/ (apiDoc api_data.json)
+servers:
+- url: https://production.brickworksoftware.com
+  description: Production
+tags:
+- name: Admin Store Special Hours
+paths:
+  /api/v3/admin/stores/{store_id_or_number}/special_hours:
+    get:
+      summary: List Special Hours
+      operationId: GetApiV3AdminStoresStore_id_or_numberSpecial_hours
+      tags:
+      - Admin Store Special Hours
+      description: 'Example: `http://company.com/api/v3/admin/stores/:store_id/special_hours/`
+
+
+        Example: `http://company.com/api/v3/admin/stores/:store_number/special_hours/?store_number=true`'
+      parameters:
+      - name: store_id_or_number
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  special_hours:
+                    type: array
+                    description: A list of special_hours type objects
+      security:
+      - apiKeyAuth: []
+    post:
+      summary: Create Special Hours
+      operationId: PostApiV3AdminStoresStore_id_or_numberSpecial_hours
+      tags:
+      - Admin Store Special Hours
+      description: 'Example: `http://company.com/api/v3/admin/stores/:store_id/special_hours/`
+
+
+        Example: `http://company.com/api/v3/admin/stores/:store_number/special_hours/?store_number=true`'
+      parameters:
+      - name: store_id_or_number
+        in: path
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                start_time:
+                  type: string
+                  description: Start special range
+                end_time:
+                  type: string
+                  description: End special range
+                date:
+                  type: integer
+                  description: YYYY-MM-DD
+                display_name:
+                  type: string
+                  description: title given
+                day_of_week:
+                  type: integer
+                  description: 0 = Sun, 6 = Sat
+                closed:
+                  type: boolean
+                  description: store true/false
+              required:
+              - start_time
+              - end_time
+              - date
+              - display_name
+              - day_of_week
+              - closed
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  id:
+                    type: integer
+                    description: special_hour ID
+                  start_time:
+                    type: string
+                    description: Start time
+                  end_time:
+                    type: string
+                    description: End time
+                  date:
+                    type: integer
+                    description: YYYY-MM-DD
+                  display_name:
+                    type: string
+                    description: title given
+                  day_of_week:
+                    type: integer
+                    description: 0 = Sun, 6 = Sat
+                  closed:
+                    type: boolean
+                    description: true/false
+      security:
+      - apiKeyAuth: []
+  /api/v3/admin/stores/{store_id_or_number}/special_hours/{id}:
+    get:
+      summary: Show Special Hour
+      operationId: GetApiV3AdminStoresStore_id_or_numberSpecial_hoursId
+      tags:
+      - Admin Store Special Hours
+      description: 'Example: `http://company.com/api/v3/admin/stores/:store_id/special_hours/:id`
+
+
+        Example: `http://company.com/api/v3/admin/stores/:store_number/special_hours/:id?store_number=true`'
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+      - name: store_id_or_number
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  id:
+                    type: integer
+                    description: special_hour ID
+                  start_time:
+                    type: string
+                    description: Start time
+                  end_time:
+                    type: string
+                    description: End time
+                  date:
+                    type: integer
+                    description: YYYY-MM-DD
+                  display_name:
+                    type: string
+                    description: title given
+                  day_of_week:
+                    type: integer
+                    description: 0 = Sun, 6 = Sat
+                  closed:
+                    type: boolean
+                    description: true/false
+      security:
+      - apiKeyAuth: []
+    put:
+      summary: Update Special Hours
+      operationId: PutApiV3AdminStoresStore_id_or_numberSpecial_hoursId
+      tags:
+      - Admin Store Special Hours
+      description: 'Example: `http://company.com/api/v3/admin/stores/:store_id/special_hours/:id`
+
+
+        Example: `http://company.com/api/v3/admin/stores/:store_number/special_hours/:id?store_number=true`'
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+      - name: store_id_or_number
+        in: path
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                start_time:
+                  type: string
+                  description: Start special range
+                end_time:
+                  type: string
+                  description: End special range
+                date:
+                  type: integer
+                  description: YYYY-MM-DD
+                display_name:
+                  type: string
+                  description: title given
+                day_of_week:
+                  type: integer
+                  description: 0 = Sun, 6 = Sat
+                closed:
+                  type: boolean
+                  description: true/false
+              required:
+              - start_time
+              - end_time
+              - date
+              - display_name
+              - day_of_week
+              - closed
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  id:
+                    type: integer
+                    description: special_hour ID
+                  start_time:
+                    type: string
+                    description: Start time
+                  end_time:
+                    type: string
+                    description: End time
+                  date:
+                    type: integer
+                    description: YYYY-MM-DD
+                  display_name:
+                    type: string
+                    description: title given
+                  day_of_week:
+                    type: integer
+                    description: 0 = Sun, 6 = Sat
+                  closed:
+                    type: boolean
+                    description: true/false
+      security:
+      - apiKeyAuth: []
+components:
+  securitySchemes:
+    apiKeyAuth:
+      type: apiKey
+      in: query
+      name: api_key
+      description: Company API key passed as the api_key query parameter.

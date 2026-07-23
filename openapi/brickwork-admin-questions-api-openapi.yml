@@ -1,0 +1,146 @@
+openapi: 3.0.3
+info:
+  title: Brickwork Admin Appointments Admin Questions API
+  version: v3
+  description: Brickwork (now part of DevHub) omnichannel retail platform API v3. Powers store pages, store locators, appointments, events, RSVPs, in-store services, customers, and local store content for physical retail. Admin endpoints are authenticated with an api_key; front-end store endpoints surface public store, service, and event data. Derived from the provider-published apiDoc reference at production.brickworksoftware.com/api_docs.
+  contact:
+    name: Brickwork / DevHub
+    url: https://www.devhub.com/
+  x-apievangelist:
+    generated: '2026-07-18'
+    method: searched
+    source: https://production.brickworksoftware.com/api_docs/ (apiDoc api_data.json)
+servers:
+- url: https://production.brickworksoftware.com
+  description: Production
+tags:
+- name: Admin Questions
+paths:
+  /{locale}/api/v3/admin/questions:
+    get:
+      summary: List all questions
+      operationId: GetLocaleApiV3AdminQuestions
+      tags:
+      - Admin Questions
+      description: 'Example: `http://company.com/api/v3/admin/questions?query[key]=favorite_color`'
+      parameters:
+      - name: locale
+        in: path
+        required: true
+        schema:
+          type: string
+      - name: page
+        in: query
+        required: false
+        schema:
+          type: integer
+        description: Page number of your query
+      - name: query
+        in: query
+        required: false
+        schema:
+          type: object
+        description: Query parameters for all company questions
+      - name: query[key]
+        in: query
+        required: false
+        schema:
+          type: string
+        description: Filter questions by key ['key1', key2, key3]
+      - name: query[code]
+        in: query
+        required: false
+        schema:
+          type: string
+        description: Filter questions by question_type ['question_type1','question_type2','question_type3']
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  questions:
+                    type: array
+                    items:
+                      type: object
+                    description: Array of Question Objects
+      security:
+      - apiKeyAuth: []
+  /{locale}/api/v3/admin/questions/{question_id}:
+    get:
+      summary: Show question
+      operationId: GetLocaleApiV3AdminQuestionsQuestion_id
+      tags:
+      - Admin Questions
+      description: 'Example: `http://company.com/api/v3/admin/questions/:question_id`'
+      parameters:
+      - name: question_id
+        in: path
+        required: true
+        schema:
+          type: string
+      - name: locale
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  id:
+                    type: integer
+                    description: Question ID
+                  key:
+                    type: integer
+                    description: Question Key
+                  display_text:
+                    type: string
+                    description: Question Display Text
+                  question_type:
+                    type: string
+                    description: Question Question Type
+                  position:
+                    type: integer
+                    description: Question Position
+                  status:
+                    type: integer
+                    description: Question Status
+                  props:
+                    type: object
+                    description: Question Props
+                  nextgen_id:
+                    type: string
+                    description: Nextgen Question ID
+                  global_appointment:
+                    type: boolean
+                    description: Question T/F on whether Question is a Global Appointment
+                  assignments:
+                    type: object
+                    description: Question Assignments
+                  options:
+                    type: array
+                    items:
+                      type: object
+                    description: Array of Question Options Object. Only returned if question has options
+                  created_at:
+                    type: string
+                    description: ''
+                  updated_at:
+                    type: string
+                    description: ''
+      security:
+      - apiKeyAuth: []
+components:
+  securitySchemes:
+    apiKeyAuth:
+      type: apiKey
+      in: query
+      name: api_key
+      description: Company API key passed as the api_key query parameter.

@@ -1,0 +1,232 @@
+openapi: 3.0.3
+info:
+  title: Brickwork Admin Appointments Admin Store Alerts API
+  version: v3
+  description: Brickwork (now part of DevHub) omnichannel retail platform API v3. Powers store pages, store locators, appointments, events, RSVPs, in-store services, customers, and local store content for physical retail. Admin endpoints are authenticated with an api_key; front-end store endpoints surface public store, service, and event data. Derived from the provider-published apiDoc reference at production.brickworksoftware.com/api_docs.
+  contact:
+    name: Brickwork / DevHub
+    url: https://www.devhub.com/
+  x-apievangelist:
+    generated: '2026-07-18'
+    method: searched
+    source: https://production.brickworksoftware.com/api_docs/ (apiDoc api_data.json)
+servers:
+- url: https://production.brickworksoftware.com
+  description: Production
+tags:
+- name: Admin Store Alerts
+paths:
+  /api/v3/admin/stores/{id_or_number}/alerts:
+    get:
+      summary: Alerts List
+      operationId: GetApiV3AdminStoresId_or_numberAlerts
+      tags:
+      - Admin Store Alerts
+      description: 'Example: `http://company.com/api/v3/admin/stores/:store_id/alerts`
+
+
+        Example: `http://company.com/api/v3/admin/stores/:store_number/alerts?store_number=true`'
+      parameters:
+      - name: id_or_number
+        in: path
+        required: true
+        schema:
+          type: string
+      - name: locale
+        in: query
+        required: false
+        schema:
+          type: string
+        description: The locale for store data display
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  alerts:
+                    type: array
+                    description: A list of all alerts at a specific store
+      security:
+      - apiKeyAuth: []
+    post:
+      summary: Create Alert
+      operationId: PostApiV3AdminStoresId_or_numberAlerts
+      tags:
+      - Admin Store Alerts
+      parameters:
+      - name: id_or_number
+        in: path
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                message:
+                  type: string
+                  description: Display Alert Message
+                expires_at:
+                  type: string
+                  description: 'ex: YYYY-MM-DDT00:00:00.000Z'
+              required:
+              - message
+              - expires_at
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  id:
+                    type: integer
+                    description: Alert Id
+                  store_id:
+                    type: integer
+                    description: Store Id
+                  message:
+                    type: string
+                    description: Alert Message
+                  expires_at:
+                    type: string
+                    description: The alert will become inactive at the following time
+                  created_at:
+                    type: string
+                    description: The alert was created at the following time
+                  updated_at:
+                    type: string
+                    description: The alert was updated at the following time
+      security:
+      - apiKeyAuth: []
+  /api/v3/admin/stores/{id_or_number}/alerts/{id}:
+    get:
+      summary: Show Alert
+      operationId: GetApiV3AdminStoresId_or_numberAlertsId
+      tags:
+      - Admin Store Alerts
+      description: 'Example: `http://company.com/api/v3/stores/:store_id/alerts/:id`
+
+
+        Example: `http://company.com/api/v3/stores/:store_number/alerts/:id?store_number=true`'
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+      - name: id_or_number
+        in: path
+        required: true
+        schema:
+          type: string
+      - name: locale
+        in: query
+        required: false
+        schema:
+          type: string
+        description: The locale for store data display
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  id:
+                    type: integer
+                    description: Alert Id
+                  store_id:
+                    type: integer
+                    description: Store Id
+                  message:
+                    type: string
+                    description: Alert Message
+                  expires_at:
+                    type: string
+                    description: The alert will become inactive at the following time
+                  created_at:
+                    type: string
+                    description: The alert was created at the following time
+                  updated_at:
+                    type: string
+                    description: The alert was updated at the following time
+      security:
+      - apiKeyAuth: []
+    put:
+      summary: Update Alert
+      operationId: PutApiV3AdminStoresId_or_numberAlertsId
+      tags:
+      - Admin Store Alerts
+      description: 'Example: `http://company.com/api/v3/admin/stores/:store_id/alerts/:id`
+
+
+        Example: `http://company.com/api/v3/admin/stores/:store_number/alerts/:id?store_number=true`'
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+      - name: id_or_number
+        in: path
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                message:
+                  type: string
+                  description: Display Alert Message
+                expires_at:
+                  type: string
+                  description: 'ex: YYYY-MM-DDT00:00:00.000Z'
+              required:
+              - message
+              - expires_at
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  id:
+                    type: integer
+                    description: Alert Id
+                  store_id:
+                    type: integer
+                    description: Store Id
+                  message:
+                    type: string
+                    description: Alert Message
+                  expires_at:
+                    type: string
+                    description: The alert will become inactive at the following time
+                  created_at:
+                    type: string
+                    description: The alert was created at the following time
+                  updated_at:
+                    type: string
+                    description: The alert was updated at the following time
+      security:
+      - apiKeyAuth: []
+components:
+  securitySchemes:
+    apiKeyAuth:
+      type: apiKey
+      in: query
+      name: api_key
+      description: Company API key passed as the api_key query parameter.

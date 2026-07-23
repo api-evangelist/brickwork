@@ -1,0 +1,187 @@
+openapi: 3.0.3
+info:
+  title: Brickwork Admin Appointments Admin Groups API
+  version: v3
+  description: Brickwork (now part of DevHub) omnichannel retail platform API v3. Powers store pages, store locators, appointments, events, RSVPs, in-store services, customers, and local store content for physical retail. Admin endpoints are authenticated with an api_key; front-end store endpoints surface public store, service, and event data. Derived from the provider-published apiDoc reference at production.brickworksoftware.com/api_docs.
+  contact:
+    name: Brickwork / DevHub
+    url: https://www.devhub.com/
+  x-apievangelist:
+    generated: '2026-07-18'
+    method: searched
+    source: https://production.brickworksoftware.com/api_docs/ (apiDoc api_data.json)
+servers:
+- url: https://production.brickworksoftware.com
+  description: Production
+tags:
+- name: Admin Groups
+paths:
+  /api/v3/admin/groups:
+    get:
+      summary: Groups List
+      operationId: GetApiV3AdminGroups
+      tags:
+      - Admin Groups
+      parameters:
+      - name: locale
+        in: query
+        required: false
+        schema:
+          type: string
+        description: The locale for group data display
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  groups:
+                    type: array
+                    description: A list of the company store groups
+      security:
+      - apiKeyAuth: []
+    post:
+      summary: Create Group
+      operationId: PostApiV3AdminGroups
+      tags:
+      - Admin Groups
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                name:
+                  type: string
+                  description: Group name
+                store_ids:
+                  type: array
+                  description: A list of the store ids
+              required:
+              - name
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  id:
+                    type: integer
+                    description: Group id
+                  name:
+                    type: string
+                    description: Group name
+                  store_ids:
+                    type: array
+                    description: A list of the store ids
+                  created_at:
+                    type: string
+                    description: Group creation Datetime
+                  updated_at:
+                    type: string
+                    description: Group last updated Datetime
+      security:
+      - apiKeyAuth: []
+  /api/v3/admin/groups/{id}:
+    get:
+      summary: Show Group
+      operationId: GetApiV3AdminGroupsId
+      tags:
+      - Admin Groups
+      parameters:
+      - name: locale
+        in: query
+        required: false
+        schema:
+          type: string
+        description: The locale for group data display
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: integer
+        description: ''
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  id:
+                    type: integer
+                    description: Group id
+                  name:
+                    type: string
+                    description: Group name
+                  store_ids:
+                    type: array
+                    description: A list of the store ids
+                  created_at:
+                    type: string
+                    description: Group creation Datetime
+                  updated_at:
+                    type: string
+                    description: Group last updated Datetime
+      security:
+      - apiKeyAuth: []
+    put:
+      summary: Update Group
+      operationId: PutApiV3AdminGroupsId
+      tags:
+      - Admin Groups
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                name:
+                  type: string
+                  description: Group name
+                store_ids:
+                  type: array
+                  description: A list of the store ids
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  id:
+                    type: integer
+                    description: Group id
+                  name:
+                    type: string
+                    description: Group name
+                  store_ids:
+                    type: array
+                    description: A list of the store ids
+                  created_at:
+                    type: string
+                    description: Group creation Datetime
+                  updated_at:
+                    type: string
+                    description: Group last updated Datetime
+      security:
+      - apiKeyAuth: []
+components:
+  securitySchemes:
+    apiKeyAuth:
+      type: apiKey
+      in: query
+      name: api_key
+      description: Company API key passed as the api_key query parameter.

@@ -1,0 +1,407 @@
+openapi: 3.0.3
+info:
+  title: Brickwork Admin Appointments Admin Services API
+  version: v3
+  description: Brickwork (now part of DevHub) omnichannel retail platform API v3. Powers store pages, store locators, appointments, events, RSVPs, in-store services, customers, and local store content for physical retail. Admin endpoints are authenticated with an api_key; front-end store endpoints surface public store, service, and event data. Derived from the provider-published apiDoc reference at production.brickworksoftware.com/api_docs.
+  contact:
+    name: Brickwork / DevHub
+    url: https://www.devhub.com/
+  x-apievangelist:
+    generated: '2026-07-18'
+    method: searched
+    source: https://production.brickworksoftware.com/api_docs/ (apiDoc api_data.json)
+servers:
+- url: https://production.brickworksoftware.com
+  description: Production
+tags:
+- name: Admin Services
+paths:
+  /api/v3/admin/services:
+    get:
+      summary: Services List
+      operationId: GetApiV3AdminServices
+      tags:
+      - Admin Services
+      parameters:
+      - name: locale
+        in: query
+        required: false
+        schema:
+          type: string
+        description: The locale for store data display
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  services:
+                    type: array
+                    description: List of service objects
+      security:
+      - apiKeyAuth: []
+    post:
+      summary: Create Service
+      operationId: PostApiV3AdminServices
+      tags:
+      - Admin Services
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                name:
+                  type: string
+                  description: Service Name
+                locale:
+                  type: string
+                  description: The locale for store data display
+                number:
+                  type: integer
+                  description: Service Number
+                priority:
+                  type: integer
+                  description: Service Order Number
+                description:
+                  type: string
+                  description: Localized Service Display Description
+                custom_slug:
+                  type: string
+                  description: Service Custom Slug [for use with Service Landing Page]
+                allow_appointments_default:
+                  type: boolean
+                  description: Allow appointments to be booked for this service, True/False
+                appointment_length:
+                  type: integer
+                  description: Set Appointment Length, Defaults to 30 minutes
+                image_url:
+                  type: string
+                  description: Service Image URL
+                icon_url:
+                  type: string
+                  description: Service Icon Image URL
+                private:
+                  type: boolean
+                  description: Hide this service from customer facing interfaces (ex. “Choose a service” step on appointment modal, store pages). True/False.
+                long_description:
+                  type: string
+                  description: Localized Service Long Description [for use with Service Landing Page]
+                enable_landing_page:
+                  type: boolean
+                  description: Service Landing Page Enabled [for use with Service Landing Page], True/False, Defaults To True
+                long_description_position:
+                  type: string
+                  description: Service Long Description Position [for use with Service Landing Page]. Valid positions are "top" and "bottom". Defaults to "top", if not provided.
+                display_stores_count:
+                  type: integer
+                  description: Number Of Stores To Display for Service [for use with Service Landing Page]. Valid options are 3, 6, 12. Defaults to 12, if not provided.
+              required:
+              - name
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  id:
+                    type: integer
+                    description: Service Id
+                  number:
+                    type: integer
+                    description: Service Number
+                  priority:
+                    type: integer
+                    description: Service Order Number
+                  name:
+                    type: string
+                    description: Service Name
+                  description:
+                    type: string
+                    description: Localized Service Display Description
+                  slug:
+                    type: string
+                    description: Service Slug [for use with Service Landing Page]
+                  custom_slug:
+                    type: string
+                    description: Service Custom Slug [for use with Service Landing Page]
+                  long_description:
+                    type: string
+                    description: Localized Service Long Description [for use with Service Landing Page]
+                  enable_landing_page:
+                    type: boolean
+                    description: Service Landing Page Enabled [for use with Service Landing Page], True/False, Defaults To True
+                  long_description_position:
+                    type: string
+                    description: Service Long Description Position [for use with Service Landing Page]. Valid positions are "top" and "bottom". Defaults to "top", if not provided.
+                  display_stores_count:
+                    type: integer
+                    description: Number Of Stores To Display for Service [for use with Service Landing Page]. Valid options are 3, 6, 12. Defaults to 12, if not provided.
+                  allow_appointments_default:
+                    type: boolean
+                    description: Allow appointments to be booked for this service, True/False
+                  appointment_length:
+                    type: integer
+                    description: Appointment Length, Defaults to 30 minutes
+                  image_url:
+                    type: string
+                    description: Service Image URL
+                  icon_url:
+                    type: string
+                    description: Service Icon Image URL
+                  private:
+                    type: boolean
+                    description: Hide this service from customer facing interfaces (ex. “Choose a service” step on appointment modal, store pages). True/False.
+                  created_at:
+                    type: string
+                    description: Service Created At
+                  updated_at:
+                    type: string
+                    description: Service Updated At
+                  nextgen_id:
+                    type: string
+                    description: Nextgen Service ID
+                  organization_nextgen_id:
+                    type: string
+                    description: Nextgen Organization ID
+      security:
+      - apiKeyAuth: []
+  /api/v3/admin/services/{id}:
+    get:
+      summary: Service
+      operationId: GetApiV3AdminServicesId
+      tags:
+      - Admin Services
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+      - name: locale
+        in: query
+        required: false
+        schema:
+          type: string
+        description: The locale for store data display
+      - name: service_id
+        in: query
+        required: true
+        schema:
+          type: string
+        description: Id of the Company Service
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  id:
+                    type: integer
+                    description: Service Id
+                  number:
+                    type: integer
+                    description: Service Number
+                  priority:
+                    type: integer
+                    description: Service Order Number
+                  name:
+                    type: string
+                    description: Service Name
+                  description:
+                    type: string
+                    description: Localized Service Display Description
+                  slug:
+                    type: string
+                    description: Service Slug [for use with Service Landing Page]
+                  custom_slug:
+                    type: string
+                    description: Service Custom Slug [for use with Service Landing Page]
+                  long_description:
+                    type: string
+                    description: Localized Service Long Description [for use with Service Landing Page]
+                  enable_landing_page:
+                    type: boolean
+                    description: Service Landing Page Enabled [for use with Service Landing Page], True/False, Defaults To True
+                  long_description_position:
+                    type: string
+                    description: Service Long Description Position [for use with Service Landing Page]. Valid positions are "top" and "bottom". Defaults to "top", if not provided.
+                  display_stores_count:
+                    type: integer
+                    description: Number Of Stores To Display for Service [for use with Service Landing Page]. Valid options are 3, 6, 12. Defaults to 12, if not provided.
+                  allow_appointments_default:
+                    type: boolean
+                    description: Allow appointments to be booked for this service, True/False
+                  appointment_length:
+                    type: integer
+                    description: Appointment Length, Defaults to 30 minutes
+                  image_url:
+                    type: string
+                    description: Service Image URL
+                  icon_url:
+                    type: string
+                    description: Service Icon Image URL
+                  private:
+                    type: boolean
+                    description: Hide this service from customer facing interfaces (ex. “Choose a service” step on appointment modal, store pages). True/False.
+                  created_at:
+                    type: string
+                    description: Service Created At
+                  updated_at:
+                    type: string
+                    description: Service Updated At
+                  nextgen_id:
+                    type: string
+                    description: Nextgen Service ID
+                  organization_nextgen_id:
+                    type: string
+                    description: Nextgen Organization ID
+      security:
+      - apiKeyAuth: []
+    put:
+      summary: Update Service
+      operationId: PutApiV3AdminServicesId
+      tags:
+      - Admin Services
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                name:
+                  type: string
+                  description: Service Name
+                locale:
+                  type: string
+                  description: The locale for store data display
+                number:
+                  type: integer
+                  description: Service Number
+                priority:
+                  type: integer
+                  description: Service Order Number
+                description:
+                  type: string
+                  description: Localized Service Display Description
+                custom_slug:
+                  type: string
+                  description: Service Custom Slug [for use with Service Landing Page]
+                allow_appointments_default:
+                  type: boolean
+                  description: Allow appointments to be booked for this service, True/False
+                appointment_length:
+                  type: integer
+                  description: Set Appointment Length, Defaults to 30 minutes
+                image_url:
+                  type: string
+                  description: Service Image URL
+                icon_url:
+                  type: string
+                  description: Service Icon Image URL
+                private:
+                  type: boolean
+                  description: Hide this service from customer facing interfaces (ex. “Choose a service” step on appointment modal, store pages). True/False.
+                long_description:
+                  type: string
+                  description: Localized Service Long Description [for use with Service Landing Page]
+                enable_landing_page:
+                  type: boolean
+                  description: Service Landing Page Enabled [for use with Service Landing Page], True/False, Defaults To True
+                long_description_position:
+                  type: string
+                  description: Service Long Description Position [for use with Service Landing Page]. Valid positions are "top" and "bottom". Defaults to "top", if not provided.
+                display_stores_count:
+                  type: integer
+                  description: Number Of Stores To Display for Service [for use with Service Landing Page]. Valid options are 3, 6, 12. Defaults to 12, if not provided.
+              required:
+              - name
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  id:
+                    type: integer
+                    description: Service Id
+                  number:
+                    type: integer
+                    description: Service Number
+                  priority:
+                    type: integer
+                    description: Service Order Number
+                  name:
+                    type: string
+                    description: Service Name
+                  description:
+                    type: string
+                    description: Localized Service Display Description
+                  slug:
+                    type: string
+                    description: Service Slug [for use with Service Landing Page]
+                  custom_slug:
+                    type: string
+                    description: Service Custom Slug [for use with Service Landing Page]
+                  long_description:
+                    type: string
+                    description: Localized Service Long Description [for use with Service Landing Page]
+                  enable_landing_page:
+                    type: boolean
+                    description: Service Landing Page Enabled [for use with Service Landing Page], True/False, Defaults To True
+                  long_description_position:
+                    type: string
+                    description: Service Long Description Position [for use with Service Landing Page]. Valid positions are "top" and "bottom". Defaults to "top", if not provided.
+                  display_stores_count:
+                    type: integer
+                    description: Number Of Stores To Display for Service [for use with Service Landing Page]. Valid options are 3, 6, 12. Defaults to 12, if not provided.
+                  allow_appointments_default:
+                    type: boolean
+                    description: Allow appointments to be booked for this service, True/False
+                  appointment_length:
+                    type: integer
+                    description: Appointment Length, Defaults to 30 minutes
+                  image_url:
+                    type: string
+                    description: Service Image URL
+                  icon_url:
+                    type: string
+                    description: Service Icon Image URL
+                  private:
+                    type: boolean
+                    description: Hide this service from customer facing interfaces (ex. “Choose a service” step on appointment modal, store pages). True/False.
+                  created_at:
+                    type: string
+                    description: Service Created At
+                  updated_at:
+                    type: string
+                    description: Service Updated At
+                  nextgen_id:
+                    type: string
+                    description: Nextgen Service ID
+                  organization_nextgen_id:
+                    type: string
+                    description: Nextgen Organization ID
+      security:
+      - apiKeyAuth: []
+components:
+  securitySchemes:
+    apiKeyAuth:
+      type: apiKey
+      in: query
+      name: api_key
+      description: Company API key passed as the api_key query parameter.

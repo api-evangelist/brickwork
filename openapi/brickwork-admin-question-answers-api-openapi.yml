@@ -1,0 +1,141 @@
+openapi: 3.0.3
+info:
+  title: Brickwork Admin Appointments Admin Question Answers API
+  version: v3
+  description: Brickwork (now part of DevHub) omnichannel retail platform API v3. Powers store pages, store locators, appointments, events, RSVPs, in-store services, customers, and local store content for physical retail. Admin endpoints are authenticated with an api_key; front-end store endpoints surface public store, service, and event data. Derived from the provider-published apiDoc reference at production.brickworksoftware.com/api_docs.
+  contact:
+    name: Brickwork / DevHub
+    url: https://www.devhub.com/
+  x-apievangelist:
+    generated: '2026-07-18'
+    method: searched
+    source: https://production.brickworksoftware.com/api_docs/ (apiDoc api_data.json)
+servers:
+- url: https://production.brickworksoftware.com
+  description: Production
+tags:
+- name: Admin Question Answers
+paths:
+  /{locale}/api/v3/admin/question_answers:
+    get:
+      summary: List all question answers
+      operationId: GetLocaleApiV3AdminQuestion_answers
+      tags:
+      - Admin Question Answers
+      description: 'Example: `http://company.com/api/v3/admin/question_answers?query[question_id]=123`'
+      parameters:
+      - name: locale
+        in: path
+        required: true
+        schema:
+          type: string
+      - name: page
+        in: query
+        required: false
+        schema:
+          type: integer
+        description: Page number of your query
+      - name: query
+        in: query
+        required: false
+        schema:
+          type: object
+        description: Query parameters for all company question_answers
+      - name: query[question_id]
+        in: query
+        required: false
+        schema:
+          type: integer
+        description: Filter question_answers by question_id ['question_id1', 'question_id2', 'question_id3']
+      - name: query[customer_id]
+        in: query
+        required: false
+        schema:
+          type: string
+        description: Filter question_answers by customer_id ['customer_id1','customer_id2','customer_id3']
+      - name: query[appointment_id]
+        in: query
+        required: false
+        schema:
+          type: string
+        description: Filter question_answers by appointment_id ['appointment_id1','appointment_id2','appointment_id3']
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  question_answers:
+                    type: array
+                    items:
+                      type: object
+                    description: Array of Question Answer Objects
+      security:
+      - apiKeyAuth: []
+  /{locale}/api/v3/admin/question_answers/{question_id}:
+    get:
+      summary: Show question
+      operationId: GetLocaleApiV3AdminQuestion_answersQuestion_id
+      tags:
+      - Admin Question Answers
+      description: 'Example: `http://company.com/api/v3/admin/question_answers/:question_answer_id`'
+      parameters:
+      - name: question_id
+        in: path
+        required: true
+        schema:
+          type: string
+      - name: locale
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  id:
+                    type: integer
+                    description: Question Answer ID
+                  question_id:
+                    type: integer
+                    description: Question Answer Question ID
+                  question_key:
+                    type: string
+                    description: Question Answer Question Key
+                  customer_id:
+                    type: string
+                    description: Question Answer Customer ID
+                  appointment_id:
+                    type: string
+                    description: Question Answer Appointment ID
+                  data:
+                    type: object
+                    description: Question Answer Data
+                  created_at:
+                    type: string
+                    description: ''
+                  updated_at:
+                    type: string
+                    description: ''
+                  customer:
+                    type: object
+                    description: Question Answer Customer
+                  question:
+                    type: object
+                    description: Question Answer Question
+      security:
+      - apiKeyAuth: []
+components:
+  securitySchemes:
+    apiKeyAuth:
+      type: apiKey
+      in: query
+      name: api_key
+      description: Company API key passed as the api_key query parameter.

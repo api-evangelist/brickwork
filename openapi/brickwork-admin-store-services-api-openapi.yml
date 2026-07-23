@@ -1,0 +1,397 @@
+openapi: 3.0.3
+info:
+  title: Brickwork Admin Appointments Admin Store Services API
+  version: v3
+  description: Brickwork (now part of DevHub) omnichannel retail platform API v3. Powers store pages, store locators, appointments, events, RSVPs, in-store services, customers, and local store content for physical retail. Admin endpoints are authenticated with an api_key; front-end store endpoints surface public store, service, and event data. Derived from the provider-published apiDoc reference at production.brickworksoftware.com/api_docs.
+  contact:
+    name: Brickwork / DevHub
+    url: https://www.devhub.com/
+  x-apievangelist:
+    generated: '2026-07-18'
+    method: searched
+    source: https://production.brickworksoftware.com/api_docs/ (apiDoc api_data.json)
+servers:
+- url: https://production.brickworksoftware.com
+  description: Production
+tags:
+- name: Admin Store Services
+paths:
+  /api/v3/admin/stores/{store_id_or_number}/store_services:
+    get:
+      summary: List Store Services
+      operationId: GetApiV3AdminStoresStore_id_or_numberStore_services
+      tags:
+      - Admin Store Services
+      description: 'Example: `http://company.com/api/v3/admin/stores/:store_id/store_services`
+
+
+        Example: `http://company.com/api/v3/admin/stores/:store_number/store_services?store_number=true`'
+      parameters:
+      - name: store_id_or_number
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  store_services:
+                    type: array
+                    description: A list of the stores services
+                  private:
+                    type: boolean
+                    description: T/F Is the service private?
+      security:
+      - apiKeyAuth: []
+    post:
+      summary: Create Store Service
+      operationId: PostApiV3AdminStoresStore_id_or_numberStore_services
+      tags:
+      - Admin Store Services
+      description: 'Example: `http://company.com/api/v3/admin/stores/:store_id/store_services/:id`
+
+
+        Example: `http://company.com/api/v3/admin/stores/:store_number/store_services/:id?store_number=true`'
+      parameters:
+      - name: store_id_or_number
+        in: path
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                service_id:
+                  type: integer
+                  description: The given ID from the company object
+                appointments_enabled:
+                  type: boolean
+                  description: T/F
+                associate_required:
+                  type: boolean
+                  description: T/F
+              required:
+              - service_id
+              - appointments_enabled
+              - associate_required
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  id:
+                    type: integer
+                    description: The given ID from the store object
+                  service_id:
+                    type: integer
+                    description: The given ID from the company object
+                  store_id:
+                    type: integer
+                    description: The store id that has this service
+                  appointments_enabled:
+                    type: boolean
+                    description: T/F
+                  associate_required:
+                    type: boolean
+                    description: T/F
+                  store_service_image:
+                    type: string
+                    description: ''
+                  allow_anonymous:
+                    type: boolean
+                    description: Allow to be booked without customer data
+                  private:
+                    type: boolean
+                    description: T/F Is the service private?
+                  created_at:
+                    type: string
+                    description: ''
+                  updated_at:
+                    type: string
+                    description: ''
+                  nextgen_uri:
+                    type: string
+                    description: Nextgen StoreService URI
+                  organization_nextgen_id:
+                    type: string
+                    description: Nextgen Organization Id
+                  set_custom_capacity:
+                    type: boolean
+                    description: ''
+                  override_store_capacity:
+                    type: boolean
+                    description: ''
+                  total_capacity:
+                    type: integer
+                    description: ''
+                  capacity_type:
+                    type: string
+                    description: ''
+                  online_capacity_pct:
+                    type: number
+                    description: ''
+                  online_capacity:
+                    type: integer
+                    description: ''
+                  waitlist:
+                    type: boolean
+                    description: ''
+                  required_lead_time:
+                    type: integer
+                    description: ''
+                  book_with:
+                    type: string
+                    description: ''
+                  auto_confirm_appt_requests:
+                    type: boolean
+                    description: ''
+                  allow_associate_selection:
+                    type: boolean
+                    description: ''
+                  store_capacity:
+                    type: object
+                    description: ''
+      security:
+      - apiKeyAuth: []
+  /api/v3/admin/stores/{store_id_or_number}/store_services/{id}:
+    get:
+      summary: Show Store Service
+      operationId: GetApiV3AdminStoresStore_id_or_numberStore_servicesId
+      tags:
+      - Admin Store Services
+      description: 'Example: `http://company.com/api/v3/admin/stores/:store_id/store_services/:id`
+
+
+        Example: `http://company.com/api/v3/admin/stores/:store_number/store_services/:id?store_number=true`'
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+      - name: store_id_or_number
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  id:
+                    type: integer
+                    description: The given ID from the store object
+                  service_id:
+                    type: integer
+                    description: The given ID from the company object
+                  store_id:
+                    type: integer
+                    description: The store id that has this service
+                  appointments_enabled:
+                    type: boolean
+                    description: T/F
+                  associate_required:
+                    type: boolean
+                    description: T/F
+                  store_service_image:
+                    type: string
+                    description: ''
+                  allow_anonymous:
+                    type: boolean
+                    description: Allow to be booked without customer data
+                  private:
+                    type: boolean
+                    description: T/F Is the service private?
+                  created_at:
+                    type: string
+                    description: ''
+                  updated_at:
+                    type: string
+                    description: ''
+                  nextgen_uri:
+                    type: string
+                    description: Nextgen StoreService URI
+                  organization_nextgen_id:
+                    type: string
+                    description: Nextgen Organization Id
+                  set_custom_capacity:
+                    type: boolean
+                    description: ''
+                  override_store_capacity:
+                    type: boolean
+                    description: ''
+                  total_capacity:
+                    type: integer
+                    description: ''
+                  capacity_type:
+                    type: string
+                    description: ''
+                  online_capacity_pct:
+                    type: number
+                    description: ''
+                  online_capacity:
+                    type: integer
+                    description: ''
+                  waitlist:
+                    type: boolean
+                    description: ''
+                  required_lead_time:
+                    type: integer
+                    description: ''
+                  book_with:
+                    type: string
+                    description: ''
+                  auto_confirm_appt_requests:
+                    type: boolean
+                    description: ''
+                  allow_associate_selection:
+                    type: boolean
+                    description: ''
+                  store_capacity:
+                    type: object
+                    description: ''
+      security:
+      - apiKeyAuth: []
+    put:
+      summary: Update Store Service
+      operationId: PutApiV3AdminStoresStore_id_or_numberStore_servicesId
+      tags:
+      - Admin Store Services
+      description: 'Example: `http://company.com/api/v3/admin/stores/:store_id/store_services/:id`
+
+
+        Example: `http://company.com/api/v3/admin/stores/:store_number/store_services/:id?store_number=true`'
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+      - name: store_id_or_number
+        in: path
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                service_id:
+                  type: integer
+                  description: The given ID from the company object
+                appointments_enabled:
+                  type: boolean
+                  description: T/F
+                associate_required:
+                  type: boolean
+                  description: T/F
+              required:
+              - service_id
+              - appointments_enabled
+              - associate_required
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  id:
+                    type: integer
+                    description: The given ID from the store object
+                  service_id:
+                    type: integer
+                    description: The given ID from the company object
+                  store_id:
+                    type: integer
+                    description: The store id that has this service
+                  appointments_enabled:
+                    type: boolean
+                    description: T/F
+                  associate_required:
+                    type: boolean
+                    description: T/F
+                  store_service_image:
+                    type: string
+                    description: ''
+                  allow_anonymous:
+                    type: boolean
+                    description: Allow to be booked without customer data
+                  private:
+                    type: boolean
+                    description: T/F Is the service private?
+                  created_at:
+                    type: string
+                    description: ''
+                  updated_at:
+                    type: string
+                    description: ''
+                  nextgen_uri:
+                    type: string
+                    description: Nextgen StoreService URI
+                  organization_nextgen_id:
+                    type: string
+                    description: Nextgen Organization Id
+                  set_custom_capacity:
+                    type: boolean
+                    description: ''
+                  override_store_capacity:
+                    type: boolean
+                    description: ''
+                  total_capacity:
+                    type: integer
+                    description: ''
+                  capacity_type:
+                    type: string
+                    description: ''
+                  online_capacity_pct:
+                    type: number
+                    description: ''
+                  online_capacity:
+                    type: integer
+                    description: ''
+                  waitlist:
+                    type: boolean
+                    description: ''
+                  required_lead_time:
+                    type: integer
+                    description: ''
+                  book_with:
+                    type: string
+                    description: ''
+                  auto_confirm_appt_requests:
+                    type: boolean
+                    description: ''
+                  allow_associate_selection:
+                    type: boolean
+                    description: ''
+                  store_capacity:
+                    type: object
+                    description: ''
+      security:
+      - apiKeyAuth: []
+components:
+  securitySchemes:
+    apiKeyAuth:
+      type: apiKey
+      in: query
+      name: api_key
+      description: Company API key passed as the api_key query parameter.

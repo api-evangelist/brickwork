@@ -1,0 +1,55 @@
+openapi: 3.0.3
+info:
+  title: Brickwork Admin Appointments Admin Customer Rsvps API
+  version: v3
+  description: Brickwork (now part of DevHub) omnichannel retail platform API v3. Powers store pages, store locators, appointments, events, RSVPs, in-store services, customers, and local store content for physical retail. Admin endpoints are authenticated with an api_key; front-end store endpoints surface public store, service, and event data. Derived from the provider-published apiDoc reference at production.brickworksoftware.com/api_docs.
+  contact:
+    name: Brickwork / DevHub
+    url: https://www.devhub.com/
+  x-apievangelist:
+    generated: '2026-07-18'
+    method: searched
+    source: https://production.brickworksoftware.com/api_docs/ (apiDoc api_data.json)
+servers:
+- url: https://production.brickworksoftware.com
+  description: Production
+tags:
+- name: Admin Customer Rsvps
+paths:
+  /{locale}/api/v3/admin/customers/{customer_id}/rsvps:
+    get:
+      summary: List all Customer Rsvps
+      operationId: GetLocaleApiV3AdminCustomersCustomer_idRsvps
+      tags:
+      - Admin Customer Rsvps
+      parameters:
+      - name: customer_id
+        in: path
+        required: true
+        schema:
+          type: string
+      - name: locale
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  customer_rsvps:
+                    type: array
+                    description: ''
+      security:
+      - apiKeyAuth: []
+components:
+  securitySchemes:
+    apiKeyAuth:
+      type: apiKey
+      in: query
+      name: api_key
+      description: Company API key passed as the api_key query parameter.

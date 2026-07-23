@@ -1,0 +1,233 @@
+openapi: 3.0.3
+info:
+  title: Brickwork Admin Appointments Admin Store Events API
+  version: v3
+  description: Brickwork (now part of DevHub) omnichannel retail platform API v3. Powers store pages, store locators, appointments, events, RSVPs, in-store services, customers, and local store content for physical retail. Admin endpoints are authenticated with an api_key; front-end store endpoints surface public store, service, and event data. Derived from the provider-published apiDoc reference at production.brickworksoftware.com/api_docs.
+  contact:
+    name: Brickwork / DevHub
+    url: https://www.devhub.com/
+  x-apievangelist:
+    generated: '2026-07-18'
+    method: searched
+    source: https://production.brickworksoftware.com/api_docs/ (apiDoc api_data.json)
+servers:
+- url: https://production.brickworksoftware.com
+  description: Production
+tags:
+- name: Admin Store Events
+paths:
+  /{locale}/api/v3/admin/store_events:
+    get:
+      summary: List store events
+      operationId: GetLocaleApiV3AdminStore_events
+      tags:
+      - Admin Store Events
+      description: 'Example: `http://company.com/api/v3/admin/store_events?query[start_date]=2016-05-28`'
+      parameters:
+      - name: locale
+        in: path
+        required: true
+        schema:
+          type: string
+      - name: query
+        in: query
+        required: false
+        schema:
+          type: object
+        description: Query parameters for all company events
+      - name: query[start_date]
+        in: query
+        required: false
+        schema:
+          type: string
+        description: Store events select start date "YYYY-MM-DD", defaults to 30 days back
+      - name: query[end_date]
+        in: query
+        required: false
+        schema:
+          type: string
+        description: Store events select end date "YYYY-MM-DD", defaults to today
+      - name: query[store_id]
+        in: query
+        required: false
+        schema:
+          type: string
+        description: Filter by specific store id
+      - name: query[store_department_id]
+        in: query
+        required: false
+        schema:
+          type: string
+        description: Filter by specific store_department id
+      - name: query[published]
+        in: query
+        required: false
+        schema:
+          type: string
+        description: Filter store events that are published
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  store_events:
+                    type: array
+                    description: ''
+      security:
+      - apiKeyAuth: []
+    post:
+      summary: Create Store Event
+      operationId: PostLocaleApiV3AdminStore_events
+      tags:
+      - Admin Store Events
+      parameters:
+      - name: locale
+        in: path
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                store_id:
+                  type: integer
+                  description: ''
+                store_department_id:
+                  type: integer
+                  description: ''
+                title:
+                  type: string
+                  description: Event Title
+                start_time:
+                  type: string
+                  description: '"yyyy-mm-ddT00:00"'
+                end_time:
+                  type: string
+                  description: '"yyyy-mm-ddT00:00"'
+                published_at:
+                  type: string
+                  description: ''
+              required:
+              - store_id
+              - store_department_id
+              - title
+              - start_time
+              - end_time
+              - published_at
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  store_event:
+                    type: object
+                    description: ''
+      security:
+      - apiKeyAuth: []
+  /{locale}/api/v3/admin/store_events/{id}:
+    get:
+      summary: Show Store Event
+      operationId: GetLocaleApiV3AdminStore_eventsId
+      tags:
+      - Admin Store Events
+      parameters:
+      - name: locale
+        in: path
+        required: true
+        schema:
+          type: string
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+        description: Event ID
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  store_event:
+                    type: object
+                    description: ''
+      security:
+      - apiKeyAuth: []
+    put:
+      summary: Update a Store Event
+      operationId: PutLocaleApiV3AdminStore_eventsId
+      tags:
+      - Admin Store Events
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+      - name: locale
+        in: path
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                store_id:
+                  type: integer
+                  description: ''
+                store_department_id:
+                  type: integer
+                  description: ''
+                title:
+                  type: string
+                  description: Event Title
+                start_time:
+                  type: string
+                  description: '"yyyy-mm-ddT00:00"'
+                end_time:
+                  type: string
+                  description: '"yyyy-mm-ddT00:00"'
+                published_at:
+                  type: string
+                  description: ''
+              required:
+              - store_id
+              - store_department_id
+              - title
+              - start_time
+              - end_time
+              - published_at
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  store_event:
+                    type: object
+                    description: ''
+      security:
+      - apiKeyAuth: []
+components:
+  securitySchemes:
+    apiKeyAuth:
+      type: apiKey
+      in: query
+      name: api_key
+      description: Company API key passed as the api_key query parameter.

@@ -1,0 +1,581 @@
+openapi: 3.0.3
+info:
+  title: Brickwork Admin Appointments Admin Events API
+  version: v3
+  description: Brickwork (now part of DevHub) omnichannel retail platform API v3. Powers store pages, store locators, appointments, events, RSVPs, in-store services, customers, and local store content for physical retail. Admin endpoints are authenticated with an api_key; front-end store endpoints surface public store, service, and event data. Derived from the provider-published apiDoc reference at production.brickworksoftware.com/api_docs.
+  contact:
+    name: Brickwork / DevHub
+    url: https://www.devhub.com/
+  x-apievangelist:
+    generated: '2026-07-18'
+    method: searched
+    source: https://production.brickworksoftware.com/api_docs/ (apiDoc api_data.json)
+servers:
+- url: https://production.brickworksoftware.com
+  description: Production
+tags:
+- name: Admin Events
+paths:
+  /{locale}/api/v3/admin/events:
+    get:
+      summary: List company events
+      operationId: GetLocaleApiV3AdminEvents
+      tags:
+      - Admin Events
+      description: 'Example: `http://company.com/api/v3/admin/events?query[published]=true`'
+      parameters:
+      - name: locale
+        in: path
+        required: true
+        schema:
+          type: string
+      - name: query
+        in: query
+        required: false
+        schema:
+          type: object
+        description: Query parameters for all company events
+      - name: query[start_date]
+        in: query
+        required: false
+        schema:
+          type: string
+        description: Store events select start date "YYYY-MM-DD", defaults to 30 days back
+      - name: query[end_date]
+        in: query
+        required: false
+        schema:
+          type: string
+        description: Store events select end date "YYYY-MM-DD", defaults to today
+      - name: query[published]
+        in: query
+        required: false
+        schema:
+          type: string
+        description: Filter store events that are published
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  events:
+                    type: array
+                    description: ''
+      security:
+      - apiKeyAuth: []
+    post:
+      summary: Create Company Event
+      operationId: PostLocaleApiV3AdminEvents
+      tags:
+      - Admin Events
+      parameters:
+      - name: locale
+        in: path
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                title:
+                  type: string
+                  description: Event Title
+                start_time:
+                  type: string
+                  description: '"yyyy-mm-ddT00:00"'
+                end_time:
+                  type: string
+                  description: '"yyyy-mm-ddT00:00"'
+                published_at:
+                  type: string
+                  description: ''
+                store_ids:
+                  type: array
+                  description: ''
+                store_department_ids:
+                  type: array
+                  description: ''
+              required:
+              - title
+              - start_time
+              - end_time
+              - published_at
+              - store_ids
+              - store_department_ids
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  id:
+                    type: string
+                    description: Event ID
+                  store_ids:
+                    type: array
+                    description: ID of stores hosting this event
+                  store_department_ids:
+                    type: array
+                    description: ID of store_departments hosting this event
+                  in_store_through_departments:
+                    type: array
+                    description: ID of stores implicitly hosting this event through a store_department
+                  managing_entity_id:
+                    type: integer
+                    description: ''
+                  managing_entity_type:
+                    type: string
+                    description: ''
+                  title:
+                    type: string
+                    description: Title
+                  subtitle:
+                    type: string
+                    description: Subtitle
+                  description:
+                    type: string
+                    description: Description
+                  legal:
+                    type: string
+                    description: Legal
+                  promo_code:
+                    type: string
+                    description: Promo Code
+                  total_attendees:
+                    type: integer
+                    description: RSVP Count
+                  max_attendees:
+                    type: integer
+                    description: Max RSVP Count
+                  start_time:
+                    type: string
+                    description: ''
+                  end_time:
+                    type: string
+                    description: ''
+                  published_at:
+                    type: string
+                    description: ''
+                  location:
+                    type: string
+                    description: Location
+                  type:
+                    type: string
+                    description: Type
+                  event_image:
+                    type: string
+                    description: Event Image Url
+                  allow_rsvp:
+                    type: boolean
+                    description: Should the event have an rsvp count
+                  address_1:
+                    type: string
+                    description: ''
+                  address_2:
+                    type: string
+                    description: ''
+                  address_3:
+                    type: string
+                    description: ''
+                  city:
+                    type: string
+                    description: ''
+                  state:
+                    type: string
+                    description: ''
+                  postal_code:
+                    type: string
+                    description: ''
+                  country_code:
+                    type: string
+                    description: ''
+                  canceled_at:
+                    type: string
+                    description: ''
+                  title_locked:
+                    type: boolean
+                    description: ''
+                  start_time_locked:
+                    type: boolean
+                    description: ''
+                  end_time_locked:
+                    type: boolean
+                    description: ''
+                  subtitle_locked:
+                    type: boolean
+                    description: ''
+                  description_locked:
+                    type: boolean
+                    description: ''
+                  promo_code_locked:
+                    type: boolean
+                    description: ''
+                  collect_rsvp_locked:
+                    type: boolean
+                    description: ''
+                  event_max_attendees_locked:
+                    type: boolean
+                    description: ''
+                  legal_locked:
+                    type: boolean
+                    description: ''
+                  event_image_locked:
+                    type: boolean
+                    description: ''
+                  created_at:
+                    type: string
+                    description: ''
+                  updated_at:
+                    type: string
+                    description: ''
+                  meta:
+                    type: string
+                    description: Link to event
+      security:
+      - apiKeyAuth: []
+  /{locale}/api/v3/admin/events/{id}:
+    get:
+      summary: Show Company Event
+      operationId: GetLocaleApiV3AdminEventsId
+      tags:
+      - Admin Events
+      parameters:
+      - name: locale
+        in: path
+        required: true
+        schema:
+          type: string
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+        description: Event ID
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  id:
+                    type: string
+                    description: Event ID
+                  store_ids:
+                    type: array
+                    description: ID of stores hosting this event
+                  store_department_ids:
+                    type: array
+                    description: ID of store_departments hosting this event
+                  in_store_through_departments:
+                    type: array
+                    description: ID of stores implicitly hosting this event through a store_department
+                  managing_entity_id:
+                    type: integer
+                    description: ''
+                  managing_entity_type:
+                    type: string
+                    description: ''
+                  title:
+                    type: string
+                    description: Title
+                  subtitle:
+                    type: string
+                    description: Subtitle
+                  description:
+                    type: string
+                    description: Description
+                  legal:
+                    type: string
+                    description: Legal
+                  promo_code:
+                    type: string
+                    description: Promo Code
+                  total_attendees:
+                    type: integer
+                    description: RSVP Count
+                  max_attendees:
+                    type: integer
+                    description: Max RSVP Count
+                  start_time:
+                    type: string
+                    description: ''
+                  end_time:
+                    type: string
+                    description: ''
+                  published_at:
+                    type: string
+                    description: ''
+                  location:
+                    type: string
+                    description: Location
+                  type:
+                    type: string
+                    description: Type
+                  event_image:
+                    type: string
+                    description: Event Image Url
+                  allow_rsvp:
+                    type: boolean
+                    description: Should the event have an rsvp count
+                  address_1:
+                    type: string
+                    description: ''
+                  address_2:
+                    type: string
+                    description: ''
+                  address_3:
+                    type: string
+                    description: ''
+                  city:
+                    type: string
+                    description: ''
+                  state:
+                    type: string
+                    description: ''
+                  postal_code:
+                    type: string
+                    description: ''
+                  country_code:
+                    type: string
+                    description: ''
+                  canceled_at:
+                    type: string
+                    description: ''
+                  title_locked:
+                    type: boolean
+                    description: ''
+                  start_time_locked:
+                    type: boolean
+                    description: ''
+                  end_time_locked:
+                    type: boolean
+                    description: ''
+                  subtitle_locked:
+                    type: boolean
+                    description: ''
+                  description_locked:
+                    type: boolean
+                    description: ''
+                  promo_code_locked:
+                    type: boolean
+                    description: ''
+                  collect_rsvp_locked:
+                    type: boolean
+                    description: ''
+                  event_max_attendees_locked:
+                    type: boolean
+                    description: ''
+                  legal_locked:
+                    type: boolean
+                    description: ''
+                  event_image_locked:
+                    type: boolean
+                    description: ''
+                  created_at:
+                    type: string
+                    description: ''
+                  updated_at:
+                    type: string
+                    description: ''
+                  meta:
+                    type: string
+                    description: Link to event
+      security:
+      - apiKeyAuth: []
+    put:
+      summary: Update a Company Event
+      operationId: PutLocaleApiV3AdminEventsId
+      tags:
+      - Admin Events
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+      - name: locale
+        in: path
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                title:
+                  type: string
+                  description: Event Title
+                start_time:
+                  type: string
+                  description: '"yyyy-mm-ddT00:00"'
+                end_time:
+                  type: string
+                  description: '"yyyy-mm-ddT00:00"'
+                published_at:
+                  type: string
+                  description: ''
+                store_ids:
+                  type: array
+                  description: ''
+                store_department_ids:
+                  type: array
+                  description: ''
+              required:
+              - title
+              - start_time
+              - end_time
+              - published_at
+              - store_ids
+              - store_department_ids
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  id:
+                    type: string
+                    description: Event ID
+                  store_ids:
+                    type: array
+                    description: ID of stores hosting this event
+                  store_department_ids:
+                    type: array
+                    description: ID of store_departments hosting this event
+                  in_store_through_departments:
+                    type: array
+                    description: ID of stores implicitly hosting this event through a store_department
+                  managing_entity_id:
+                    type: integer
+                    description: ''
+                  managing_entity_type:
+                    type: string
+                    description: ''
+                  title:
+                    type: string
+                    description: Title
+                  subtitle:
+                    type: string
+                    description: Subtitle
+                  description:
+                    type: string
+                    description: Description
+                  legal:
+                    type: string
+                    description: Legal
+                  promo_code:
+                    type: string
+                    description: Promo Code
+                  total_attendees:
+                    type: integer
+                    description: RSVP Count
+                  max_attendees:
+                    type: integer
+                    description: Max RSVP Count
+                  start_time:
+                    type: string
+                    description: ''
+                  end_time:
+                    type: string
+                    description: ''
+                  published_at:
+                    type: string
+                    description: ''
+                  location:
+                    type: string
+                    description: Location
+                  type:
+                    type: string
+                    description: Type
+                  event_image:
+                    type: string
+                    description: Event Image Url
+                  allow_rsvp:
+                    type: boolean
+                    description: Should the event have an rsvp count
+                  address_1:
+                    type: string
+                    description: ''
+                  address_2:
+                    type: string
+                    description: ''
+                  address_3:
+                    type: string
+                    description: ''
+                  city:
+                    type: string
+                    description: ''
+                  state:
+                    type: string
+                    description: ''
+                  postal_code:
+                    type: string
+                    description: ''
+                  country_code:
+                    type: string
+                    description: ''
+                  canceled_at:
+                    type: string
+                    description: ''
+                  title_locked:
+                    type: boolean
+                    description: ''
+                  start_time_locked:
+                    type: boolean
+                    description: ''
+                  end_time_locked:
+                    type: boolean
+                    description: ''
+                  subtitle_locked:
+                    type: boolean
+                    description: ''
+                  description_locked:
+                    type: boolean
+                    description: ''
+                  promo_code_locked:
+                    type: boolean
+                    description: ''
+                  collect_rsvp_locked:
+                    type: boolean
+                    description: ''
+                  event_max_attendees_locked:
+                    type: boolean
+                    description: ''
+                  legal_locked:
+                    type: boolean
+                    description: ''
+                  event_image_locked:
+                    type: boolean
+                    description: ''
+                  created_at:
+                    type: string
+                    description: ''
+                  updated_at:
+                    type: string
+                    description: ''
+                  meta:
+                    type: string
+                    description: Link to event
+      security:
+      - apiKeyAuth: []
+components:
+  securitySchemes:
+    apiKeyAuth:
+      type: apiKey
+      in: query
+      name: api_key
+      description: Company API key passed as the api_key query parameter.

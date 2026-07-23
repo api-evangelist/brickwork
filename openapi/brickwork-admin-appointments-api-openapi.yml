@@ -1,0 +1,340 @@
+openapi: 3.0.3
+info:
+  title: Brickwork Admin Appointments API
+  version: v3
+  description: Brickwork (now part of DevHub) omnichannel retail platform API v3. Powers store pages, store locators, appointments, events, RSVPs, in-store services, customers, and local store content for physical retail. Admin endpoints are authenticated with an api_key; front-end store endpoints surface public store, service, and event data. Derived from the provider-published apiDoc reference at production.brickworksoftware.com/api_docs.
+  contact:
+    name: Brickwork / DevHub
+    url: https://www.devhub.com/
+  x-apievangelist:
+    generated: '2026-07-18'
+    method: searched
+    source: https://production.brickworksoftware.com/api_docs/ (apiDoc api_data.json)
+servers:
+- url: https://production.brickworksoftware.com
+  description: Production
+tags:
+- name: Admin Appointments
+paths:
+  /{locale}/api/v3/admin/appointments:
+    get:
+      summary: List all Appointments
+      operationId: GetLocaleApiV3AdminAppointments
+      tags:
+      - Admin Appointments
+      description: 'Example: `http://company.com/api/v3/admin/appointments?query[start_date]=2016-05-28&query[filter_start_time]=true`'
+      parameters:
+      - name: locale
+        in: path
+        required: true
+        schema:
+          type: string
+      - name: page
+        in: query
+        required: false
+        schema:
+          type: integer
+        description: Page number of your query
+      - name: query
+        in: query
+        required: false
+        schema:
+          type: object
+        description: Query parameters for all company appointments
+      - name: query[filter_start_time]
+        in: query
+        required: false
+        schema:
+          type: boolean
+        description: When true, it will filter and order all appointments by their start time, by default it will filter by created date
+      - name: query[start_date]
+        in: query
+        required: false
+        schema:
+          type: string
+        description: Store appointments select start date "YYYY-MM-DD", defaults to 30 days back, if query[filter_start_time]=true it is set to today's date
+      - name: query[end_date]
+        in: query
+        required: false
+        schema:
+          type: string
+        description: Store appointments select end date "YYYY-MM-DD", defaults to today, if query[filter_start_time]=true it is set to 30 days ahead
+      - name: query[utc_offset]
+        in: query
+        required: false
+        schema:
+          type: string
+        description: Store appointments select date timezone, defaults to +0000 "-1", "-0100", "-01:00". Be sure to encode positive utc_offsets - Encoding for a "+" is "%2B"
+      - name: query[store_ids]
+        in: query
+        required: false
+        schema:
+          type: array
+        description: Filter appointments by store ids [1,2,3]
+      - name: query[service_ids]
+        in: query
+        required: false
+        schema:
+          type: array
+        description: Filter appointments by service ids [1,2,3]
+      - name: query[associate_ids]
+        in: query
+        required: false
+        schema:
+          type: array
+        description: Filter appointments by associates [1,2,3]
+      - name: query[state]
+        in: query
+        required: false
+        schema:
+          type: string
+        description: Filter appointments by state new, customer_requested, confirmed, reassigned, canceled, checked_in, no_show, occured
+      - name: query[code]
+        in: query
+        required: false
+        schema:
+          type: array
+        description: Filter appointments by code ['code1','code2','code3']
+      - name: query[associate_codes]
+        in: query
+        required: false
+        schema:
+          type: array
+        description: Filter appointments by associate codes ['code1','code2','code3']
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  appointments:
+                    type: array
+                    items:
+                      type: object
+                    description: Array of Appointment Objects
+      security:
+      - apiKeyAuth: []
+  /{locale}/api/v3/admin/stores/{store_id_or_number}/appointments:
+    get:
+      summary: List Store Appointments
+      operationId: GetLocaleApiV3AdminStoresStore_id_or_numberAppointments
+      tags:
+      - Admin Appointments
+      description: 'Example: `http://company.com/api/v3/admin/stores/:store_id/appointments?query[state]=confirmed`
+
+
+        Example: `http://company.com/api/v3/stores/:store_id/appointments`
+
+
+        Example: `http://company.com/api/v3/stores/:store_number/appointments?store_number=true`'
+      parameters:
+      - name: store_id_or_number
+        in: path
+        required: true
+        schema:
+          type: string
+      - name: locale
+        in: path
+        required: true
+        schema:
+          type: string
+      - name: page
+        in: query
+        required: false
+        schema:
+          type: integer
+        description: Page number of your query
+      - name: query
+        in: query
+        required: false
+        schema:
+          type: object
+        description: Query parameters for all stores appointments
+      - name: query[service_ids]
+        in: query
+        required: false
+        schema:
+          type: array
+        description: Filter store appointments by store service ids [1,2,3]
+      - name: query[associate_ids]
+        in: query
+        required: false
+        schema:
+          type: array
+        description: Filter store appointments by associates [1,2,3]
+      - name: query[state]
+        in: query
+        required: false
+        schema:
+          type: string
+        description: Filter store appointments by state new, customer_requested, confirmed, reassigned, canceled, checked_in, no_show, occured
+      - name: query[code]
+        in: query
+        required: false
+        schema:
+          type: array
+        description: Filter store appointments by code ['code1','code2','code3']
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  appointments:
+                    type: array
+                    items:
+                      type: object
+                    description: Array of Appointment Objects
+      security:
+      - apiKeyAuth: []
+  /{locale}/api/v3/admin/stores/{store_id_or_number}/appointments/{id_or_code}:
+    get:
+      summary: Show Appointment
+      operationId: GetLocaleApiV3AdminStoresStore_id_or_numberAppointmentsId_or_code
+      tags:
+      - Admin Appointments
+      description: 'Example: `http://company.com/api/v3/stores/:store_id/appointments/:id_or_code`
+
+
+        Example: `http://company.com/api/v3/stores/:store_number/appointments/:id_or_code?store_number=true`
+
+
+        Example: `http://company.com/api/v3/stores/:store_id_or_number/appointments/:id`
+
+
+        Example: `http://company.com/api/v3/stores/:store_id_or_number/appointments/:code`'
+      parameters:
+      - name: id_or_code
+        in: path
+        required: true
+        schema:
+          type: string
+      - name: store_id_or_number
+        in: path
+        required: true
+        schema:
+          type: string
+      - name: locale
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  appointment:
+                    type: object
+                    description: Appointment Object
+      security:
+      - apiKeyAuth: []
+    put:
+      summary: Update Appointment
+      operationId: PutLocaleApiV3AdminStoresStore_id_or_numberAppointmentsId_or_code
+      tags:
+      - Admin Appointments
+      description: 'Example: `http://company.com/api/v3/stores/:store_id/appointments/:id_or_code`
+
+
+        Example: `http://company.com/api/v3/stores/:store_number/appointments/:id_or_code?store_number=true`
+
+
+        Example: `http://company.com/api/v3/stores/:store_id_or_number/appointments/:id`
+
+
+        Example: `http://company.com/api/v3/stores/:store_id_or_number/appointments/:code`'
+      parameters:
+      - name: id_or_code
+        in: path
+        required: true
+        schema:
+          type: string
+      - name: store_id_or_number
+        in: path
+        required: true
+        schema:
+          type: string
+      - name: locale
+        in: path
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                appointment:
+                  type: object
+                  description: Appointment Object (Needs at least one of the parameters below)
+              required:
+              - appointment
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  appointment:
+                    type: object
+                    description: Appointment Object
+      security:
+      - apiKeyAuth: []
+  /api/v3/admin/stores/{store_id_or_number}/appointments:
+    post:
+      summary: Create an Appointment
+      operationId: PostApiV3AdminStoresStore_id_or_numberAppointments
+      tags:
+      - Admin Appointments
+      description: 'Example: `http://company.com/api/v3/stores/:store_id/appointments/`
+
+
+        Example: `http://company.com/api/v3/stores/:store_number/appointments/?store_number=true`'
+      parameters:
+      - name: store_id_or_number
+        in: path
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                appointment:
+                  type: object
+                  description: Appointment Object
+              required:
+              - appointment
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  appointment:
+                    type: object
+                    description: Appointment Object
+      security:
+      - apiKeyAuth: []
+components:
+  securitySchemes:
+    apiKeyAuth:
+      type: apiKey
+      in: query
+      name: api_key
+      description: Company API key passed as the api_key query parameter.

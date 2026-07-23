@@ -1,0 +1,214 @@
+openapi: 3.0.3
+info:
+  title: Brickwork Admin Appointments Admin Store Regular Hours API
+  version: v3
+  description: Brickwork (now part of DevHub) omnichannel retail platform API v3. Powers store pages, store locators, appointments, events, RSVPs, in-store services, customers, and local store content for physical retail. Admin endpoints are authenticated with an api_key; front-end store endpoints surface public store, service, and event data. Derived from the provider-published apiDoc reference at production.brickworksoftware.com/api_docs.
+  contact:
+    name: Brickwork / DevHub
+    url: https://www.devhub.com/
+  x-apievangelist:
+    generated: '2026-07-18'
+    method: searched
+    source: https://production.brickworksoftware.com/api_docs/ (apiDoc api_data.json)
+servers:
+- url: https://production.brickworksoftware.com
+  description: Production
+tags:
+- name: Admin Store Regular Hours
+paths:
+  /api/v3/admin/stores/{store_id_or_number}/regular_hours:
+    get:
+      summary: List Regular Hours
+      operationId: GetApiV3AdminStoresStore_id_or_numberRegular_hours
+      tags:
+      - Admin Store Regular Hours
+      description: 'Example: `http://company.com/api/v3/admin/stores/:store_id/regular_hours`
+
+
+        Example: `http://company.com/api/v3/admin/stores/:store_number/regular_hours/?store_number=true`'
+      parameters:
+      - name: store_id_or_number
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  regular_hours:
+                    type: array
+                    description: A list of regular_hours type objects
+      security:
+      - apiKeyAuth: []
+    post:
+      summary: Create Regular Hours
+      operationId: PostApiV3AdminStoresStore_id_or_numberRegular_hours
+      tags:
+      - Admin Store Regular Hours
+      description: 'Example: `http://company.com/api/v3/admin/stores/:store_id/regular_hours/`
+
+
+        Example: `http://company.com/api/v3/admin/stores/:store_number/regular_hours/?store_number=true`'
+      parameters:
+      - name: store_id_or_number
+        in: path
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                day_of_week:
+                  type: integer
+                  description: 0-6 where 0 = Sun, 6 = Sat
+                start_time:
+                  type: string
+                  description: Store opening time on this day
+                end_time:
+                  type: string
+                  description: Store closing time on this day
+              required:
+              - day_of_week
+              - start_time
+              - end_time
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  id:
+                    type: integer
+                    description: regular_hour ID
+                  start_time:
+                    type: string
+                    description: Start time
+                  end_time:
+                    type: string
+                    description: End time
+                  day_of_week:
+                    type: integer
+                    description: 0 = Sun, 6 = Sat
+      security:
+      - apiKeyAuth: []
+  /api/v3/admin/stores/{store_id_or_number}/regular_hours/{id}:
+    get:
+      summary: Show Regular Hour
+      operationId: GetApiV3AdminStoresStore_id_or_numberRegular_hoursId
+      tags:
+      - Admin Store Regular Hours
+      description: 'Example: `http://company.com/api/v3/admin/stores/:store_id/regular_hours/:id`
+
+
+        Example: `http://company.com/api/v3/admin/stores/:store_number/regular_hours/:id/?store_number=true`'
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+      - name: store_id_or_number
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  id:
+                    type: integer
+                    description: regular_hour ID
+                  start_time:
+                    type: string
+                    description: Start time
+                  end_time:
+                    type: string
+                    description: End time
+                  day_of_week:
+                    type: integer
+                    description: 0 = Sun, 6 = Sat
+      security:
+      - apiKeyAuth: []
+    put:
+      summary: Update Regular Hours
+      operationId: PutApiV3AdminStoresStore_id_or_numberRegular_hoursId
+      tags:
+      - Admin Store Regular Hours
+      description: 'Example: `http://company.com/api/v3/admin/stores/:store_id/regular_hours/:id`
+
+
+        Example: `http://company.com/api/v3/admin/stores/:store_number/regular_hours/:id/?store_number=true`'
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+      - name: store_id_or_number
+        in: path
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                day_of_week:
+                  type: integer
+                  description: 0-6 where 0 = Sun, 6 = Sat
+                start_time:
+                  type: string
+                  description: Store opening time on this day
+                end_time:
+                  type: string
+                  description: Store closing time on this day
+              required:
+              - day_of_week
+              - start_time
+              - end_time
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  id:
+                    type: integer
+                    description: regular_hour ID
+                  start_time:
+                    type: string
+                    description: Start time
+                  end_time:
+                    type: string
+                    description: End time
+                  day_of_week:
+                    type: integer
+                    description: 0 = Sun, 6 = Sat
+      security:
+      - apiKeyAuth: []
+components:
+  securitySchemes:
+    apiKeyAuth:
+      type: apiKey
+      in: query
+      name: api_key
+      description: Company API key passed as the api_key query parameter.

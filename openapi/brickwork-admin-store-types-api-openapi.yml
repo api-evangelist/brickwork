@@ -1,0 +1,284 @@
+openapi: 3.0.3
+info:
+  title: Brickwork Admin Appointments Admin Store Types API
+  version: v3
+  description: Brickwork (now part of DevHub) omnichannel retail platform API v3. Powers store pages, store locators, appointments, events, RSVPs, in-store services, customers, and local store content for physical retail. Admin endpoints are authenticated with an api_key; front-end store endpoints surface public store, service, and event data. Derived from the provider-published apiDoc reference at production.brickworksoftware.com/api_docs.
+  contact:
+    name: Brickwork / DevHub
+    url: https://www.devhub.com/
+  x-apievangelist:
+    generated: '2026-07-18'
+    method: searched
+    source: https://production.brickworksoftware.com/api_docs/ (apiDoc api_data.json)
+servers:
+- url: https://production.brickworksoftware.com
+  description: Production
+tags:
+- name: Admin Store Types
+paths:
+  /api/v3/admin/types:
+    get:
+      summary: Type List
+      operationId: GetApiV3AdminTypes
+      tags:
+      - Admin Store Types
+      parameters:
+      - name: locale
+        in: query
+        required: false
+        schema:
+          type: string
+        description: The locale for store data display
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  types:
+                    type: array
+                    description: A list of store type objects
+      security:
+      - apiKeyAuth: []
+    post:
+      summary: Create Type
+      operationId: PostApiV3AdminTypes
+      tags:
+      - Admin Store Types
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                locale:
+                  type: string
+                  description: The locale for store data display
+                id:
+                  type: integer
+                  description: Type Id
+                name:
+                  type: string
+                  description: Type Name
+                priority:
+                  type: integer
+                  description: Type Order Number
+                code:
+                  type: string
+                  description: Internal Id
+                image_url:
+                  type: string
+                  description: Image URL for Type
+                map_pin_url:
+                  type: string
+                  description: Map Pin Url for Type (Display for map)
+              required:
+              - id
+              - name
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  id:
+                    type: integer
+                    description: Type Id
+                  name:
+                    type: string
+                    description: Name
+                  priority:
+                    type: integer
+                    description: Type Order Number
+                  code:
+                    type: string
+                    description: Internal Id
+                  image_url:
+                    type: string
+                    description: Image URL for Type
+                  map_pin_url:
+                    type: string
+                    description: Map Pin Url for Type (Display for map)
+      security:
+      - apiKeyAuth: []
+  /api/v3/admin/types/by_code/{code}:
+    get:
+      summary: Show Type by Code
+      operationId: GetApiV3AdminTypesBy_codeCode
+      tags:
+      - Admin Store Types
+      parameters:
+      - name: code
+        in: path
+        required: true
+        schema:
+          type: string
+      - name: locale
+        in: query
+        required: false
+        schema:
+          type: string
+        description: The locale for store data display
+      - name: type_code
+        in: query
+        required: true
+        schema:
+          type: string
+        description: Code of Company Type
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  id:
+                    type: integer
+                    description: Type Id
+                  name:
+                    type: string
+                    description: Type Name
+                  priority:
+                    type: integer
+                    description: Type Order Number
+                  code:
+                    type: string
+                    description: Internal Id
+                  image_url:
+                    type: string
+                    description: Image URL for Type
+                  map_pin_url:
+                    type: string
+                    description: Map Pin Url for Type (Display for map)
+      security:
+      - apiKeyAuth: []
+  /api/v3/admin/types/{id}:
+    get:
+      summary: Show Type
+      operationId: GetApiV3AdminTypesId
+      tags:
+      - Admin Store Types
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+      - name: locale
+        in: query
+        required: false
+        schema:
+          type: string
+        description: The locale for store data display
+      - name: type_id
+        in: query
+        required: true
+        schema:
+          type: string
+        description: Id of Company Type
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  id:
+                    type: integer
+                    description: Type Id
+                  name:
+                    type: string
+                    description: Type Name
+                  priority:
+                    type: integer
+                    description: Type Order Number
+                  code:
+                    type: string
+                    description: Internal Id
+                  image_url:
+                    type: string
+                    description: Image URL for Type
+                  map_pin_url:
+                    type: string
+                    description: Map Pin Url for Type (Display for map)
+      security:
+      - apiKeyAuth: []
+    put:
+      summary: Update Type
+      operationId: PutApiV3AdminTypesId
+      tags:
+      - Admin Store Types
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: integer
+        description: Type Id
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                locale:
+                  type: string
+                  description: The locale for store data display
+                name:
+                  type: string
+                  description: Type Name
+                priority:
+                  type: integer
+                  description: Type Order Number
+                code:
+                  type: string
+                  description: Internal Id
+                image_url:
+                  type: string
+                  description: Image URL for Type
+                map_pin_url:
+                  type: string
+                  description: Map Pin Url for Type (Display for map)
+              required:
+              - name
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  id:
+                    type: integer
+                    description: Type Id
+                  name:
+                    type: string
+                    description: Type Name
+                  priority:
+                    type: integer
+                    description: Type Order Number
+                  code:
+                    type: string
+                    description: Internal Id
+                  image_url:
+                    type: string
+                    description: Image URL for Type
+                  map_pin_url:
+                    type: string
+                    description: Map Pin Url for Type (Display for map)
+      security:
+      - apiKeyAuth: []
+components:
+  securitySchemes:
+    apiKeyAuth:
+      type: apiKey
+      in: query
+      name: api_key
+      description: Company API key passed as the api_key query parameter.

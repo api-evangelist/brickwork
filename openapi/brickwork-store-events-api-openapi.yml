@@ -1,0 +1,54 @@
+openapi: 3.0.3
+info:
+  title: Brickwork Admin Appointments Store Events API
+  version: v3
+  description: Brickwork (now part of DevHub) omnichannel retail platform API v3. Powers store pages, store locators, appointments, events, RSVPs, in-store services, customers, and local store content for physical retail. Admin endpoints are authenticated with an api_key; front-end store endpoints surface public store, service, and event data. Derived from the provider-published apiDoc reference at production.brickworksoftware.com/api_docs.
+  contact:
+    name: Brickwork / DevHub
+    url: https://www.devhub.com/
+  x-apievangelist:
+    generated: '2026-07-18'
+    method: searched
+    source: https://production.brickworksoftware.com/api_docs/ (apiDoc api_data.json)
+servers:
+- url: https://production.brickworksoftware.com
+  description: Production
+tags:
+- name: Store Events
+paths:
+  /events/{store_event_id}/rsvps:
+    post:
+      summary: Create RSVP for a Store Event
+      operationId: PostEventsStore_event_idRsvps
+      tags:
+      - Store Events
+      parameters:
+      - name: store_event_id
+        in: path
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                customer:
+                  type: object
+                  description: ''
+                rsvp:
+                  type: object
+                  description: ''
+              required:
+              - customer
+      responses:
+        '200':
+          description: Successful response
+components:
+  securitySchemes:
+    apiKeyAuth:
+      type: apiKey
+      in: query
+      name: api_key
+      description: Company API key passed as the api_key query parameter.

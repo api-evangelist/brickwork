@@ -1,0 +1,814 @@
+openapi: 3.0.3
+info:
+  title: Brickwork Admin Appointments Admin Stores API
+  version: v3
+  description: Brickwork (now part of DevHub) omnichannel retail platform API v3. Powers store pages, store locators, appointments, events, RSVPs, in-store services, customers, and local store content for physical retail. Admin endpoints are authenticated with an api_key; front-end store endpoints surface public store, service, and event data. Derived from the provider-published apiDoc reference at production.brickworksoftware.com/api_docs.
+  contact:
+    name: Brickwork / DevHub
+    url: https://www.devhub.com/
+  x-apievangelist:
+    generated: '2026-07-18'
+    method: searched
+    source: https://production.brickworksoftware.com/api_docs/ (apiDoc api_data.json)
+servers:
+- url: https://production.brickworksoftware.com
+  description: Production
+tags:
+- name: Admin Stores
+paths:
+  /api/v3/admin/stores:
+    get:
+      summary: Store List
+      operationId: GetApiV3AdminStores
+      tags:
+      - Admin Stores
+      parameters:
+      - name: locale
+        in: query
+        required: false
+        schema:
+          type: string
+        description: The locale for store data display
+      - name: number
+        in: query
+        required: false
+        schema:
+          type: string
+        description: Query stores by number
+      - name: state
+        in: query
+        required: false
+        schema:
+          type: string
+        description: Query stores by state
+      - name: country_code
+        in: query
+        required: false
+        schema:
+          type: string
+        description: Query stores by country_code
+      - name: postal_code
+        in: query
+        required: false
+        schema:
+          type: string
+        description: Query stores by postal_code
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  stores:
+                    type: array
+                    description: List of Store Objects
+      security:
+      - apiKeyAuth: []
+    post:
+      summary: Create Store
+      operationId: PostApiV3AdminStores
+      tags:
+      - Admin Stores
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                locale:
+                  type: string
+                  description: The locale for store data display
+                Name:
+                  type: string
+                  description: Store Name
+                Number:
+                  type: string
+                  description: Store Number
+                description:
+                  type: string
+                  description: Store Description
+                address_1:
+                  type: string
+                  description: 'Address Line 1, ''Ex: Street Number Street Name'''
+                address_2:
+                  type: string
+                  description: 'Address Line 2, ''Ex: Apartment Number, Floor Number'''
+                address_3:
+                  type: string
+                  description: 'Address Line 3, ''Ex: PO Box Number'''
+                city:
+                  type: string
+                  description: Store City
+                state:
+                  type: string
+                  description: Store State or Province
+                postal_code:
+                  type: string
+                  description: Store Zip Code
+                country_code:
+                  type: string
+                  description: ''
+                override_geocode:
+                  type: boolean
+                  description: T/F. When True, geocoding is disabled and custom latitude and longitude are required. Defaults to false
+                latitude:
+                  type: number
+                  description: Only accepted when override_geocode is set to True. When override_geocode is set to true this field is required
+                longitude:
+                  type: number
+                  description: Only accepted when override_geocode is set to True. When override_geocode is set to true this field is required
+                fedex:
+                  type: string
+                  description: ''
+                contextual_address:
+                  type: string
+                  description: Extra information user might need to find the store
+                parking_suggestions:
+                  type: string
+                  description: Recommended parking
+                phone_number:
+                  type: string
+                  description: Store phone number
+                email:
+                  type: string
+                  description: Store Email, requires correct email format
+                send_from_email:
+                  type: string
+                  description: Address to display if different that email address, requires correct email format
+                keywords:
+                  type: string
+                  description: SEO keywords for store page
+                notes:
+                  type: string
+                  description: Internal notes field
+                allow_subscriptions:
+                  type: boolean
+                  description: Setting this to true will enable the store to collect emails
+                max_appointments:
+                  type: integer
+                  description: If store appointments are enabled, how many simultaneous customers can be accommodated in a timeslot
+                capacity_type:
+                  type: string
+                  description: '"fixed", "dynamic", "unlimited"'
+                online_capacity_pct:
+                  type: integer
+                  description: Defaults to 100.0%
+                type_id:
+                  type: integer
+                  description: Set the store type with an ID
+                feature_ids:
+                  type: array
+                  description: Set store features [feature_id, feature_id]
+                language_ids:
+                  type: array
+                  description: Set in-store languages [language_id, language_id]
+                group_ids:
+                  type: array
+                  description: Set store groups [group_id, group_id]
+                published_at:
+                  type: string
+                  description: 'Date when store page is viewable by the public (format: ''2008-12-25 14:35:05'')'
+              required:
+              - locale
+              - Name
+              - Number
+              - address_1
+              - city
+              - state
+              - country_code
+              - email
+              - published_at
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  id:
+                    type: integer
+                    description: Store ID
+                  slug:
+                    type: string
+                    description: Store Slug
+                  number:
+                    type: integer
+                    description: Store Number
+                  name:
+                    type: string
+                    description: Store Name
+                  description:
+                    type: string
+                    description: Store Description
+                  address_1:
+                    type: string
+                    description: Store Address Line 1
+                  address_2:
+                    type: string
+                    description: Store Address Line 2
+                  address_3:
+                    type: string
+                    description: Store Address Line 3
+                  city:
+                    type: string
+                    description: Store City
+                  state:
+                    type: string
+                    description: Store State or Province
+                  neighborhood:
+                    type: string
+                    description: Store Neighborhood
+                  postal_code:
+                    type: string
+                    description: Store Postal Code
+                  country_code:
+                    type: string
+                    description: Store Country Code
+                  contextual_address:
+                    type: string
+                    description: Store Contextual Address
+                  parking_suggestions:
+                    type: string
+                    description: Store Parking Suggestions
+                  phone_number:
+                    type: string
+                    description: Store Phone Number
+                  email:
+                    type: string
+                    description: Store Email
+                  send_from_email:
+                    type: string
+                    description: ''
+                  keywords:
+                    type: string
+                    description: SEO keywords for store page
+                  instagram_handle:
+                    type: string
+                    description: Store Instagram Handle
+                  notes:
+                    type: string
+                    description: Store Notes
+                  timezone:
+                    type: string
+                    description: Store Timezone
+                  latitude:
+                    type: number
+                    description: Store Latitude. Only accepted when override_geocode is set to True. When override_geocode is set to true this field is required
+                  longitude:
+                    type: number
+                    description: Store Longitude. Only accepted when override_geocode is set to True. When override_geocode is set to true this field is required
+                  override_geocode:
+                    type: boolean
+                    description: T/F. When True, geocoding is disabled and custom latitude and longitude are required. Defaults to false
+                  fedex:
+                    type: string
+                    description: ''
+                  allow_subscriptions:
+                    type: boolean
+                    description: ''
+                  max_appointments:
+                    type: integer
+                    description: If store appointments are enabled, how many simultaneous customers can be accommodated in a timeslot
+                  online_capacity:
+                    type: integer
+                    description: '"fixed", "dynamic", "unlimited"'
+                  total_capacity:
+                    type: integer
+                    description: ''
+                  capacity_type:
+                    type: string
+                    description: ''
+                  online_capacity_pct:
+                    type: integer
+                    description: Defaults to 100.0%
+                  editorial_url:
+                    type: string
+                    description: ''
+                  type:
+                    type: object
+                    description: Store Type
+                  type_id:
+                    type: integer
+                    description: ID of Store Type
+                  service_ids:
+                    type: array
+                    description: Array of Sevice IDs at the store
+                  services:
+                    type: array
+                    description: Array of Services at the store
+                  store_services:
+                    type: array
+                    description: Array of Store Services
+                  feature_ids:
+                    type: array
+                    description: Array of Feature IDs at the store
+                  language_ids:
+                    type: array
+                    description: Array of language IDs at the store
+                  group_ids:
+                    type: array
+                    description: Array of Group IDs ar the store
+                  metatags:
+                    type: string
+                    description: Add metatags to the store page
+                  hide_from_robots:
+                    type: boolean
+                    description: Choose to allow or disallow the store page
+                  hide_from_api:
+                    type: boolean
+                    description: Choose to show/hide in the api response
+                  published_at:
+                    type: string
+                    description: Set a time to publish the store
+                  close_date:
+                    type: string
+                    description: Set a time to unpublish the store
+                  created_at:
+                    type: string
+                    description: Store Created at
+                  updated_at:
+                    type: string
+                    description: Store Updated at
+                  nextgen_id:
+                    type: string
+                    description: Nextgen Store ID
+                  organization_nextgen_id:
+                    type: string
+                    description: Nextgen Organization ID
+                  meta:
+                    type: object
+                    description: ''
+      security:
+      - apiKeyAuth: []
+  /api/v3/admin/stores/{id_or_number}:
+    get:
+      summary: Show Store
+      operationId: GetApiV3AdminStoresId_or_number
+      tags:
+      - Admin Stores
+      description: 'Example: `http://company.com/api/v3/admin/stores/:store_id`
+
+
+        Example: `http://company.com/api/v3/admin/stores/:store_number?store_number=true`'
+      parameters:
+      - name: id_or_number
+        in: path
+        required: true
+        schema:
+          type: string
+      - name: locale
+        in: query
+        required: false
+        schema:
+          type: string
+        description: The locale for store data display
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  id:
+                    type: integer
+                    description: Store ID
+                  slug:
+                    type: string
+                    description: Store Slug
+                  number:
+                    type: integer
+                    description: Store Number
+                  name:
+                    type: string
+                    description: Store Name
+                  description:
+                    type: string
+                    description: Store Description
+                  address_1:
+                    type: string
+                    description: Store Address Line 1
+                  address_2:
+                    type: string
+                    description: Store Address Line 2
+                  address_3:
+                    type: string
+                    description: Store Address Line 3
+                  city:
+                    type: string
+                    description: Store City
+                  state:
+                    type: string
+                    description: Store State or Province
+                  neighborhood:
+                    type: string
+                    description: Store Neighborhood
+                  postal_code:
+                    type: string
+                    description: Store Postal Code
+                  country_code:
+                    type: string
+                    description: Store Country Code
+                  contextual_address:
+                    type: string
+                    description: Store Contextual Address
+                  parking_suggestions:
+                    type: string
+                    description: Store Parking Suggestions
+                  phone_number:
+                    type: string
+                    description: Store Phone Number
+                  email:
+                    type: string
+                    description: Store Email
+                  send_from_email:
+                    type: string
+                    description: ''
+                  keywords:
+                    type: string
+                    description: SEO keywords for store page
+                  instagram_handle:
+                    type: string
+                    description: Store Instagram Handle
+                  notes:
+                    type: string
+                    description: Store Notes
+                  timezone:
+                    type: string
+                    description: Store Timezone
+                  latitude:
+                    type: number
+                    description: Store Latitude. Only accepted when override_geocode is set to True. When override_geocode is set to true this field is required
+                  longitude:
+                    type: number
+                    description: Store Longitude. Only accepted when override_geocode is set to True. When override_geocode is set to true this field is required
+                  override_geocode:
+                    type: boolean
+                    description: T/F. When True, geocoding is disabled and custom latitude and longitude are required. Defaults to false
+                  fedex:
+                    type: string
+                    description: ''
+                  allow_subscriptions:
+                    type: boolean
+                    description: ''
+                  max_appointments:
+                    type: integer
+                    description: If store appointments are enabled, how many simultaneous customers can be accommodated in a timeslot
+                  online_capacity:
+                    type: integer
+                    description: '"fixed", "dynamic", "unlimited"'
+                  total_capacity:
+                    type: integer
+                    description: ''
+                  capacity_type:
+                    type: string
+                    description: ''
+                  online_capacity_pct:
+                    type: integer
+                    description: Defaults to 100.0%
+                  editorial_url:
+                    type: string
+                    description: ''
+                  type:
+                    type: object
+                    description: Store Type
+                  type_id:
+                    type: integer
+                    description: ID of Store Type
+                  service_ids:
+                    type: array
+                    description: Array of Sevice IDs at the store
+                  services:
+                    type: array
+                    description: Array of Services at the store
+                  store_services:
+                    type: array
+                    description: Array of Store Services
+                  feature_ids:
+                    type: array
+                    description: Array of Feature IDs at the store
+                  language_ids:
+                    type: array
+                    description: Array of language IDs at the store
+                  group_ids:
+                    type: array
+                    description: Array of Group IDs ar the store
+                  metatags:
+                    type: string
+                    description: Add metatags to the store page
+                  hide_from_robots:
+                    type: boolean
+                    description: Choose to allow or disallow the store page
+                  hide_from_api:
+                    type: boolean
+                    description: Choose to show/hide in the api response
+                  published_at:
+                    type: string
+                    description: Set a time to publish the store
+                  close_date:
+                    type: string
+                    description: Set a time to unpublish the store
+                  created_at:
+                    type: string
+                    description: Store Created at
+                  updated_at:
+                    type: string
+                    description: Store Updated at
+                  nextgen_id:
+                    type: string
+                    description: Nextgen Store ID
+                  organization_nextgen_id:
+                    type: string
+                    description: Nextgen Organization ID
+                  meta:
+                    type: object
+                    description: ''
+      security:
+      - apiKeyAuth: []
+    put:
+      summary: Update Store
+      operationId: PutApiV3AdminStoresId_or_number
+      tags:
+      - Admin Stores
+      description: 'Example: `http://company.com/api/v3/admin/stores/:store_id`
+
+
+        Example: `http://company.com/api/v3/admin/stores/:store_number?store_number=true`'
+      parameters:
+      - name: id_or_number
+        in: path
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                locale:
+                  type: string
+                  description: The locale for store data display
+                custom_slug:
+                  type: string
+                  description: New custom slug for url
+                name:
+                  type: string
+                  description: Store Name
+                description:
+                  type: string
+                  description: Store description
+                address_1:
+                  type: string
+                  description: 'Address line 1, ''Ex: Street Number Street Name'''
+                address_2:
+                  type: string
+                  description: 'Address line 2, ''Ex: Apartment Number, Floor Number'''
+                address_3:
+                  type: string
+                  description: 'Address line 3, ''Ex: PO Box Number'''
+                city:
+                  type: string
+                  description: Store City
+                state:
+                  type: string
+                  description: Store State or Province
+                postal_code:
+                  type: string
+                  description: Store Zip Code
+                country_code:
+                  type: string
+                  description: ''
+                override_geocode:
+                  type: boolean
+                  description: T/F. When True, geocoding is disabled and custom latitude and longitude are required. Defaults to false
+                latitude:
+                  type: number
+                  description: only accepted when override_geocode is set to True.  When override_geocode is set to true this field is required
+                longitude:
+                  type: number
+                  description: only accepted when override_geocode is set to True. When override_geocode is set to true this field is required
+                fedex:
+                  type: string
+                  description: ''
+                contextual_address:
+                  type: string
+                  description: Extra information user might need to find the store
+                parking_suggestions:
+                  type: string
+                  description: Recommended parking
+                phone_number:
+                  type: string
+                  description: Store phone number
+                email:
+                  type: string
+                  description: Store Email, requires correct email format
+                send_from_email:
+                  type: string
+                  description: Address to display if different that email address, requires correct email format
+                keywords:
+                  type: string
+                  description: SEO keywords for store page
+                notes:
+                  type: string
+                  description: Internal notes field
+                allow_subscriptions:
+                  type: boolean
+                  description: Setting this to true will enable the store to collect emails
+                max_appointments:
+                  type: integer
+                  description: If store appointments are enabled, how many simultaneous customers can be accommodated in a timeslot
+                capacity_type:
+                  type: string
+                  description: '"fixed", "dynamic", "unlimited"'
+                online_capacity_pct:
+                  type: integer
+                  description: Defaults to 100.0%
+                type_id:
+                  type: integer
+                  description: Set the store type with an ID
+                feature_ids:
+                  type: array
+                  description: Set store features [feature_id, feature_id]
+                language_ids:
+                  type: array
+                  description: Set in-store languages [language_id, language_id]
+                group_ids:
+                  type: array
+                  description: Set store groups [group_id, group_id]
+                published_at:
+                  type: string
+                  description: 'Date when store page is viewable by the public (format: ''2008-12-25 14:35:05'')'
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  id:
+                    type: integer
+                    description: Store ID
+                  slug:
+                    type: string
+                    description: Store Slug
+                  number:
+                    type: integer
+                    description: Store Number
+                  name:
+                    type: string
+                    description: Store Name
+                  description:
+                    type: string
+                    description: Store Description
+                  address_1:
+                    type: string
+                    description: Store Address Line 1
+                  address_2:
+                    type: string
+                    description: Store Address Line 2
+                  address_3:
+                    type: string
+                    description: Store Address Line 3
+                  city:
+                    type: string
+                    description: Store City
+                  state:
+                    type: string
+                    description: Store State or Province
+                  neighborhood:
+                    type: string
+                    description: Store Neighborhood
+                  postal_code:
+                    type: string
+                    description: Store Postal Code
+                  country_code:
+                    type: string
+                    description: Store Country Code
+                  contextual_address:
+                    type: string
+                    description: Store Contextual Address
+                  parking_suggestions:
+                    type: string
+                    description: Store Parking Suggestions
+                  phone_number:
+                    type: string
+                    description: Store Phone Number
+                  email:
+                    type: string
+                    description: Store Email
+                  send_from_email:
+                    type: string
+                    description: ''
+                  keywords:
+                    type: string
+                    description: SEO keywords for store page
+                  instagram_handle:
+                    type: string
+                    description: Store Instagram Handle
+                  notes:
+                    type: string
+                    description: Store Notes
+                  timezone:
+                    type: string
+                    description: Store Timezone
+                  latitude:
+                    type: number
+                    description: Store Latitude. Only accepted when override_geocode is set to True. When override_geocode is set to true this field is required
+                  longitude:
+                    type: number
+                    description: Store Longitude. Only accepted when override_geocode is set to True. When override_geocode is set to true this field is required
+                  override_geocode:
+                    type: boolean
+                    description: T/F. When True, geocoding is disabled and custom latitude and longitude are required. Defaults to false
+                  fedex:
+                    type: string
+                    description: ''
+                  allow_subscriptions:
+                    type: boolean
+                    description: ''
+                  max_appointments:
+                    type: integer
+                    description: If store appointments are enabled, how many simultaneous customers can be accommodated in a timeslot
+                  online_capacity:
+                    type: integer
+                    description: '"fixed", "dynamic", "unlimited"'
+                  total_capacity:
+                    type: integer
+                    description: ''
+                  capacity_type:
+                    type: string
+                    description: ''
+                  online_capacity_pct:
+                    type: integer
+                    description: Defaults to 100.0%
+                  editorial_url:
+                    type: string
+                    description: ''
+                  type:
+                    type: object
+                    description: Store Type
+                  type_id:
+                    type: integer
+                    description: ID of Store Type
+                  service_ids:
+                    type: array
+                    description: Array of Sevice IDs at the store
+                  services:
+                    type: array
+                    description: Array of Services at the store
+                  store_services:
+                    type: array
+                    description: Array of Store Services
+                  feature_ids:
+                    type: array
+                    description: Array of Feature IDs at the store
+                  language_ids:
+                    type: array
+                    description: Array of language IDs at the store
+                  group_ids:
+                    type: array
+                    description: Array of Group IDs ar the store
+                  metatags:
+                    type: string
+                    description: Add metatags to the store page
+                  hide_from_robots:
+                    type: boolean
+                    description: Choose to allow or disallow the store page
+                  hide_from_api:
+                    type: boolean
+                    description: Choose to show/hide in the api response
+                  published_at:
+                    type: string
+                    description: Set a time to publish the store
+                  close_date:
+                    type: string
+                    description: Set a time to unpublish the store
+                  created_at:
+                    type: string
+                    description: Store Created at
+                  updated_at:
+                    type: string
+                    description: Store Updated at
+                  nextgen_id:
+                    type: string
+                    description: Nextgen Store ID
+                  organization_nextgen_id:
+                    type: string
+                    description: Nextgen Organization ID
+                  meta:
+                    type: object
+                    description: ''
+      security:
+      - apiKeyAuth: []
+components:
+  securitySchemes:
+    apiKeyAuth:
+      type: apiKey
+      in: query
+      name: api_key
+      description: Company API key passed as the api_key query parameter.

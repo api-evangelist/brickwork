@@ -1,0 +1,356 @@
+openapi: 3.0.3
+info:
+  title: Brickwork Admin Appointments Admin User Hours API
+  version: v3
+  description: Brickwork (now part of DevHub) omnichannel retail platform API v3. Powers store pages, store locators, appointments, events, RSVPs, in-store services, customers, and local store content for physical retail. Admin endpoints are authenticated with an api_key; front-end store endpoints surface public store, service, and event data. Derived from the provider-published apiDoc reference at production.brickworksoftware.com/api_docs.
+  contact:
+    name: Brickwork / DevHub
+    url: https://www.devhub.com/
+  x-apievangelist:
+    generated: '2026-07-18'
+    method: searched
+    source: https://production.brickworksoftware.com/api_docs/ (apiDoc api_data.json)
+servers:
+- url: https://production.brickworksoftware.com
+  description: Production
+tags:
+- name: Admin User Hours
+paths:
+  /api/v3/admin/users/{code_or_id}/regular_hours/{id}:
+    delete:
+      summary: Delete User Regular Hour
+      operationId: DeleteApiV3AdminUsersCode_or_idRegular_hoursId
+      tags:
+      - Admin User Hours
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+      - name: code_or_id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Successful response
+      security:
+      - apiKeyAuth: []
+  /api/v3/admin/users/{code_or_id}/special_hours/{id}:
+    delete:
+      summary: Delete User Special Hour
+      operationId: DeleteApiV3AdminUsersCode_or_idSpecial_hoursId
+      tags:
+      - Admin User Hours
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+      - name: code_or_id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Successful response
+      security:
+      - apiKeyAuth: []
+  /api/v3/admin/users/{user_id_or_code}/regular_hours:
+    get:
+      summary: Index User Regular Hours
+      operationId: GetApiV3AdminUsersUser_id_or_codeRegular_hours
+      tags:
+      - Admin User Hours
+      description: 'Example: `http://company.com/api/v3/users/:user_id_or_code/regular_hours?query[day_of_week]=4&api_key=123`'
+      parameters:
+      - name: user_id_or_code
+        in: path
+        required: true
+        schema:
+          type: string
+        description: ''
+      - name: query
+        in: query
+        required: true
+        schema:
+          type: object
+        description: ''
+      - name: query[day_of_week]
+        in: query
+        required: true
+        schema:
+          type: integer
+        description: Filter hour ranges by the day of week 0 - Sunday, 6 - Saturday
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  business_hours:
+                    type: array
+                    items:
+                      type: object
+                    description: List of user regular and special hours
+      security:
+      - apiKeyAuth: []
+    post:
+      summary: Create User Regular Hour
+      operationId: PostApiV3AdminUsersUser_id_or_codeRegular_hours
+      tags:
+      - Admin User Hours
+      parameters:
+      - name: user_id_or_code
+        in: path
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                business_hour:
+                  type: object
+                  description: ''
+              required:
+              - business_hour
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  business_hour:
+                    type: object
+                    description: ''
+      security:
+      - apiKeyAuth: []
+  /api/v3/admin/users/{user_id_or_code}/regular_hours/{id}:
+    get:
+      summary: Show User Regular Hour
+      operationId: GetApiV3AdminUsersUser_id_or_codeRegular_hoursId
+      tags:
+      - Admin User Hours
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+      - name: user_id_or_code
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Successful response
+      security:
+      - apiKeyAuth: []
+    put:
+      summary: Update User Regular Hour
+      operationId: PutApiV3AdminUsersUser_id_or_codeRegular_hoursId
+      tags:
+      - Admin User Hours
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+      - name: user_id_or_code
+        in: path
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                business_hour:
+                  type: object
+                  description: ''
+              required:
+              - business_hour
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  business_hour:
+                    type: object
+                    description: ''
+      security:
+      - apiKeyAuth: []
+  /api/v3/admin/users/{user_id_or_code}/special_hours:
+    get:
+      summary: Index User Special Hours
+      operationId: GetApiV3AdminUsersUser_id_or_codeSpecial_hours
+      tags:
+      - Admin User Hours
+      description: 'Example: `http://company.com/api/v3/users/:user_id_or_code/special_hours?query[start_date]=2018-10-01&query[end_date]=2018-10-30&api_key=123`'
+      parameters:
+      - name: user_id_or_code
+        in: path
+        required: true
+        schema:
+          type: string
+      - name: query
+        in: query
+        required: false
+        schema:
+          type: object
+        description: ''
+      - name: query[start_date]
+        in: query
+        required: false
+        schema:
+          type: string
+        description: Filter hour ranges by date, defaults to today
+      - name: query[end_date]
+        in: query
+        required: false
+        schema:
+          type: string
+        description: Filter hour ranges by date, defaults to 30 days from today
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  business_hours:
+                    type: object
+                    description: List of user regular and special hours
+      security:
+      - apiKeyAuth: []
+    post:
+      summary: Create User Special Hour
+      operationId: PostApiV3AdminUsersUser_id_or_codeSpecial_hours
+      tags:
+      - Admin User Hours
+      parameters:
+      - name: user_id_or_code
+        in: path
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                business_hour:
+                  type: object
+                  description: ''
+              required:
+              - business_hour
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  business_hour:
+                    type: object
+                    description: List of user regular and special hours
+      security:
+      - apiKeyAuth: []
+  /api/v3/admin/users/{user_id_or_code}/special_hours/{id}:
+    get:
+      summary: Show User Special Hour
+      operationId: GetApiV3AdminUsersUser_id_or_codeSpecial_hoursId
+      tags:
+      - Admin User Hours
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+      - name: user_id_or_code
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  business_hour:
+                    type: object
+                    description: List of user regular and special hours
+      security:
+      - apiKeyAuth: []
+    put:
+      summary: Update User Special Hour
+      operationId: PutApiV3AdminUsersUser_id_or_codeSpecial_hoursId
+      tags:
+      - Admin User Hours
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+      - name: user_id_or_code
+        in: path
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                business_hour:
+                  type: object
+                  description: ''
+              required:
+              - business_hour
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  business_hour:
+                    type: object
+                    description: List of user regular and special hours
+      security:
+      - apiKeyAuth: []
+components:
+  securitySchemes:
+    apiKeyAuth:
+      type: apiKey
+      in: query
+      name: api_key
+      description: Company API key passed as the api_key query parameter.

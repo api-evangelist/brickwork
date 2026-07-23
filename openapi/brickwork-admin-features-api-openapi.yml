@@ -1,0 +1,192 @@
+openapi: 3.0.3
+info:
+  title: Brickwork Admin Appointments Admin Features API
+  version: v3
+  description: Brickwork (now part of DevHub) omnichannel retail platform API v3. Powers store pages, store locators, appointments, events, RSVPs, in-store services, customers, and local store content for physical retail. Admin endpoints are authenticated with an api_key; front-end store endpoints surface public store, service, and event data. Derived from the provider-published apiDoc reference at production.brickworksoftware.com/api_docs.
+  contact:
+    name: Brickwork / DevHub
+    url: https://www.devhub.com/
+  x-apievangelist:
+    generated: '2026-07-18'
+    method: searched
+    source: https://production.brickworksoftware.com/api_docs/ (apiDoc api_data.json)
+servers:
+- url: https://production.brickworksoftware.com
+  description: Production
+tags:
+- name: Admin Features
+paths:
+  /api/v3/admin/features:
+    get:
+      summary: Feature List
+      operationId: GetApiV3AdminFeatures
+      tags:
+      - Admin Features
+      parameters:
+      - name: locale
+        in: query
+        required: false
+        schema:
+          type: string
+        description: The locale for store data display
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  features:
+                    type: array
+                    description: A list of feature objects
+      security:
+      - apiKeyAuth: []
+    post:
+      summary: Create Feature
+      operationId: PostApiV3AdminFeatures
+      tags:
+      - Admin Features
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                name:
+                  type: string
+                  description: Feature name
+                priority:
+                  type: integer
+                  description: Display order priority of feature on store page if set
+                highlight:
+                  type: boolean
+                  description: Should this feature be highlighted? defaults to true
+              required:
+              - name
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  id:
+                    type: integer
+                    description: Feature id
+                  name:
+                    type: string
+                    description: Feature name
+                  priority:
+                    type: integer
+                    description: Display order priority of feature on store page if set
+                  created_at:
+                    type: string
+                    description: Feature creation Datetime
+                  updated_at:
+                    type: string
+                    description: Feature last updated Datetime
+      security:
+      - apiKeyAuth: []
+  /api/v3/admin/features/{id}:
+    get:
+      summary: Show Feature
+      operationId: GetApiV3AdminFeaturesId
+      tags:
+      - Admin Features
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+      - name: locale
+        in: query
+        required: false
+        schema:
+          type: string
+        description: The locale for store data display
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  id:
+                    type: integer
+                    description: Feature id
+                  name:
+                    type: string
+                    description: Feature name
+                  priority:
+                    type: integer
+                    description: Display order priority of feature on store page if set
+                  created_at:
+                    type: string
+                    description: Feature creation Datetime
+                  updated_at:
+                    type: string
+                    description: Feature last updated Datetime
+      security:
+      - apiKeyAuth: []
+    put:
+      summary: Update Feature
+      operationId: PutApiV3AdminFeaturesId
+      tags:
+      - Admin Features
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                name:
+                  type: string
+                  description: Feature name
+                priority:
+                  type: integer
+                  description: Display order priority of feature on store page if set
+                highlight:
+                  type: boolean
+                  description: Should this feature be highlighted? defaults to true
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  id:
+                    type: integer
+                    description: Feature id
+                  name:
+                    type: string
+                    description: Feature name
+                  priority:
+                    type: integer
+                    description: Display order priority of feature on store page if set
+                  created_at:
+                    type: string
+                    description: Feature creation Datetime
+                  updated_at:
+                    type: string
+                    description: Feature last updated Datetime
+      security:
+      - apiKeyAuth: []
+components:
+  securitySchemes:
+    apiKeyAuth:
+      type: apiKey
+      in: query
+      name: api_key
+      description: Company API key passed as the api_key query parameter.

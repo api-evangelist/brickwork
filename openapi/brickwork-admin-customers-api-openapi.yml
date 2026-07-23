@@ -1,0 +1,324 @@
+openapi: 3.0.3
+info:
+  title: Brickwork Admin Appointments Admin Customers API
+  version: v3
+  description: Brickwork (now part of DevHub) omnichannel retail platform API v3. Powers store pages, store locators, appointments, events, RSVPs, in-store services, customers, and local store content for physical retail. Admin endpoints are authenticated with an api_key; front-end store endpoints surface public store, service, and event data. Derived from the provider-published apiDoc reference at production.brickworksoftware.com/api_docs.
+  contact:
+    name: Brickwork / DevHub
+    url: https://www.devhub.com/
+  x-apievangelist:
+    generated: '2026-07-18'
+    method: searched
+    source: https://production.brickworksoftware.com/api_docs/ (apiDoc api_data.json)
+servers:
+- url: https://production.brickworksoftware.com
+  description: Production
+tags:
+- name: Admin Customers
+paths:
+  /{locale}/api/v3/admin/customers:
+    get:
+      summary: List all Company Customers
+      operationId: GetLocaleApiV3AdminCustomers
+      tags:
+      - Admin Customers
+      description: 'Example: `http://company.com/api/v3/admin/customers?query[start_date]=2016-05-28`'
+      parameters:
+      - name: locale
+        in: path
+        required: true
+        schema:
+          type: string
+      - name: page
+        in: query
+        required: false
+        schema:
+          type: integer
+        description: Page number of your query
+      - name: query
+        in: query
+        required: false
+        schema:
+          type: object
+        description: Query parameters for all company customers
+      - name: query[start_date]
+        in: query
+        required: false
+        schema:
+          type: string
+        description: Filter Company Customers by created at start date "YYYY-MM-DD", defaults to 30 days back
+      - name: query[end_date]
+        in: query
+        required: false
+        schema:
+          type: string
+        description: Filter Company Customers by created at end date "YYYY-MM-DD", defaults to today
+      - name: query[code]
+        in: query
+        required: false
+        schema:
+          type: array
+        description: Filter customers by customer code [CODE1,CODE2,CODE3]
+      - name: query[id]
+        in: query
+        required: false
+        schema:
+          type: array
+        description: Filter customers by customer ids [1,2,3]
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  customer:
+                    type: array
+                    description: ''
+      security:
+      - apiKeyAuth: []
+    post:
+      summary: Create Customers
+      operationId: PostLocaleApiV3AdminCustomers
+      tags:
+      - Admin Customers
+      parameters:
+      - name: locale
+        in: path
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                code:
+                  type: string
+                  description: Code of Customer
+                name:
+                  type: string
+                  description: Name of Customer
+                phone_number:
+                  type: string
+                  description: Phone Number of Customer
+                email:
+                  type: string
+                  description: Email of Customers
+                email_opt_in:
+                  type: boolean
+                  description: Allow Customer to opt out of email communication
+              required:
+              - code
+              - name
+              - phone_number
+              - email
+              - email_opt_in
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  first_name:
+                    type: string
+                    description: First Name of the Customer
+                  last_name:
+                    type: string
+                    description: Last Name of the Customer
+                  id:
+                    type: integer
+                    description: ID of the Customer
+                  code:
+                    type: integer
+                    description: Code of the Customer
+                  name:
+                    type: string
+                    description: Name of the Customer
+                  phone_number:
+                    type: string
+                    description: Phone number of the Customer
+                  email:
+                    type: string
+                    description: Email of the Customer
+                  email_opt_in:
+                    type: boolean
+                    description: Has the customer opted out of email communication?
+                  extra_data:
+                    type: string
+                    description: Extra Data Attributes Field
+                  confirmed_at:
+                    type: string
+                    description: When the appointment confirmed
+                  created_at:
+                    type: string
+                    description: Created on Date
+                  updated_at:
+                    type: string
+                    description: Updated on Date
+      security:
+      - apiKeyAuth: []
+  /{locale}/api/v3/admin/customers/{id_or_code}:
+    get:
+      summary: Show Customer
+      operationId: GetLocaleApiV3AdminCustomersId_or_code
+      tags:
+      - Admin Customers
+      parameters:
+      - name: id_or_code
+        in: path
+        required: true
+        schema:
+          type: string
+      - name: locale
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  id:
+                    type: integer
+                    description: ID of the Customer
+                  code:
+                    type: integer
+                    description: Code of the Customer
+                  name:
+                    type: string
+                    description: Name of the Customer
+                  first_name:
+                    type: string
+                    description: First Name of the Customer
+                  last_name:
+                    type: string
+                    description: Last Name of the Customer
+                  phone_number:
+                    type: string
+                    description: Phone number of the Customer
+                  email:
+                    type: string
+                    description: Email of the Customer
+                  email_opt_in:
+                    type: boolean
+                    description: Has the customer opted out of email communication?
+                  extra_data:
+                    type: string
+                    description: Extra Data Attributes Field
+                  confirmed_at:
+                    type: string
+                    description: When the appointment confirmed
+                  created_at:
+                    type: string
+                    description: Created on Date
+                  updated_at:
+                    type: string
+                    description: Updated on Date
+      security:
+      - apiKeyAuth: []
+  /{locale}/api/v3/admin/customers/{customer_id_or_code}:
+    put:
+      summary: Update Customers
+      operationId: PutLocaleApiV3AdminCustomersCustomer_id_or_code
+      tags:
+      - Admin Customers
+      parameters:
+      - name: customer_id_or_code
+        in: path
+        required: true
+        schema:
+          type: string
+      - name: locale
+        in: path
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                code:
+                  type: string
+                  description: Code of Customer
+                name:
+                  type: string
+                  description: Name of Customer
+                phone_number:
+                  type: string
+                  description: Phone Number of Customer
+                email:
+                  type: string
+                  description: Email of Customers
+                email_opt_in:
+                  type: boolean
+                  description: Allow Customer to opt out of email communication
+              required:
+              - code
+              - name
+              - phone_number
+              - email
+              - email_opt_in
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  first_name:
+                    type: string
+                    description: First Name of the Customer
+                  last_name:
+                    type: string
+                    description: Last Name of the Customer
+                  id:
+                    type: integer
+                    description: ID of the Customer
+                  code:
+                    type: integer
+                    description: Code of the Customer
+                  name:
+                    type: string
+                    description: Name of the Customer
+                  phone_number:
+                    type: string
+                    description: Phone number of the Customer
+                  email:
+                    type: string
+                    description: Email of the Customer
+                  email_opt_in:
+                    type: boolean
+                    description: Has the customer opted out of email communication?
+                  extra_data:
+                    type: string
+                    description: Extra Data Attributes Field
+                  confirmed_at:
+                    type: string
+                    description: When the appointment confirmed
+                  created_at:
+                    type: string
+                    description: Created on Date
+                  updated_at:
+                    type: string
+                    description: Updated on Date
+      security:
+      - apiKeyAuth: []
+components:
+  securitySchemes:
+    apiKeyAuth:
+      type: apiKey
+      in: query
+      name: api_key
+      description: Company API key passed as the api_key query parameter.

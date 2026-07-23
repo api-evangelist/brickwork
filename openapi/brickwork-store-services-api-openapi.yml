@@ -1,0 +1,91 @@
+openapi: 3.0.3
+info:
+  title: Brickwork Admin Appointments Store Services API
+  version: v3
+  description: Brickwork (now part of DevHub) omnichannel retail platform API v3. Powers store pages, store locators, appointments, events, RSVPs, in-store services, customers, and local store content for physical retail. Admin endpoints are authenticated with an api_key; front-end store endpoints surface public store, service, and event data. Derived from the provider-published apiDoc reference at production.brickworksoftware.com/api_docs.
+  contact:
+    name: Brickwork / DevHub
+    url: https://www.devhub.com/
+  x-apievangelist:
+    generated: '2026-07-18'
+    method: searched
+    source: https://production.brickworksoftware.com/api_docs/ (apiDoc api_data.json)
+servers:
+- url: https://production.brickworksoftware.com
+  description: Production
+tags:
+- name: Store Services
+paths:
+  /{locale}/api/v3/stores/{store_id}/store_services:
+    get:
+      summary: Store Services List
+      operationId: GetLocaleApiV3StoresStore_idStore_services
+      tags:
+      - Store Services
+      description: 'Example: `http://company.com/api/v3/stores/:store_id/store_services`'
+      parameters:
+      - name: locale
+        in: path
+        required: true
+        schema:
+          type: string
+      - name: store_id
+        in: path
+        required: true
+        schema:
+          type: integer
+        description: ''
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  store_service:
+                    type: object
+                    description: ''
+  /{locale}/api/v3/stores/{store_id}/store_services/{store_service_id}:
+    get:
+      summary: Store Service
+      operationId: GetLocaleApiV3StoresStore_idStore_servicesStore_service_id
+      tags:
+      - Store Services
+      description: 'Example: `http://company.com/api/v3/stores/:store_id/store_services/:store_service_id`'
+      parameters:
+      - name: locale
+        in: path
+        required: true
+        schema:
+          type: string
+      - name: store_id
+        in: path
+        required: true
+        schema:
+          type: integer
+        description: ''
+      - name: store_service_id
+        in: path
+        required: true
+        schema:
+          type: integer
+        description: ''
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  store_service:
+                    type: object
+                    description: ''
+components:
+  securitySchemes:
+    apiKeyAuth:
+      type: apiKey
+      in: query
+      name: api_key
+      description: Company API key passed as the api_key query parameter.

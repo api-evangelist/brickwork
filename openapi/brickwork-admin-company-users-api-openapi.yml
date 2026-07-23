@@ -1,0 +1,453 @@
+openapi: 3.0.3
+info:
+  title: Brickwork Admin Appointments Admin Company Users API
+  version: v3
+  description: Brickwork (now part of DevHub) omnichannel retail platform API v3. Powers store pages, store locators, appointments, events, RSVPs, in-store services, customers, and local store content for physical retail. Admin endpoints are authenticated with an api_key; front-end store endpoints surface public store, service, and event data. Derived from the provider-published apiDoc reference at production.brickworksoftware.com/api_docs.
+  contact:
+    name: Brickwork / DevHub
+    url: https://www.devhub.com/
+  x-apievangelist:
+    generated: '2026-07-18'
+    method: searched
+    source: https://production.brickworksoftware.com/api_docs/ (apiDoc api_data.json)
+servers:
+- url: https://production.brickworksoftware.com
+  description: Production
+tags:
+- name: Admin Company Users
+paths:
+  /api/v3/admin/users:
+    get:
+      summary: Show all Users
+      operationId: GetApiV3AdminUsers
+      tags:
+      - Admin Company Users
+      description: 'Example: `http://company.com/api/v3/admin/users?query[code]=123abc`'
+      parameters:
+      - name: query
+        in: query
+        required: false
+        schema:
+          type: object
+        description: Query parameters for all company users
+      - name: query[start_date]
+        in: query
+        required: false
+        schema:
+          type: string
+        description: Filter Company users by created at start date "YYYY-MM-DD", defaults to 30 days back
+      - name: query[end_date]
+        in: query
+        required: false
+        schema:
+          type: string
+        description: Filter Company users by created at end date "YYYY-MM-DD", defaults to today
+      - name: query[code]
+        in: query
+        required: false
+        schema:
+          type: array
+        description: Filter users by user code [CODE1,CODE2,CODE3]
+      - name: query[store_id]
+        in: query
+        required: false
+        schema:
+          type: integer
+        description: Filter users by store_id
+      - name: query[store_nextgen_id]
+        in: query
+        required: false
+        schema:
+          type: string
+        description: Filter users by store_nextgen_id
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  users:
+                    type: array
+                    description: Users
+      security:
+      - apiKeyAuth: []
+    post:
+      summary: Create User
+      operationId: PostApiV3AdminUsers
+      tags:
+      - Admin Company Users
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                code:
+                  type: string
+                  description: Code unique to company
+                role:
+                  type: string
+                  description: '"corporate_admin", "store_owner" or "associate"'
+                first_name:
+                  type: string
+                  description: ''
+                last_name:
+                  type: string
+                  description: ''
+                email:
+                  type: string
+                  description: User's Email
+                store_id:
+                  type: integer
+                  description: Only needed if role is "store_owner" or "associate"
+              required:
+              - code
+              - role
+              - first_name
+              - last_name
+              - email
+              - store_id
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  id:
+                    type: integer
+                    description: User Id
+                  code:
+                    type: string
+                    description: User Code
+                  store_id:
+                    type: integer
+                    description: The store id that user is apart of
+                  first_name:
+                    type: string
+                    description: ''
+                  last_name:
+                    type: string
+                    description: ''
+                  role:
+                    type: string
+                    description: '"corporate_admin", "store_owner" or "associate"'
+                  api_key:
+                    type: string
+                    description: User's assigned api_key
+                  email:
+                    type: string
+                    description: User's Email
+                  phone:
+                    type: string
+                    description: User's phone number
+                  avatar:
+                    type: string
+                    description: User's avatar (deprecated)
+                  profile_image_url:
+                    type: string
+                    description: User's profile image url
+                  position:
+                    type: string
+                    description: Quick description of user's job
+                  encrypted_password:
+                    type: string
+                    description: ''
+                  reset_password_token:
+                    type: string
+                    description: ''
+                  reset_password_sent_at:
+                    type: string
+                    description: ''
+                  remember_created_at:
+                    type: string
+                    description: ''
+                  sign_in_count:
+                    type: integer
+                    description: ''
+                  current_sign_in_at:
+                    type: string
+                    description: ''
+                  current_sign_in_ip:
+                    type: string
+                    description: ''
+                  setup_completed_at:
+                    type: string
+                    description: ''
+                  last_schedule_reminder_sent_at:
+                    type: string
+                    description: Weekly associate or store manager schedule
+                  archived_number:
+                    type: string
+                    description: ''
+                  archived_at:
+                    type: string
+                    description: ''
+                  created_at:
+                    type: string
+                    description: ''
+                  updated_at:
+                    type: string
+                    description: ''
+                  company_id:
+                    type: integer
+                    description: ''
+                  nextgen_id:
+                    type: string
+                    description: Nextgen User ID
+      security:
+      - apiKeyAuth: []
+  /api/v3/admin/users/{id_or_code}:
+    get:
+      summary: Show User by ID or Code
+      operationId: GetApiV3AdminUsersId_or_code
+      tags:
+      - Admin Company Users
+      description: 'Example: `http://company.com/api/v3/admin/users/:user_id`
+
+
+        Example: `http://company.com/api/v3/admin/users/:code?user_code=true`'
+      parameters:
+      - name: id_or_code
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  id:
+                    type: integer
+                    description: User Id
+                  code:
+                    type: string
+                    description: User Code
+                  store_id:
+                    type: integer
+                    description: The store id that user is apart of
+                  first_name:
+                    type: string
+                    description: ''
+                  last_name:
+                    type: string
+                    description: ''
+                  role:
+                    type: string
+                    description: '"corporate_admin", "store_owner" or "associate"'
+                  api_key:
+                    type: string
+                    description: User's assigned api_key
+                  email:
+                    type: string
+                    description: User's Email
+                  phone:
+                    type: string
+                    description: User's phone number
+                  avatar:
+                    type: string
+                    description: User's avatar (deprecated)
+                  profile_image_url:
+                    type: string
+                    description: User's profile image url
+                  position:
+                    type: string
+                    description: Quick description of user's job
+                  encrypted_password:
+                    type: string
+                    description: ''
+                  reset_password_token:
+                    type: string
+                    description: ''
+                  reset_password_sent_at:
+                    type: string
+                    description: ''
+                  remember_created_at:
+                    type: string
+                    description: ''
+                  sign_in_count:
+                    type: integer
+                    description: ''
+                  current_sign_in_at:
+                    type: string
+                    description: ''
+                  current_sign_in_ip:
+                    type: string
+                    description: ''
+                  setup_completed_at:
+                    type: string
+                    description: ''
+                  last_schedule_reminder_sent_at:
+                    type: string
+                    description: Weekly associate or store manager schedule
+                  archived_number:
+                    type: string
+                    description: ''
+                  archived_at:
+                    type: string
+                    description: ''
+                  created_at:
+                    type: string
+                    description: ''
+                  updated_at:
+                    type: string
+                    description: ''
+                  company_id:
+                    type: integer
+                    description: ''
+                  nextgen_id:
+                    type: string
+                    description: Nextgen User ID
+      security:
+      - apiKeyAuth: []
+    put:
+      summary: Update User by ID or Code
+      operationId: PutApiV3AdminUsersId_or_code
+      tags:
+      - Admin Company Users
+      description: 'Example: `http://company.com/api/v3/admin/users/:user_id`
+
+
+        Example: `http://company.com/api/v3/admin/users/:code?user_code=true`'
+      parameters:
+      - name: id_or_code
+        in: path
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                code:
+                  type: string
+                  description: Code unique to company
+                role:
+                  type: string
+                  description: '"corporate_admin", "store_owner" or "associate"'
+                first_name:
+                  type: string
+                  description: ''
+                last_name:
+                  type: string
+                  description: ''
+                email:
+                  type: string
+                  description: User's Email
+                store_id:
+                  type: integer
+                  description: Only needed if role is "store_owner" or "associate"
+              required:
+              - code
+              - role
+              - first_name
+              - last_name
+              - email
+              - store_id
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  id:
+                    type: integer
+                    description: User Id
+                  code:
+                    type: string
+                    description: User Code
+                  store_id:
+                    type: integer
+                    description: The store id that user is apart of
+                  first_name:
+                    type: string
+                    description: ''
+                  last_name:
+                    type: string
+                    description: ''
+                  role:
+                    type: string
+                    description: '"corporate_admin", "store_owner" or "associate"'
+                  api_key:
+                    type: string
+                    description: User's assigned api_key
+                  email:
+                    type: string
+                    description: User's Email
+                  phone:
+                    type: string
+                    description: User's phone number
+                  avatar:
+                    type: string
+                    description: User's avatar (deprecated)
+                  profile_image_url:
+                    type: string
+                    description: User's profile image url
+                  position:
+                    type: string
+                    description: Quick description of user's job
+                  encrypted_password:
+                    type: string
+                    description: ''
+                  reset_password_token:
+                    type: string
+                    description: ''
+                  reset_password_sent_at:
+                    type: string
+                    description: ''
+                  remember_created_at:
+                    type: string
+                    description: ''
+                  sign_in_count:
+                    type: integer
+                    description: ''
+                  current_sign_in_at:
+                    type: string
+                    description: ''
+                  current_sign_in_ip:
+                    type: string
+                    description: ''
+                  setup_completed_at:
+                    type: string
+                    description: ''
+                  last_schedule_reminder_sent_at:
+                    type: string
+                    description: Weekly associate or store manager schedule
+                  archived_number:
+                    type: string
+                    description: ''
+                  archived_at:
+                    type: string
+                    description: ''
+                  created_at:
+                    type: string
+                    description: ''
+                  updated_at:
+                    type: string
+                    description: ''
+                  company_id:
+                    type: integer
+                    description: ''
+                  nextgen_id:
+                    type: string
+                    description: Nextgen User ID
+      security:
+      - apiKeyAuth: []
+components:
+  securitySchemes:
+    apiKeyAuth:
+      type: apiKey
+      in: query
+      name: api_key
+      description: Company API key passed as the api_key query parameter.

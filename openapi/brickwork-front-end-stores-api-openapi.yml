@@ -1,0 +1,313 @@
+openapi: 3.0.3
+info:
+  title: Brickwork Admin Appointments Front End Stores API
+  version: v3
+  description: Brickwork (now part of DevHub) omnichannel retail platform API v3. Powers store pages, store locators, appointments, events, RSVPs, in-store services, customers, and local store content for physical retail. Admin endpoints are authenticated with an api_key; front-end store endpoints surface public store, service, and event data. Derived from the provider-published apiDoc reference at production.brickworksoftware.com/api_docs.
+  contact:
+    name: Brickwork / DevHub
+    url: https://www.devhub.com/
+  x-apievangelist:
+    generated: '2026-07-18'
+    method: searched
+    source: https://production.brickworksoftware.com/api_docs/ (apiDoc api_data.json)
+servers:
+- url: https://production.brickworksoftware.com
+  description: Production
+tags:
+- name: Front End Stores
+paths:
+  /api/v3/stores:
+    get:
+      summary: Store List
+      operationId: GetApiV3Stores
+      tags:
+      - Front End Stores
+      parameters:
+      - name: locale
+        in: query
+        required: false
+        schema:
+          type: string
+        description: The locale for store data display
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  stores:
+                    type: array
+                    description: A list of store objects
+  /api/v3/stores/combined:
+    get:
+      summary: Store and Partner Stores List
+      operationId: GetApiV3StoresCombined
+      tags:
+      - Front End Stores
+      parameters:
+      - name: locale
+        in: query
+        required: false
+        schema:
+          type: string
+        description: The locale for store data display
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  stores:
+                    type: array
+                    description: A list of store objects
+                  partner_stores:
+                    type: array
+                    description: A list of store objects
+  /api/v3/stores/{id_or_number}:
+    get:
+      summary: Store
+      operationId: GetApiV3StoresId_or_number
+      tags:
+      - Front End Stores
+      description: 'Example: `http://company.com/api/v3/stores/:store_id/`
+
+
+        Example: `http://company.com/api/v3/stores/:store_number/store_number`'
+      parameters:
+      - name: id_or_number
+        in: path
+        required: true
+        schema:
+          type: string
+      - name: locale
+        in: query
+        required: false
+        schema:
+          type: string
+        description: Defaults to "en", language to display store attributes
+      - name: store[id]
+        in: query
+        required: true
+        schema:
+          type: integer
+        description: Store ID as the main param
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  store:
+                    type: array
+                    description: A single store object
+                  id:
+                    type: string
+                    description: Store id
+                  slug:
+                    type: string
+                    description: Store url slug (doubles as ID)
+                  name:
+                    type: string
+                    description: Store Name
+                  number:
+                    type: integer
+                    description: Store Number
+                  description:
+                    type: string
+                    description: Localized Store Description
+                  alert:
+                    type: string
+                    description: Active Store Alert
+                  address_1:
+                    type: string
+                    description: ''
+                  address_2:
+                    type: string
+                    description: ''
+                  address_3:
+                    type: string
+                    description: ''
+                  city:
+                    type: string
+                    description: ''
+                  state:
+                    type: string
+                    description: ''
+                  postal_code:
+                    type: string
+                    description: ''
+                  country_code:
+                    type: string
+                    description: ''
+                  latitude:
+                    type: number
+                    description: ''
+                  longitude:
+                    type: number
+                    description: ''
+                  timezone:
+                    type: string
+                    description: ''
+                  contextual_address:
+                    type: string
+                    description: ''
+                  parking_suggestions:
+                    type: string
+                    description: ''
+                  neighborhood:
+                    type: string
+                    description: ''
+                  transit:
+                    type: string
+                    description: ''
+                  email:
+                    type: string
+                    description: ''
+                  phone_number:
+                    type: string
+                    description: ''
+                  type:
+                    type: string
+                    description: ''
+                  redirect_url:
+                    type: string
+                    description: ''
+                  open_date:
+                    type: string
+                    description: ''
+                  type_image_url:
+                    type: string
+                    description: Image url for the store type
+                  default_store_image:
+                    type: string
+                    description: ''
+                  map_pin:
+                    type: object
+                    description: Store Map Pin Object
+  /api/v3/stores/locations:
+    get:
+      summary: List of store locations
+      operationId: GetApiV3StoresLocations
+      tags:
+      - Front End Stores
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  stores:
+                    type: array
+                    description: A list of store objects
+  /api/v3/stores/{store_id_or_slug}/featured_associates:
+    get:
+      summary: Store Featured Associates
+      operationId: GetApiV3StoresStore_id_or_slugFeatured_associates
+      tags:
+      - Front End Stores
+      description: 'Example: `http://company.com/api/v3/stores/:store_slug/featured_associates`
+
+
+        Example: `http://company.com/api/v3/stores/:store_id/featured_associates`'
+      parameters:
+      - name: store_id_or_slug
+        in: path
+        required: true
+        schema:
+          type: string
+      - name: locale
+        in: query
+        required: false
+        schema:
+          type: string
+        description: Defaults to "en", language to display store attributes
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  associates:
+                    type: array
+                    description: A list of active (unarchived) featured associates objects
+  /api/v3/stores/{store_number}:
+    get:
+      summary: Store Number Lookup
+      operationId: GetApiV3StoresStore_number
+      tags:
+      - Front End Stores
+      description: 'Example: `http://company.com/api/v3/stores/:store_number/store_lookup`'
+      parameters:
+      - name: store_number
+        in: path
+        required: true
+        schema:
+          type: string
+      - name: locale
+        in: query
+        required: false
+        schema:
+          type: string
+        description: Defaults to "en", language to display store attributes
+      - name: store[number]
+        in: query
+        required: true
+        schema:
+          type: integer
+        description: Store number as the main param
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  store:
+                    type: object
+                    description: Store object
+  /api/v3/stores/store_search:
+    get:
+      summary: Basic Company Store Information
+      operationId: GetApiV3StoresStore_search
+      tags:
+      - Front End Stores
+      description: 'Example: `http://company.com/api/v3/stores/store_search`'
+      parameters:
+      - name: locale
+        in: query
+        required: false
+        schema:
+          type: string
+        description: Defaults to "en", language to display store attributes
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  filters:
+                    type: object
+                    description: ''
+                  stores:
+                    type: array
+                    description: Stores Collection
+components:
+  securitySchemes:
+    apiKeyAuth:
+      type: apiKey
+      in: query
+      name: api_key
+      description: Company API key passed as the api_key query parameter.
