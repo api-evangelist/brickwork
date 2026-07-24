@@ -1,24 +1,429 @@
 aid: brickwork
+accessModel:
+  pricing: unknown
+  onboarding: self-serve
+  trial: false
+  try_now: false
+  public: false
+  label: Self-serve signup
+  confidence: medium
+  source:
+  - authentication
+  generated: '2026-07-22'
+  method: derived
+image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/icons/brickwork.png
 name: Brickwork
-description: 'Brickwork is a company surfaced as a portfolio company of cowboy-ventures and added to the
-  API Evangelist network as a stub for enrichment. Sector: consumer. This profile is a lead awaiting the
-  enrichment pipeline.'
+description: Brickwork is an omnichannel retail platform, now operated by DevHub, that powers a rich digital presence
+  for physical retail stores. It provides store pages and the first omnichannel-enabling store locator, plus local
+  activation around store services, appointments, in-store events with RSVPs, store hours, promotions, and customer
+  records to drive qualified online traffic into brick-and-mortar locations. The Brickwork API v3 exposes 107 operations
+  spanning admin management (stores, store types, services, appointments, events, RSVPs, customers, company users,
+  regular and special hours, store images, alerts, transactions) and public front-end store, service, and event
+  data. Admin endpoints authenticate with a company api_key query parameter; responses are JSON, paginated by page
+  number, and support an optional locale path prefix for localization. Founded in 2013 and backed by Cowboy Ventures.
 url: https://raw.githubusercontent.com/api-evangelist/brickwork/refs/heads/main/apis.yml
 x-type: company
 x-source: vc-portfolio
 x-backed-by:
 - cowboy-ventures
-x-tier: stub
-x-tier-reason: portfolio-lead
+x-tier: enriched
+x-tier-reason: openapi-recovered-from-provider-apidoc
+x-operated-by: DevHub
 specificationVersion: '0.20'
 created: '2026-07-17'
-modified: '2026-07-17'
+modified: '2026-07-18'
 tags:
 - Company
 - Consumer
-apis: []
+- Retail
+- Omnichannel
+- Store Locator
+- Appointments
+- Events
+- Location Data
+- CMS
+apis:
+- aid: brickwork:brickwork-admin-appointments-api
+  name: Brickwork Admin Appointments API
+  description: The Admin Appointments API from Brickwork — 4 operation(s) for admin appointments.
+  humanURL: https://production.brickworksoftware.com/api_docs/
+  baseURL: https://production.brickworksoftware.com
+  tags:
+  - Admin Appointments
+  properties:
+  - type: OpenAPI
+    url: openapi/brickwork-admin-appointments-api-openapi.yml
+- aid: brickwork:brickwork-admin-company-users-api
+  name: Brickwork Admin Company Users API
+  description: The Admin Company Users API from Brickwork — 2 operation(s) for admin company users.
+  humanURL: https://production.brickworksoftware.com/api_docs/
+  baseURL: https://production.brickworksoftware.com
+  tags:
+  - Admin Company Users
+  properties:
+  - type: OpenAPI
+    url: openapi/brickwork-admin-company-users-api-openapi.yml
+- aid: brickwork:brickwork-admin-customer-appointments-api
+  name: Brickwork Admin Customer Appointments API
+  description: >-
+    The Admin Customer Appointments API from Brickwork — 1 operation(s) for admin customer appointments.
+  humanURL: https://production.brickworksoftware.com/api_docs/
+  baseURL: https://production.brickworksoftware.com
+  tags:
+  - Admin Customer Appointments
+  properties:
+  - type: OpenAPI
+    url: openapi/brickwork-admin-customer-appointments-api-openapi.yml
+- aid: brickwork:brickwork-admin-customer-rsvps-api
+  name: Brickwork Admin Customer Rsvps API
+  description: The Admin Customer Rsvps API from Brickwork — 1 operation(s) for admin customer rsvps.
+  humanURL: https://production.brickworksoftware.com/api_docs/
+  baseURL: https://production.brickworksoftware.com
+  tags:
+  - Admin Customer Rsvps
+  properties:
+  - type: OpenAPI
+    url: openapi/brickwork-admin-customer-rsvps-api-openapi.yml
+- aid: brickwork:brickwork-admin-customers-api
+  name: Brickwork Admin Customers API
+  description: The Admin Customers API from Brickwork — 3 operation(s) for admin customers.
+  humanURL: https://production.brickworksoftware.com/api_docs/
+  baseURL: https://production.brickworksoftware.com
+  tags:
+  - Admin Customers
+  properties:
+  - type: OpenAPI
+    url: openapi/brickwork-admin-customers-api-openapi.yml
+- aid: brickwork:brickwork-admin-event-rsvps-api
+  name: Brickwork Admin Event Rsvps API
+  description: The Admin Event Rsvps API from Brickwork — 1 operation(s) for admin event rsvps.
+  humanURL: https://production.brickworksoftware.com/api_docs/
+  baseURL: https://production.brickworksoftware.com
+  tags:
+  - Admin Event Rsvps
+  properties:
+  - type: OpenAPI
+    url: openapi/brickwork-admin-event-rsvps-api-openapi.yml
+- aid: brickwork:brickwork-admin-events-api
+  name: Brickwork Admin Events API
+  description: The Admin Events API from Brickwork — 2 operation(s) for admin events.
+  humanURL: https://production.brickworksoftware.com/api_docs/
+  baseURL: https://production.brickworksoftware.com
+  tags:
+  - Admin Events
+  properties:
+  - type: OpenAPI
+    url: openapi/brickwork-admin-events-api-openapi.yml
+- aid: brickwork:brickwork-admin-features-api
+  name: Brickwork Admin Features API
+  description: The Admin Features API from Brickwork — 2 operation(s) for admin features.
+  humanURL: https://production.brickworksoftware.com/api_docs/
+  baseURL: https://production.brickworksoftware.com
+  tags:
+  - Admin Features
+  properties:
+  - type: OpenAPI
+    url: openapi/brickwork-admin-features-api-openapi.yml
+- aid: brickwork:brickwork-admin-groups-api
+  name: Brickwork Admin Groups API
+  description: The Admin Groups API from Brickwork — 2 operation(s) for admin groups.
+  humanURL: https://production.brickworksoftware.com/api_docs/
+  baseURL: https://production.brickworksoftware.com
+  tags:
+  - Admin Groups
+  properties:
+  - type: OpenAPI
+    url: openapi/brickwork-admin-groups-api-openapi.yml
+- aid: brickwork:brickwork-admin-languages-api
+  name: Brickwork Admin Languages API
+  description: The Admin Languages API from Brickwork — 1 operation(s) for admin languages.
+  humanURL: https://production.brickworksoftware.com/api_docs/
+  baseURL: https://production.brickworksoftware.com
+  tags:
+  - Admin Languages
+  properties:
+  - type: OpenAPI
+    url: openapi/brickwork-admin-languages-api-openapi.yml
+- aid: brickwork:brickwork-admin-question-answers-api
+  name: Brickwork Admin Question Answers API
+  description: >-
+    The Admin Question Answers API from Brickwork — 2 operation(s) for admin question answers.
+  humanURL: https://production.brickworksoftware.com/api_docs/
+  baseURL: https://production.brickworksoftware.com
+  tags:
+  - Admin Question Answers
+  properties:
+  - type: OpenAPI
+    url: openapi/brickwork-admin-question-answers-api-openapi.yml
+- aid: brickwork:brickwork-admin-questions-api
+  name: Brickwork Admin Questions API
+  description: The Admin Questions API from Brickwork — 2 operation(s) for admin questions.
+  humanURL: https://production.brickworksoftware.com/api_docs/
+  baseURL: https://production.brickworksoftware.com
+  tags:
+  - Admin Questions
+  properties:
+  - type: OpenAPI
+    url: openapi/brickwork-admin-questions-api-openapi.yml
+- aid: brickwork:brickwork-admin-rsvps-api
+  name: Brickwork Admin Rsvps API
+  description: The Admin Rsvps API from Brickwork — 1 operation(s) for admin rsvps.
+  humanURL: https://production.brickworksoftware.com/api_docs/
+  baseURL: https://production.brickworksoftware.com
+  tags:
+  - Admin Rsvps
+  properties:
+  - type: OpenAPI
+    url: openapi/brickwork-admin-rsvps-api-openapi.yml
+- aid: brickwork:brickwork-admin-services-api
+  name: Brickwork Admin Services API
+  description: The Admin Services API from Brickwork — 2 operation(s) for admin services.
+  humanURL: https://production.brickworksoftware.com/api_docs/
+  baseURL: https://production.brickworksoftware.com
+  tags:
+  - Admin Services
+  properties:
+  - type: OpenAPI
+    url: openapi/brickwork-admin-services-api-openapi.yml
+- aid: brickwork:brickwork-admin-store-alerts-api
+  name: Brickwork Admin Store Alerts API
+  description: The Admin Store Alerts API from Brickwork — 2 operation(s) for admin store alerts.
+  humanURL: https://production.brickworksoftware.com/api_docs/
+  baseURL: https://production.brickworksoftware.com
+  tags:
+  - Admin Store Alerts
+  properties:
+  - type: OpenAPI
+    url: openapi/brickwork-admin-store-alerts-api-openapi.yml
+- aid: brickwork:brickwork-admin-store-event-rsvps-api
+  name: Brickwork Admin Store Event Rsvps API
+  description: >-
+    The Admin Store Event Rsvps API from Brickwork — 1 operation(s) for admin store event rsvps.
+  humanURL: https://production.brickworksoftware.com/api_docs/
+  baseURL: https://production.brickworksoftware.com
+  tags:
+  - Admin Store Event Rsvps
+  properties:
+  - type: OpenAPI
+    url: openapi/brickwork-admin-store-event-rsvps-api-openapi.yml
+- aid: brickwork:brickwork-admin-store-events-api
+  name: Brickwork Admin Store Events API
+  description: The Admin Store Events API from Brickwork — 2 operation(s) for admin store events.
+  humanURL: https://production.brickworksoftware.com/api_docs/
+  baseURL: https://production.brickworksoftware.com
+  tags:
+  - Admin Store Events
+  properties:
+  - type: OpenAPI
+    url: openapi/brickwork-admin-store-events-api-openapi.yml
+- aid: brickwork:brickwork-admin-store-images-api
+  name: Brickwork Admin Store Images API
+  description: The Admin Store Images API from Brickwork — 2 operation(s) for admin store images.
+  humanURL: https://production.brickworksoftware.com/api_docs/
+  baseURL: https://production.brickworksoftware.com
+  tags:
+  - Admin Store Images
+  properties:
+  - type: OpenAPI
+    url: openapi/brickwork-admin-store-images-api-openapi.yml
+- aid: brickwork:brickwork-admin-store-regular-hours-api
+  name: Brickwork Admin Store Regular Hours API
+  description: >-
+    The Admin Store Regular Hours API from Brickwork — 2 operation(s) for admin store regular hours.
+  humanURL: https://production.brickworksoftware.com/api_docs/
+  baseURL: https://production.brickworksoftware.com
+  tags:
+  - Admin Store Regular Hours
+  properties:
+  - type: OpenAPI
+    url: openapi/brickwork-admin-store-regular-hours-api-openapi.yml
+- aid: brickwork:brickwork-admin-store-services-api
+  name: Brickwork Admin Store Services API
+  description: The Admin Store Services API from Brickwork — 2 operation(s) for admin store services.
+  humanURL: https://production.brickworksoftware.com/api_docs/
+  baseURL: https://production.brickworksoftware.com
+  tags:
+  - Admin Store Services
+  properties:
+  - type: OpenAPI
+    url: openapi/brickwork-admin-store-services-api-openapi.yml
+- aid: brickwork:brickwork-admin-store-special-hours-api
+  name: Brickwork Admin Store Special Hours API
+  description: >-
+    The Admin Store Special Hours API from Brickwork — 2 operation(s) for admin store special hours.
+  humanURL: https://production.brickworksoftware.com/api_docs/
+  baseURL: https://production.brickworksoftware.com
+  tags:
+  - Admin Store Special Hours
+  properties:
+  - type: OpenAPI
+    url: openapi/brickwork-admin-store-special-hours-api-openapi.yml
+- aid: brickwork:brickwork-admin-store-types-api
+  name: Brickwork Admin Store Types API
+  description: The Admin Store Types API from Brickwork — 3 operation(s) for admin store types.
+  humanURL: https://production.brickworksoftware.com/api_docs/
+  baseURL: https://production.brickworksoftware.com
+  tags:
+  - Admin Store Types
+  properties:
+  - type: OpenAPI
+    url: openapi/brickwork-admin-store-types-api-openapi.yml
+- aid: brickwork:brickwork-admin-stores-api
+  name: Brickwork Admin Stores API
+  description: The Admin Stores API from Brickwork — 2 operation(s) for admin stores.
+  humanURL: https://production.brickworksoftware.com/api_docs/
+  baseURL: https://production.brickworksoftware.com
+  tags:
+  - Admin Stores
+  properties:
+  - type: OpenAPI
+    url: openapi/brickwork-admin-stores-api-openapi.yml
+- aid: brickwork:brickwork-admin-transactions-api
+  name: Brickwork Admin Transactions API
+  description: The Admin Transactions API from Brickwork — 5 operation(s) for admin transactions.
+  humanURL: https://production.brickworksoftware.com/api_docs/
+  baseURL: https://production.brickworksoftware.com
+  tags:
+  - Admin Transactions
+  properties:
+  - type: OpenAPI
+    url: openapi/brickwork-admin-transactions-api-openapi.yml
+- aid: brickwork:brickwork-admin-user-hours-api
+  name: Brickwork Admin User Hours API
+  description: The Admin User Hours API from Brickwork — 6 operation(s) for admin user hours.
+  humanURL: https://production.brickworksoftware.com/api_docs/
+  baseURL: https://production.brickworksoftware.com
+  tags:
+  - Admin User Hours
+  properties:
+  - type: OpenAPI
+    url: openapi/brickwork-admin-user-hours-api-openapi.yml
+- aid: brickwork:brickwork-events-api
+  name: Brickwork Events API
+  description: The Events API from Brickwork — 2 operation(s) for events.
+  humanURL: https://production.brickworksoftware.com/api_docs/
+  baseURL: https://production.brickworksoftware.com
+  tags:
+  - Events
+  properties:
+  - type: OpenAPI
+    url: openapi/brickwork-events-api-openapi.yml
+- aid: brickwork:brickwork-front-end-stores-api
+  name: Brickwork Front End Stores API
+  description: The Front End Stores API from Brickwork — 7 operation(s) for front end stores.
+  humanURL: https://production.brickworksoftware.com/api_docs/
+  baseURL: https://production.brickworksoftware.com
+  tags:
+  - Front End Stores
+  properties:
+  - type: OpenAPI
+    url: openapi/brickwork-front-end-stores-api-openapi.yml
+- aid: brickwork:brickwork-questions-api
+  name: Brickwork Questions API
+  description: The Questions API from Brickwork — 1 operation(s) for questions.
+  humanURL: https://production.brickworksoftware.com/api_docs/
+  baseURL: https://production.brickworksoftware.com
+  tags:
+  - Questions
+  properties:
+  - type: OpenAPI
+    url: openapi/brickwork-questions-api-openapi.yml
+- aid: brickwork:brickwork-service-appointments-api
+  name: Brickwork Service Appointments API
+  description: The Service Appointments API from Brickwork — 1 operation(s) for service appointments.
+  humanURL: https://production.brickworksoftware.com/api_docs/
+  baseURL: https://production.brickworksoftware.com
+  tags:
+  - Service Appointments
+  properties:
+  - type: OpenAPI
+    url: openapi/brickwork-service-appointments-api-openapi.yml
+- aid: brickwork:brickwork-services-api
+  name: Brickwork Services API
+  description: The Services API from Brickwork — 3 operation(s) for services.
+  humanURL: https://production.brickworksoftware.com/api_docs/
+  baseURL: https://production.brickworksoftware.com
+  tags:
+  - Services
+  properties:
+  - type: OpenAPI
+    url: openapi/brickwork-services-api-openapi.yml
+- aid: brickwork:brickwork-store-events-api
+  name: Brickwork Store Events API
+  description: The Store Events API from Brickwork — 1 operation(s) for store events.
+  humanURL: https://production.brickworksoftware.com/api_docs/
+  baseURL: https://production.brickworksoftware.com
+  tags:
+  - Store Events
+  properties:
+  - type: OpenAPI
+    url: openapi/brickwork-store-events-api-openapi.yml
+- aid: brickwork:brickwork-store-services-api
+  name: Brickwork Store Services API
+  description: The Store Services API from Brickwork — 2 operation(s) for store services.
+  humanURL: https://production.brickworksoftware.com/api_docs/
+  baseURL: https://production.brickworksoftware.com
+  tags:
+  - Store Services
+  properties:
+  - type: OpenAPI
+    url: openapi/brickwork-store-services-api-openapi.yml
+- aid: brickwork:brickwork-utilities-api
+  name: Brickwork Utilities API
+  description: The Utilities API from Brickwork — 1 operation(s) for utilities.
+  humanURL: https://production.brickworksoftware.com/api_docs/
+  baseURL: https://production.brickworksoftware.com
+  tags:
+  - Utilities
+  properties:
+  - type: OpenAPI
+    url: openapi/brickwork-utilities-api-openapi.yml
 maintainers:
 - FN: Kin Lane
   email: kin@apievangelist.com
 - FN: APIs.json
   email: info@apis.io
+common:
+- type: Website
+  url: https://www.devhub.com/
+- type: DeveloperPortal
+  url: https://production.brickworksoftware.com/api_docs/
+- type: Documentation
+  url: https://production.brickworksoftware.com/api_docs/
+- type: APIReference
+  url: https://production.brickworksoftware.com/api_docs/
+- type: Pricing
+  url: https://www.devhub.com/pricing/
+- type: Support
+  url: https://www.devhub.com/faq/
+- type: TermsOfService
+  url: https://www.devhub.com/terms/
+- type: PrivacyPolicy
+  url: https://www.devhub.com/privacy/
+- type: GitHubOrganization
+  url: https://github.com/BrickworkSoftware
+- type: Authentication
+  url: authentication/brickwork-authentication.yml
+- type: AgenticAccess
+  url: agentic-access/brickwork-agentic-access.yml
+- type: DomainSecurity
+  url: security/brickwork-domain-security.yml
+- type: Conventions
+  url: conventions/brickwork-conventions.yml
+- type: DataModel
+  url: data-model/brickwork-data-model.yml
+- type: Conformance
+  url: conformance/brickwork-conformance.yml
+- type: Lifecycle
+  url: lifecycle/brickwork-lifecycle.yml
+- type: MCPServer
+  url: mcp/brickwork-mcp.yml
+- type: LLMsTxt
+  url: llms/brickwork-llms.txt
+- type: AgentSkill
+  url: skills/_index.yml
+x-enrichment:
+  date: '2026-07-19'
+  status: backfilled
+  pass: local-v1
+  note: backfilled from .gitignore signal + verified work evidence

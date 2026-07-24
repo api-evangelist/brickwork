@@ -1,0 +1,122 @@
+generated: '2026-07-18'
+method: derived
+source: openapi/brickwork-openapi.yml
+notes: Entity graph derived from success response objects and id-reference parameters in the Brickwork API v3 reference. Stores
+  are the central entity; appointments/events/RSVPs/services hang off stores and customers. Many resources are addressable
+  by id_or_code (and stores also by store number).
+entities:
+- name: store
+  identifier: id (also code; stores also by number)
+- name: store_type
+  identifier: id (also code; stores also by number)
+- name: store_service
+  identifier: id (also code; stores also by number)
+- name: service
+  identifier: id (also code; stores also by number)
+- name: appointment
+  identifier: id (also code; stores also by number)
+- name: customer
+  identifier: id (also code; stores also by number)
+- name: event
+  identifier: id (also code; stores also by number)
+- name: store_event
+  identifier: id (also code; stores also by number)
+- name: rsvp
+  identifier: id (also code; stores also by number)
+- name: question
+  identifier: id (also code; stores also by number)
+- name: question_answer
+  identifier: id (also code; stores also by number)
+- name: store_image
+  identifier: id (also code; stores also by number)
+- name: store_alert
+  identifier: id (also code; stores also by number)
+- name: business_hour
+  identifier: id (also code; stores also by number)
+- name: transaction
+  identifier: id (also code; stores also by number)
+- name: user
+  identifier: id (also code; stores also by number)
+- name: group
+  identifier: id (also code; stores also by number)
+- name: feature
+  identifier: id (also code; stores also by number)
+- name: language
+  identifier: id (also code; stores also by number)
+relationships:
+- from: store
+  type: has_many
+  to: store_service
+  via: store_id
+- from: store
+  type: has_many
+  to: store_event
+  via: store_id
+- from: store
+  type: has_many
+  to: appointment
+  via: store_id
+- from: store
+  type: has_many
+  to: store_image
+  via: store_id
+- from: store
+  type: has_many
+  to: store_alert
+  via: store_id
+- from: store
+  type: has_many
+  to: business_hour
+  via: store_id
+- from: store
+  type: belongs_to
+  to: store_type
+  via: store_type_id
+- from: store_service
+  type: belongs_to
+  to: service
+  via: service_id
+- from: store_service
+  type: belongs_to
+  to: store
+  via: store_id
+- from: appointment
+  type: belongs_to
+  to: store_service
+  via: store_service_id
+- from: appointment
+  type: belongs_to
+  to: customer
+  via: customer_id
+- from: appointment
+  type: belongs_to
+  to: user
+  via: appointmentable_id
+- from: rsvp
+  type: belongs_to
+  to: event
+  via: event_id
+- from: rsvp
+  type: belongs_to
+  to: customer
+  via: customer_id
+- from: store_event
+  type: belongs_to
+  to: store
+  via: store_id
+- from: question_answer
+  type: belongs_to
+  to: question
+  via: question_id
+- from: customer
+  type: has_many
+  to: appointment
+  via: customer_id
+- from: customer
+  type: has_many
+  to: rsvp
+  via: customer_id
+- from: user
+  type: has_many
+  to: business_hour
+  via: user_id

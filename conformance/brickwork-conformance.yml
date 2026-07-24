@@ -1,0 +1,27 @@
+generated: '2026-07-18'
+method: derived
+source: openapi/brickwork-openapi.yml
+standards:
+- id: oauth2
+  conforms: false
+  evidence: auth is api_key query parameter, not oauth2
+- id: oidc
+  conforms: false
+- id: rfc9457-problem-details
+  conforms: false
+  evidence: no application/problem+json responses documented
+- id: json
+  conforms: true
+  evidence: all responses application/json
+- id: pagination
+  conforms: true
+  evidence: page query parameter + meta object on collections
+- id: idempotency
+  conforms: false
+  evidence: no idempotency-key mechanism documented
+- id: rest
+  conforms: true
+  evidence: resource-oriented paths with GET/POST/PUT/DELETE
+- id: i18n-locale
+  conforms: true
+  evidence: optional /{locale}/ path prefix + Languages resource

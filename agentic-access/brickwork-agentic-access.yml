@@ -1,0 +1,1332 @@
+generated: '2026-07-18'
+method: generated
+source: openapi/brickwork-openapi.yml
+description: Recommended x-agentic-access execution contracts, classified heuristically from
+  the OpenAPI. A governance starting point for exposing this API to AI agents — review and bind
+  audience per deployment. See research/curity/agentic-governance/.
+summary:
+  operations: 107
+  by_action_class:
+    connected: 66
+    acting: 41
+  by_consequence:
+    read: 66
+    write: 41
+  human_in_the_loop_required: 0
+operations:
+- path: /{locale}/api/v3/admin/appointments
+  method: get
+  operationId: GetLocaleApiV3AdminAppointments
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /{locale}/api/v3/admin/stores/{store_id_or_number}/appointments
+  method: get
+  operationId: GetLocaleApiV3AdminStoresStore_id_or_numberAppointments
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /{locale}/api/v3/admin/stores/{store_id_or_number}/appointments/{id_or_code}
+  method: get
+  operationId: GetLocaleApiV3AdminStoresStore_id_or_numberAppointmentsId_or_code
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /{locale}/api/v3/admin/stores/{store_id_or_number}/appointments/{id_or_code}
+  method: put
+  operationId: PutLocaleApiV3AdminStoresStore_id_or_numberAppointmentsId_or_code
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /api/v3/admin/stores/{store_id_or_number}/appointments
+  method: post
+  operationId: PostApiV3AdminStoresStore_id_or_numberAppointments
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /api/v3/admin/users
+  method: get
+  operationId: GetApiV3AdminUsers
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /api/v3/admin/users
+  method: post
+  operationId: PostApiV3AdminUsers
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /api/v3/admin/users/{id_or_code}
+  method: get
+  operationId: GetApiV3AdminUsersId_or_code
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /api/v3/admin/users/{id_or_code}
+  method: put
+  operationId: PutApiV3AdminUsersId_or_code
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /{locale}/api/v3/admin/customers/{customer_id_or_code}/appointments
+  method: get
+  operationId: GetLocaleApiV3AdminCustomersCustomer_id_or_codeAppointments
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /{locale}/api/v3/admin/customers/{customer_id}/rsvps
+  method: get
+  operationId: GetLocaleApiV3AdminCustomersCustomer_idRsvps
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /{locale}/api/v3/admin/customers
+  method: get
+  operationId: GetLocaleApiV3AdminCustomers
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /{locale}/api/v3/admin/customers
+  method: post
+  operationId: PostLocaleApiV3AdminCustomers
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /{locale}/api/v3/admin/customers/{id_or_code}
+  method: get
+  operationId: GetLocaleApiV3AdminCustomersId_or_code
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /{locale}/api/v3/admin/customers/{customer_id_or_code}
+  method: put
+  operationId: PutLocaleApiV3AdminCustomersCustomer_id_or_code
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /{locale}/api/v3/admin/events/{event_id}/rsvps
+  method: get
+  operationId: GetLocaleApiV3AdminEventsEvent_idRsvps
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /{locale}/api/v3/admin/events
+  method: get
+  operationId: GetLocaleApiV3AdminEvents
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /{locale}/api/v3/admin/events
+  method: post
+  operationId: PostLocaleApiV3AdminEvents
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /{locale}/api/v3/admin/events/{id}
+  method: get
+  operationId: GetLocaleApiV3AdminEventsId
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /{locale}/api/v3/admin/events/{id}
+  method: put
+  operationId: PutLocaleApiV3AdminEventsId
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /api/v3/admin/features
+  method: get
+  operationId: GetApiV3AdminFeatures
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /api/v3/admin/features
+  method: post
+  operationId: PostApiV3AdminFeatures
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /api/v3/admin/features/{id}
+  method: get
+  operationId: GetApiV3AdminFeaturesId
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /api/v3/admin/features/{id}
+  method: put
+  operationId: PutApiV3AdminFeaturesId
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /api/v3/admin/groups
+  method: get
+  operationId: GetApiV3AdminGroups
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /api/v3/admin/groups
+  method: post
+  operationId: PostApiV3AdminGroups
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /api/v3/admin/groups/{id}
+  method: get
+  operationId: GetApiV3AdminGroupsId
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /api/v3/admin/groups/{id}
+  method: put
+  operationId: PutApiV3AdminGroupsId
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /api/v3/admin/languages
+  method: get
+  operationId: GetApiV3AdminLanguages
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /{locale}/api/v3/admin/question_answers
+  method: get
+  operationId: GetLocaleApiV3AdminQuestion_answers
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /{locale}/api/v3/admin/question_answers/{question_id}
+  method: get
+  operationId: GetLocaleApiV3AdminQuestion_answersQuestion_id
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /{locale}/api/v3/admin/questions
+  method: get
+  operationId: GetLocaleApiV3AdminQuestions
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /{locale}/api/v3/admin/questions/{question_id}
+  method: get
+  operationId: GetLocaleApiV3AdminQuestionsQuestion_id
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /{locale}/api/v3/admin/rsvps
+  method: get
+  operationId: GetLocaleApiV3AdminRsvps
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /api/v3/admin/services
+  method: get
+  operationId: GetApiV3AdminServices
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /api/v3/admin/services
+  method: post
+  operationId: PostApiV3AdminServices
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /api/v3/admin/services/{id}
+  method: get
+  operationId: GetApiV3AdminServicesId
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /api/v3/admin/services/{id}
+  method: put
+  operationId: PutApiV3AdminServicesId
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /api/v3/admin/stores/{id_or_number}/alerts
+  method: get
+  operationId: GetApiV3AdminStoresId_or_numberAlerts
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /api/v3/admin/stores/{id_or_number}/alerts
+  method: post
+  operationId: PostApiV3AdminStoresId_or_numberAlerts
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /api/v3/admin/stores/{id_or_number}/alerts/{id}
+  method: get
+  operationId: GetApiV3AdminStoresId_or_numberAlertsId
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /api/v3/admin/stores/{id_or_number}/alerts/{id}
+  method: put
+  operationId: PutApiV3AdminStoresId_or_numberAlertsId
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /{locale}/api/v3/admin/store_events/{store_event_id}/rsvps
+  method: get
+  operationId: GetLocaleApiV3AdminStore_eventsStore_event_idRsvps
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /{locale}/api/v3/admin/store_events
+  method: get
+  operationId: GetLocaleApiV3AdminStore_events
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /{locale}/api/v3/admin/store_events
+  method: post
+  operationId: PostLocaleApiV3AdminStore_events
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /{locale}/api/v3/admin/store_events/{id}
+  method: get
+  operationId: GetLocaleApiV3AdminStore_eventsId
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /{locale}/api/v3/admin/store_events/{id}
+  method: put
+  operationId: PutLocaleApiV3AdminStore_eventsId
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /api/v3/admin/stores/{store_id_or_number}/store_hero_images
+  method: get
+  operationId: GetApiV3AdminStoresStore_id_or_numberStore_hero_images
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /api/v3/admin/stores/{store_id_or_number}/store_hero_images
+  method: post
+  operationId: PostApiV3AdminStoresStore_id_or_numberStore_hero_images
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /api/v3/admin/stores/{store_id_or_number}/store_hero_images/{id}
+  method: get
+  operationId: GetApiV3AdminStoresStore_id_or_numberStore_hero_imagesId
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /api/v3/admin/stores/{store_id_or_number}/store_hero_images/{id}
+  method: put
+  operationId: PutApiV3AdminStoresStore_id_or_numberStore_hero_imagesId
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /api/v3/admin/stores/{store_id_or_number}/regular_hours
+  method: get
+  operationId: GetApiV3AdminStoresStore_id_or_numberRegular_hours
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /api/v3/admin/stores/{store_id_or_number}/regular_hours
+  method: post
+  operationId: PostApiV3AdminStoresStore_id_or_numberRegular_hours
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /api/v3/admin/stores/{store_id_or_number}/regular_hours/{id}
+  method: get
+  operationId: GetApiV3AdminStoresStore_id_or_numberRegular_hoursId
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /api/v3/admin/stores/{store_id_or_number}/regular_hours/{id}
+  method: put
+  operationId: PutApiV3AdminStoresStore_id_or_numberRegular_hoursId
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /api/v3/admin/stores/{store_id_or_number}/store_services
+  method: get
+  operationId: GetApiV3AdminStoresStore_id_or_numberStore_services
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /api/v3/admin/stores/{store_id_or_number}/store_services
+  method: post
+  operationId: PostApiV3AdminStoresStore_id_or_numberStore_services
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /api/v3/admin/stores/{store_id_or_number}/store_services/{id}
+  method: get
+  operationId: GetApiV3AdminStoresStore_id_or_numberStore_servicesId
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /api/v3/admin/stores/{store_id_or_number}/store_services/{id}
+  method: put
+  operationId: PutApiV3AdminStoresStore_id_or_numberStore_servicesId
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /api/v3/admin/stores/{store_id_or_number}/special_hours
+  method: get
+  operationId: GetApiV3AdminStoresStore_id_or_numberSpecial_hours
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /api/v3/admin/stores/{store_id_or_number}/special_hours
+  method: post
+  operationId: PostApiV3AdminStoresStore_id_or_numberSpecial_hours
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /api/v3/admin/stores/{store_id_or_number}/special_hours/{id}
+  method: get
+  operationId: GetApiV3AdminStoresStore_id_or_numberSpecial_hoursId
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /api/v3/admin/stores/{store_id_or_number}/special_hours/{id}
+  method: put
+  operationId: PutApiV3AdminStoresStore_id_or_numberSpecial_hoursId
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /api/v3/admin/types
+  method: get
+  operationId: GetApiV3AdminTypes
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /api/v3/admin/types
+  method: post
+  operationId: PostApiV3AdminTypes
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /api/v3/admin/types/by_code/{code}
+  method: get
+  operationId: GetApiV3AdminTypesBy_codeCode
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /api/v3/admin/types/{id}
+  method: get
+  operationId: GetApiV3AdminTypesId
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /api/v3/admin/types/{id}
+  method: put
+  operationId: PutApiV3AdminTypesId
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /api/v3/admin/stores
+  method: get
+  operationId: GetApiV3AdminStores
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /api/v3/admin/stores
+  method: post
+  operationId: PostApiV3AdminStores
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /api/v3/admin/stores/{id_or_number}
+  method: get
+  operationId: GetApiV3AdminStoresId_or_number
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /api/v3/admin/stores/{id_or_number}
+  method: put
+  operationId: PutApiV3AdminStoresId_or_number
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /{locale}/api/v3/admin/customers/{customer_id_or_code}/transactions
+  method: get
+  operationId: GetLocaleApiV3AdminCustomersCustomer_id_or_codeTransactions
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /{locale}/api/v3/admin/transactions
+  method: get
+  operationId: GetLocaleApiV3AdminTransactions
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /{locale}/api/v3/admin/transactions
+  method: post
+  operationId: PostLocaleApiV3AdminTransactions
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /{locale}/api/v3/admin/transactions/{id_or_code}
+  method: get
+  operationId: GetLocaleApiV3AdminTransactionsId_or_code
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /{locale}/api/v3/admin/transactions/{id_or_code}
+  method: put
+  operationId: PutLocaleApiV3AdminTransactionsId_or_code
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /{locale}/api/v3/admin/appointments/{appointment_id_or_code}/transactions/{id_or_code}
+  method: post
+  operationId: PostLocaleApiV3AdminAppointmentsAppointment_id_or_codeTransactionsId_or_code
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /{locale}/api/v3/admin/customers/{customer_id_or_code}/transactions/{id_or_code}
+  method: post
+  operationId: PostLocaleApiV3AdminCustomersCustomer_id_or_codeTransactionsId_or_code
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /api/v3/admin/users/{code_or_id}/regular_hours/{id}
+  method: delete
+  operationId: DeleteApiV3AdminUsersCode_or_idRegular_hoursId
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /api/v3/admin/users/{code_or_id}/special_hours/{id}
+  method: delete
+  operationId: DeleteApiV3AdminUsersCode_or_idSpecial_hoursId
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /api/v3/admin/users/{user_id_or_code}/regular_hours
+  method: get
+  operationId: GetApiV3AdminUsersUser_id_or_codeRegular_hours
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /api/v3/admin/users/{user_id_or_code}/regular_hours
+  method: post
+  operationId: PostApiV3AdminUsersUser_id_or_codeRegular_hours
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /api/v3/admin/users/{user_id_or_code}/regular_hours/{id}
+  method: get
+  operationId: GetApiV3AdminUsersUser_id_or_codeRegular_hoursId
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /api/v3/admin/users/{user_id_or_code}/regular_hours/{id}
+  method: put
+  operationId: PutApiV3AdminUsersUser_id_or_codeRegular_hoursId
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /api/v3/admin/users/{user_id_or_code}/special_hours
+  method: get
+  operationId: GetApiV3AdminUsersUser_id_or_codeSpecial_hours
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /api/v3/admin/users/{user_id_or_code}/special_hours
+  method: post
+  operationId: PostApiV3AdminUsersUser_id_or_codeSpecial_hours
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /api/v3/admin/users/{user_id_or_code}/special_hours/{id}
+  method: get
+  operationId: GetApiV3AdminUsersUser_id_or_codeSpecial_hoursId
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /api/v3/admin/users/{user_id_or_code}/special_hours/{id}
+  method: put
+  operationId: PutApiV3AdminUsersUser_id_or_codeSpecial_hoursId
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /api/v3/events/{id}
+  method: get
+  operationId: GetApiV3EventsId
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /{locale}/api/v3/events
+  method: get
+  operationId: GetLocaleApiV3Events
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /api/v3/stores
+  method: get
+  operationId: GetApiV3Stores
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /api/v3/stores/combined
+  method: get
+  operationId: GetApiV3StoresCombined
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /api/v3/stores/{id_or_number}
+  method: get
+  operationId: GetApiV3StoresId_or_number
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /api/v3/stores/locations
+  method: get
+  operationId: GetApiV3StoresLocations
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /api/v3/stores/{store_id_or_slug}/featured_associates
+  method: get
+  operationId: GetApiV3StoresStore_id_or_slugFeatured_associates
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /api/v3/stores/{store_number}
+  method: get
+  operationId: GetApiV3StoresStore_number
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /api/v3/stores/store_search
+  method: get
+  operationId: GetApiV3StoresStore_search
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /{locale}/api/v3/questions
+  method: get
+  operationId: GetLocaleApiV3Questions
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /{locale}/api/v3/store_services/{id}/appointment_timeslots
+  method: get
+  operationId: GetLocaleApiV3Store_servicesIdAppointment_timeslots
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /{locale}/api/v3/services
+  method: get
+  operationId: GetLocaleApiV3Services
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /{locale}/api/v3/services/{id}/
+  method: get
+  operationId: GetLocaleApiV3ServicesId
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /{locale}/api/v3/services/{id}/stores
+  method: get
+  operationId: GetLocaleApiV3ServicesIdStores
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /events/{store_event_id}/rsvps
+  method: post
+  operationId: PostEventsStore_event_idRsvps
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /{locale}/api/v3/stores/{store_id}/store_services
+  method: get
+  operationId: GetLocaleApiV3StoresStore_idStore_services
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /{locale}/api/v3/stores/{store_id}/store_services/{store_service_id}
+  method: get
+  operationId: GetLocaleApiV3StoresStore_idStore_servicesStore_service_id
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /{locale}/locale
+  method: get
+  operationId: GetLocaleLocale
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none

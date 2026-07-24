@@ -1,0 +1,545 @@
+generated: '2026-07-18'
+method: derived
+status: candidate
+source: openapi/brickwork-openapi.yml
+server:
+  name: brickwork
+  transport: http
+notes: Candidate MCP tool surface derived one-to-one from Brickwork API v3 operations. No official Brickwork/DevHub MCP server
+  was found; this is a starting point for an agent wrapper.
+tools:
+- name: GetLocaleApiV3AdminAppointments
+  description: List all Appointments
+  source_operation: openapi/brickwork-openapi.yml#GetLocaleApiV3AdminAppointments
+  method: GET
+  path: /{locale}/api/v3/admin/appointments
+- name: GetLocaleApiV3AdminStoresStore_id_or_numberAppointments
+  description: List Store Appointments
+  source_operation: openapi/brickwork-openapi.yml#GetLocaleApiV3AdminStoresStore_id_or_numberAppointments
+  method: GET
+  path: /{locale}/api/v3/admin/stores/{store_id_or_number}/appointments
+- name: GetLocaleApiV3AdminStoresStore_id_or_numberAppointmentsId_or_code
+  description: Show Appointment
+  source_operation: openapi/brickwork-openapi.yml#GetLocaleApiV3AdminStoresStore_id_or_numberAppointmentsId_or_code
+  method: GET
+  path: /{locale}/api/v3/admin/stores/{store_id_or_number}/appointments/{id_or_code}
+- name: PutLocaleApiV3AdminStoresStore_id_or_numberAppointmentsId_or_code
+  description: Update Appointment
+  source_operation: openapi/brickwork-openapi.yml#PutLocaleApiV3AdminStoresStore_id_or_numberAppointmentsId_or_code
+  method: PUT
+  path: /{locale}/api/v3/admin/stores/{store_id_or_number}/appointments/{id_or_code}
+- name: PostApiV3AdminStoresStore_id_or_numberAppointments
+  description: Create an Appointment
+  source_operation: openapi/brickwork-openapi.yml#PostApiV3AdminStoresStore_id_or_numberAppointments
+  method: POST
+  path: /api/v3/admin/stores/{store_id_or_number}/appointments
+- name: GetApiV3AdminUsers
+  description: Show all Users
+  source_operation: openapi/brickwork-openapi.yml#GetApiV3AdminUsers
+  method: GET
+  path: /api/v3/admin/users
+- name: PostApiV3AdminUsers
+  description: Create User
+  source_operation: openapi/brickwork-openapi.yml#PostApiV3AdminUsers
+  method: POST
+  path: /api/v3/admin/users
+- name: GetApiV3AdminUsersId_or_code
+  description: Show User by ID or Code
+  source_operation: openapi/brickwork-openapi.yml#GetApiV3AdminUsersId_or_code
+  method: GET
+  path: /api/v3/admin/users/{id_or_code}
+- name: PutApiV3AdminUsersId_or_code
+  description: Update User by ID or Code
+  source_operation: openapi/brickwork-openapi.yml#PutApiV3AdminUsersId_or_code
+  method: PUT
+  path: /api/v3/admin/users/{id_or_code}
+- name: GetLocaleApiV3AdminCustomersCustomer_id_or_codeAppointments
+  description: List all customer appointments
+  source_operation: openapi/brickwork-openapi.yml#GetLocaleApiV3AdminCustomersCustomer_id_or_codeAppointments
+  method: GET
+  path: /{locale}/api/v3/admin/customers/{customer_id_or_code}/appointments
+- name: GetLocaleApiV3AdminCustomersCustomer_idRsvps
+  description: List all Customer Rsvps
+  source_operation: openapi/brickwork-openapi.yml#GetLocaleApiV3AdminCustomersCustomer_idRsvps
+  method: GET
+  path: /{locale}/api/v3/admin/customers/{customer_id}/rsvps
+- name: GetLocaleApiV3AdminCustomers
+  description: List all Company Customers
+  source_operation: openapi/brickwork-openapi.yml#GetLocaleApiV3AdminCustomers
+  method: GET
+  path: /{locale}/api/v3/admin/customers
+- name: PostLocaleApiV3AdminCustomers
+  description: Create Customers
+  source_operation: openapi/brickwork-openapi.yml#PostLocaleApiV3AdminCustomers
+  method: POST
+  path: /{locale}/api/v3/admin/customers
+- name: GetLocaleApiV3AdminCustomersId_or_code
+  description: Show Customer
+  source_operation: openapi/brickwork-openapi.yml#GetLocaleApiV3AdminCustomersId_or_code
+  method: GET
+  path: /{locale}/api/v3/admin/customers/{id_or_code}
+- name: PutLocaleApiV3AdminCustomersCustomer_id_or_code
+  description: Update Customers
+  source_operation: openapi/brickwork-openapi.yml#PutLocaleApiV3AdminCustomersCustomer_id_or_code
+  method: PUT
+  path: /{locale}/api/v3/admin/customers/{customer_id_or_code}
+- name: GetLocaleApiV3AdminEventsEvent_idRsvps
+  description: List all Event Rsvps
+  source_operation: openapi/brickwork-openapi.yml#GetLocaleApiV3AdminEventsEvent_idRsvps
+  method: GET
+  path: /{locale}/api/v3/admin/events/{event_id}/rsvps
+- name: GetLocaleApiV3AdminEvents
+  description: List company events
+  source_operation: openapi/brickwork-openapi.yml#GetLocaleApiV3AdminEvents
+  method: GET
+  path: /{locale}/api/v3/admin/events
+- name: PostLocaleApiV3AdminEvents
+  description: Create Company Event
+  source_operation: openapi/brickwork-openapi.yml#PostLocaleApiV3AdminEvents
+  method: POST
+  path: /{locale}/api/v3/admin/events
+- name: GetLocaleApiV3AdminEventsId
+  description: Show Company Event
+  source_operation: openapi/brickwork-openapi.yml#GetLocaleApiV3AdminEventsId
+  method: GET
+  path: /{locale}/api/v3/admin/events/{id}
+- name: PutLocaleApiV3AdminEventsId
+  description: Update a Company Event
+  source_operation: openapi/brickwork-openapi.yml#PutLocaleApiV3AdminEventsId
+  method: PUT
+  path: /{locale}/api/v3/admin/events/{id}
+- name: GetApiV3AdminFeatures
+  description: Feature List
+  source_operation: openapi/brickwork-openapi.yml#GetApiV3AdminFeatures
+  method: GET
+  path: /api/v3/admin/features
+- name: PostApiV3AdminFeatures
+  description: Create Feature
+  source_operation: openapi/brickwork-openapi.yml#PostApiV3AdminFeatures
+  method: POST
+  path: /api/v3/admin/features
+- name: GetApiV3AdminFeaturesId
+  description: Show Feature
+  source_operation: openapi/brickwork-openapi.yml#GetApiV3AdminFeaturesId
+  method: GET
+  path: /api/v3/admin/features/{id}
+- name: PutApiV3AdminFeaturesId
+  description: Update Feature
+  source_operation: openapi/brickwork-openapi.yml#PutApiV3AdminFeaturesId
+  method: PUT
+  path: /api/v3/admin/features/{id}
+- name: GetApiV3AdminGroups
+  description: Groups List
+  source_operation: openapi/brickwork-openapi.yml#GetApiV3AdminGroups
+  method: GET
+  path: /api/v3/admin/groups
+- name: PostApiV3AdminGroups
+  description: Create Group
+  source_operation: openapi/brickwork-openapi.yml#PostApiV3AdminGroups
+  method: POST
+  path: /api/v3/admin/groups
+- name: GetApiV3AdminGroupsId
+  description: Show Group
+  source_operation: openapi/brickwork-openapi.yml#GetApiV3AdminGroupsId
+  method: GET
+  path: /api/v3/admin/groups/{id}
+- name: PutApiV3AdminGroupsId
+  description: Update Group
+  source_operation: openapi/brickwork-openapi.yml#PutApiV3AdminGroupsId
+  method: PUT
+  path: /api/v3/admin/groups/{id}
+- name: GetApiV3AdminLanguages
+  description: List all languages
+  source_operation: openapi/brickwork-openapi.yml#GetApiV3AdminLanguages
+  method: GET
+  path: /api/v3/admin/languages
+- name: GetLocaleApiV3AdminQuestion_answers
+  description: List all question answers
+  source_operation: openapi/brickwork-openapi.yml#GetLocaleApiV3AdminQuestion_answers
+  method: GET
+  path: /{locale}/api/v3/admin/question_answers
+- name: GetLocaleApiV3AdminQuestion_answersQuestion_id
+  description: Show question
+  source_operation: openapi/brickwork-openapi.yml#GetLocaleApiV3AdminQuestion_answersQuestion_id
+  method: GET
+  path: /{locale}/api/v3/admin/question_answers/{question_id}
+- name: GetLocaleApiV3AdminQuestions
+  description: List all questions
+  source_operation: openapi/brickwork-openapi.yml#GetLocaleApiV3AdminQuestions
+  method: GET
+  path: /{locale}/api/v3/admin/questions
+- name: GetLocaleApiV3AdminQuestionsQuestion_id
+  description: Show question
+  source_operation: openapi/brickwork-openapi.yml#GetLocaleApiV3AdminQuestionsQuestion_id
+  method: GET
+  path: /{locale}/api/v3/admin/questions/{question_id}
+- name: GetLocaleApiV3AdminRsvps
+  description: List all Rsvps
+  source_operation: openapi/brickwork-openapi.yml#GetLocaleApiV3AdminRsvps
+  method: GET
+  path: /{locale}/api/v3/admin/rsvps
+- name: GetApiV3AdminServices
+  description: Services List
+  source_operation: openapi/brickwork-openapi.yml#GetApiV3AdminServices
+  method: GET
+  path: /api/v3/admin/services
+- name: PostApiV3AdminServices
+  description: Create Service
+  source_operation: openapi/brickwork-openapi.yml#PostApiV3AdminServices
+  method: POST
+  path: /api/v3/admin/services
+- name: GetApiV3AdminServicesId
+  description: Service
+  source_operation: openapi/brickwork-openapi.yml#GetApiV3AdminServicesId
+  method: GET
+  path: /api/v3/admin/services/{id}
+- name: PutApiV3AdminServicesId
+  description: Update Service
+  source_operation: openapi/brickwork-openapi.yml#PutApiV3AdminServicesId
+  method: PUT
+  path: /api/v3/admin/services/{id}
+- name: GetApiV3AdminStoresId_or_numberAlerts
+  description: Alerts List
+  source_operation: openapi/brickwork-openapi.yml#GetApiV3AdminStoresId_or_numberAlerts
+  method: GET
+  path: /api/v3/admin/stores/{id_or_number}/alerts
+- name: PostApiV3AdminStoresId_or_numberAlerts
+  description: Create Alert
+  source_operation: openapi/brickwork-openapi.yml#PostApiV3AdminStoresId_or_numberAlerts
+  method: POST
+  path: /api/v3/admin/stores/{id_or_number}/alerts
+- name: GetApiV3AdminStoresId_or_numberAlertsId
+  description: Show Alert
+  source_operation: openapi/brickwork-openapi.yml#GetApiV3AdminStoresId_or_numberAlertsId
+  method: GET
+  path: /api/v3/admin/stores/{id_or_number}/alerts/{id}
+- name: PutApiV3AdminStoresId_or_numberAlertsId
+  description: Update Alert
+  source_operation: openapi/brickwork-openapi.yml#PutApiV3AdminStoresId_or_numberAlertsId
+  method: PUT
+  path: /api/v3/admin/stores/{id_or_number}/alerts/{id}
+- name: GetLocaleApiV3AdminStore_eventsStore_event_idRsvps
+  description: List all Store Event Rsvps
+  source_operation: openapi/brickwork-openapi.yml#GetLocaleApiV3AdminStore_eventsStore_event_idRsvps
+  method: GET
+  path: /{locale}/api/v3/admin/store_events/{store_event_id}/rsvps
+- name: GetLocaleApiV3AdminStore_events
+  description: List store events
+  source_operation: openapi/brickwork-openapi.yml#GetLocaleApiV3AdminStore_events
+  method: GET
+  path: /{locale}/api/v3/admin/store_events
+- name: PostLocaleApiV3AdminStore_events
+  description: Create Store Event
+  source_operation: openapi/brickwork-openapi.yml#PostLocaleApiV3AdminStore_events
+  method: POST
+  path: /{locale}/api/v3/admin/store_events
+- name: GetLocaleApiV3AdminStore_eventsId
+  description: Show Store Event
+  source_operation: openapi/brickwork-openapi.yml#GetLocaleApiV3AdminStore_eventsId
+  method: GET
+  path: /{locale}/api/v3/admin/store_events/{id}
+- name: PutLocaleApiV3AdminStore_eventsId
+  description: Update a Store Event
+  source_operation: openapi/brickwork-openapi.yml#PutLocaleApiV3AdminStore_eventsId
+  method: PUT
+  path: /{locale}/api/v3/admin/store_events/{id}
+- name: GetApiV3AdminStoresStore_id_or_numberStore_hero_images
+  description: List Store Images
+  source_operation: openapi/brickwork-openapi.yml#GetApiV3AdminStoresStore_id_or_numberStore_hero_images
+  method: GET
+  path: /api/v3/admin/stores/{store_id_or_number}/store_hero_images
+- name: PostApiV3AdminStoresStore_id_or_numberStore_hero_images
+  description: Create Store Image
+  source_operation: openapi/brickwork-openapi.yml#PostApiV3AdminStoresStore_id_or_numberStore_hero_images
+  method: POST
+  path: /api/v3/admin/stores/{store_id_or_number}/store_hero_images
+- name: GetApiV3AdminStoresStore_id_or_numberStore_hero_imagesId
+  description: Show Store Image
+  source_operation: openapi/brickwork-openapi.yml#GetApiV3AdminStoresStore_id_or_numberStore_hero_imagesId
+  method: GET
+  path: /api/v3/admin/stores/{store_id_or_number}/store_hero_images/{id}
+- name: PutApiV3AdminStoresStore_id_or_numberStore_hero_imagesId
+  description: Update Store Image Properties
+  source_operation: openapi/brickwork-openapi.yml#PutApiV3AdminStoresStore_id_or_numberStore_hero_imagesId
+  method: PUT
+  path: /api/v3/admin/stores/{store_id_or_number}/store_hero_images/{id}
+- name: GetApiV3AdminStoresStore_id_or_numberRegular_hours
+  description: List Regular Hours
+  source_operation: openapi/brickwork-openapi.yml#GetApiV3AdminStoresStore_id_or_numberRegular_hours
+  method: GET
+  path: /api/v3/admin/stores/{store_id_or_number}/regular_hours
+- name: PostApiV3AdminStoresStore_id_or_numberRegular_hours
+  description: Create Regular Hours
+  source_operation: openapi/brickwork-openapi.yml#PostApiV3AdminStoresStore_id_or_numberRegular_hours
+  method: POST
+  path: /api/v3/admin/stores/{store_id_or_number}/regular_hours
+- name: GetApiV3AdminStoresStore_id_or_numberRegular_hoursId
+  description: Show Regular Hour
+  source_operation: openapi/brickwork-openapi.yml#GetApiV3AdminStoresStore_id_or_numberRegular_hoursId
+  method: GET
+  path: /api/v3/admin/stores/{store_id_or_number}/regular_hours/{id}
+- name: PutApiV3AdminStoresStore_id_or_numberRegular_hoursId
+  description: Update Regular Hours
+  source_operation: openapi/brickwork-openapi.yml#PutApiV3AdminStoresStore_id_or_numberRegular_hoursId
+  method: PUT
+  path: /api/v3/admin/stores/{store_id_or_number}/regular_hours/{id}
+- name: GetApiV3AdminStoresStore_id_or_numberStore_services
+  description: List Store Services
+  source_operation: openapi/brickwork-openapi.yml#GetApiV3AdminStoresStore_id_or_numberStore_services
+  method: GET
+  path: /api/v3/admin/stores/{store_id_or_number}/store_services
+- name: PostApiV3AdminStoresStore_id_or_numberStore_services
+  description: Create Store Service
+  source_operation: openapi/brickwork-openapi.yml#PostApiV3AdminStoresStore_id_or_numberStore_services
+  method: POST
+  path: /api/v3/admin/stores/{store_id_or_number}/store_services
+- name: GetApiV3AdminStoresStore_id_or_numberStore_servicesId
+  description: Show Store Service
+  source_operation: openapi/brickwork-openapi.yml#GetApiV3AdminStoresStore_id_or_numberStore_servicesId
+  method: GET
+  path: /api/v3/admin/stores/{store_id_or_number}/store_services/{id}
+- name: PutApiV3AdminStoresStore_id_or_numberStore_servicesId
+  description: Update Store Service
+  source_operation: openapi/brickwork-openapi.yml#PutApiV3AdminStoresStore_id_or_numberStore_servicesId
+  method: PUT
+  path: /api/v3/admin/stores/{store_id_or_number}/store_services/{id}
+- name: GetApiV3AdminStoresStore_id_or_numberSpecial_hours
+  description: List Special Hours
+  source_operation: openapi/brickwork-openapi.yml#GetApiV3AdminStoresStore_id_or_numberSpecial_hours
+  method: GET
+  path: /api/v3/admin/stores/{store_id_or_number}/special_hours
+- name: PostApiV3AdminStoresStore_id_or_numberSpecial_hours
+  description: Create Special Hours
+  source_operation: openapi/brickwork-openapi.yml#PostApiV3AdminStoresStore_id_or_numberSpecial_hours
+  method: POST
+  path: /api/v3/admin/stores/{store_id_or_number}/special_hours
+- name: GetApiV3AdminStoresStore_id_or_numberSpecial_hoursId
+  description: Show Special Hour
+  source_operation: openapi/brickwork-openapi.yml#GetApiV3AdminStoresStore_id_or_numberSpecial_hoursId
+  method: GET
+  path: /api/v3/admin/stores/{store_id_or_number}/special_hours/{id}
+- name: PutApiV3AdminStoresStore_id_or_numberSpecial_hoursId
+  description: Update Special Hours
+  source_operation: openapi/brickwork-openapi.yml#PutApiV3AdminStoresStore_id_or_numberSpecial_hoursId
+  method: PUT
+  path: /api/v3/admin/stores/{store_id_or_number}/special_hours/{id}
+- name: GetApiV3AdminTypes
+  description: Type List
+  source_operation: openapi/brickwork-openapi.yml#GetApiV3AdminTypes
+  method: GET
+  path: /api/v3/admin/types
+- name: PostApiV3AdminTypes
+  description: Create Type
+  source_operation: openapi/brickwork-openapi.yml#PostApiV3AdminTypes
+  method: POST
+  path: /api/v3/admin/types
+- name: GetApiV3AdminTypesBy_codeCode
+  description: Show Type by Code
+  source_operation: openapi/brickwork-openapi.yml#GetApiV3AdminTypesBy_codeCode
+  method: GET
+  path: /api/v3/admin/types/by_code/{code}
+- name: GetApiV3AdminTypesId
+  description: Show Type
+  source_operation: openapi/brickwork-openapi.yml#GetApiV3AdminTypesId
+  method: GET
+  path: /api/v3/admin/types/{id}
+- name: PutApiV3AdminTypesId
+  description: Update Type
+  source_operation: openapi/brickwork-openapi.yml#PutApiV3AdminTypesId
+  method: PUT
+  path: /api/v3/admin/types/{id}
+- name: GetApiV3AdminStores
+  description: Store List
+  source_operation: openapi/brickwork-openapi.yml#GetApiV3AdminStores
+  method: GET
+  path: /api/v3/admin/stores
+- name: PostApiV3AdminStores
+  description: Create Store
+  source_operation: openapi/brickwork-openapi.yml#PostApiV3AdminStores
+  method: POST
+  path: /api/v3/admin/stores
+- name: GetApiV3AdminStoresId_or_number
+  description: Show Store
+  source_operation: openapi/brickwork-openapi.yml#GetApiV3AdminStoresId_or_number
+  method: GET
+  path: /api/v3/admin/stores/{id_or_number}
+- name: PutApiV3AdminStoresId_or_number
+  description: Update Store
+  source_operation: openapi/brickwork-openapi.yml#PutApiV3AdminStoresId_or_number
+  method: PUT
+  path: /api/v3/admin/stores/{id_or_number}
+- name: GetLocaleApiV3AdminCustomersCustomer_id_or_codeTransactions
+  description: Customer Transactions
+  source_operation: openapi/brickwork-openapi.yml#GetLocaleApiV3AdminCustomersCustomer_id_or_codeTransactions
+  method: GET
+  path: /{locale}/api/v3/admin/customers/{customer_id_or_code}/transactions
+- name: GetLocaleApiV3AdminTransactions
+  description: Index Transactions
+  source_operation: openapi/brickwork-openapi.yml#GetLocaleApiV3AdminTransactions
+  method: GET
+  path: /{locale}/api/v3/admin/transactions
+- name: PostLocaleApiV3AdminTransactions
+  description: Create Transaction
+  source_operation: openapi/brickwork-openapi.yml#PostLocaleApiV3AdminTransactions
+  method: POST
+  path: /{locale}/api/v3/admin/transactions
+- name: GetLocaleApiV3AdminTransactionsId_or_code
+  description: Show Transaction
+  source_operation: openapi/brickwork-openapi.yml#GetLocaleApiV3AdminTransactionsId_or_code
+  method: GET
+  path: /{locale}/api/v3/admin/transactions/{id_or_code}
+- name: PutLocaleApiV3AdminTransactionsId_or_code
+  description: Update Transaction
+  source_operation: openapi/brickwork-openapi.yml#PutLocaleApiV3AdminTransactionsId_or_code
+  method: PUT
+  path: /{locale}/api/v3/admin/transactions/{id_or_code}
+- name: PostLocaleApiV3AdminAppointmentsAppointment_id_or_codeTransactionsId_or_code
+  description: Add appointment Transaction
+  source_operation: openapi/brickwork-openapi.yml#PostLocaleApiV3AdminAppointmentsAppointment_id_or_codeTransactionsId_or_code
+  method: POST
+  path: /{locale}/api/v3/admin/appointments/{appointment_id_or_code}/transactions/{id_or_code}
+- name: PostLocaleApiV3AdminCustomersCustomer_id_or_codeTransactionsId_or_code
+  description: Add Customer Transaction
+  source_operation: openapi/brickwork-openapi.yml#PostLocaleApiV3AdminCustomersCustomer_id_or_codeTransactionsId_or_code
+  method: POST
+  path: /{locale}/api/v3/admin/customers/{customer_id_or_code}/transactions/{id_or_code}
+- name: DeleteApiV3AdminUsersCode_or_idRegular_hoursId
+  description: Delete User Regular Hour
+  source_operation: openapi/brickwork-openapi.yml#DeleteApiV3AdminUsersCode_or_idRegular_hoursId
+  method: DELETE
+  path: /api/v3/admin/users/{code_or_id}/regular_hours/{id}
+- name: DeleteApiV3AdminUsersCode_or_idSpecial_hoursId
+  description: Delete User Special Hour
+  source_operation: openapi/brickwork-openapi.yml#DeleteApiV3AdminUsersCode_or_idSpecial_hoursId
+  method: DELETE
+  path: /api/v3/admin/users/{code_or_id}/special_hours/{id}
+- name: GetApiV3AdminUsersUser_id_or_codeRegular_hours
+  description: Index User Regular Hours
+  source_operation: openapi/brickwork-openapi.yml#GetApiV3AdminUsersUser_id_or_codeRegular_hours
+  method: GET
+  path: /api/v3/admin/users/{user_id_or_code}/regular_hours
+- name: PostApiV3AdminUsersUser_id_or_codeRegular_hours
+  description: Create User Regular Hour
+  source_operation: openapi/brickwork-openapi.yml#PostApiV3AdminUsersUser_id_or_codeRegular_hours
+  method: POST
+  path: /api/v3/admin/users/{user_id_or_code}/regular_hours
+- name: GetApiV3AdminUsersUser_id_or_codeRegular_hoursId
+  description: Show User Regular Hour
+  source_operation: openapi/brickwork-openapi.yml#GetApiV3AdminUsersUser_id_or_codeRegular_hoursId
+  method: GET
+  path: /api/v3/admin/users/{user_id_or_code}/regular_hours/{id}
+- name: PutApiV3AdminUsersUser_id_or_codeRegular_hoursId
+  description: Update User Regular Hour
+  source_operation: openapi/brickwork-openapi.yml#PutApiV3AdminUsersUser_id_or_codeRegular_hoursId
+  method: PUT
+  path: /api/v3/admin/users/{user_id_or_code}/regular_hours/{id}
+- name: GetApiV3AdminUsersUser_id_or_codeSpecial_hours
+  description: Index User Special Hours
+  source_operation: openapi/brickwork-openapi.yml#GetApiV3AdminUsersUser_id_or_codeSpecial_hours
+  method: GET
+  path: /api/v3/admin/users/{user_id_or_code}/special_hours
+- name: PostApiV3AdminUsersUser_id_or_codeSpecial_hours
+  description: Create User Special Hour
+  source_operation: openapi/brickwork-openapi.yml#PostApiV3AdminUsersUser_id_or_codeSpecial_hours
+  method: POST
+  path: /api/v3/admin/users/{user_id_or_code}/special_hours
+- name: GetApiV3AdminUsersUser_id_or_codeSpecial_hoursId
+  description: Show User Special Hour
+  source_operation: openapi/brickwork-openapi.yml#GetApiV3AdminUsersUser_id_or_codeSpecial_hoursId
+  method: GET
+  path: /api/v3/admin/users/{user_id_or_code}/special_hours/{id}
+- name: PutApiV3AdminUsersUser_id_or_codeSpecial_hoursId
+  description: Update User Special Hour
+  source_operation: openapi/brickwork-openapi.yml#PutApiV3AdminUsersUser_id_or_codeSpecial_hoursId
+  method: PUT
+  path: /api/v3/admin/users/{user_id_or_code}/special_hours/{id}
+- name: GetApiV3EventsId
+  description: Event
+  source_operation: openapi/brickwork-openapi.yml#GetApiV3EventsId
+  method: GET
+  path: /api/v3/events/{id}
+- name: GetLocaleApiV3Events
+  description: Event List
+  source_operation: openapi/brickwork-openapi.yml#GetLocaleApiV3Events
+  method: GET
+  path: /{locale}/api/v3/events
+- name: GetApiV3Stores
+  description: Store List
+  source_operation: openapi/brickwork-openapi.yml#GetApiV3Stores
+  method: GET
+  path: /api/v3/stores
+- name: GetApiV3StoresCombined
+  description: Store and Partner Stores List
+  source_operation: openapi/brickwork-openapi.yml#GetApiV3StoresCombined
+  method: GET
+  path: /api/v3/stores/combined
+- name: GetApiV3StoresId_or_number
+  description: Store
+  source_operation: openapi/brickwork-openapi.yml#GetApiV3StoresId_or_number
+  method: GET
+  path: /api/v3/stores/{id_or_number}
+- name: GetApiV3StoresLocations
+  description: List of store locations
+  source_operation: openapi/brickwork-openapi.yml#GetApiV3StoresLocations
+  method: GET
+  path: /api/v3/stores/locations
+- name: GetApiV3StoresStore_id_or_slugFeatured_associates
+  description: Store Featured Associates
+  source_operation: openapi/brickwork-openapi.yml#GetApiV3StoresStore_id_or_slugFeatured_associates
+  method: GET
+  path: /api/v3/stores/{store_id_or_slug}/featured_associates
+- name: GetApiV3StoresStore_number
+  description: Store Number Lookup
+  source_operation: openapi/brickwork-openapi.yml#GetApiV3StoresStore_number
+  method: GET
+  path: /api/v3/stores/{store_number}
+- name: GetApiV3StoresStore_search
+  description: Basic Company Store Information
+  source_operation: openapi/brickwork-openapi.yml#GetApiV3StoresStore_search
+  method: GET
+  path: /api/v3/stores/store_search
+- name: GetLocaleApiV3Questions
+  description: List all questions
+  source_operation: openapi/brickwork-openapi.yml#GetLocaleApiV3Questions
+  method: GET
+  path: /{locale}/api/v3/questions
+- name: GetLocaleApiV3Store_servicesIdAppointment_timeslots
+  description: Service Appointment Timeslots
+  source_operation: openapi/brickwork-openapi.yml#GetLocaleApiV3Store_servicesIdAppointment_timeslots
+  method: GET
+  path: /{locale}/api/v3/store_services/{id}/appointment_timeslots
+- name: GetLocaleApiV3Services
+  description: List Company Services
+  source_operation: openapi/brickwork-openapi.yml#GetLocaleApiV3Services
+  method: GET
+  path: /{locale}/api/v3/services
+- name: GetLocaleApiV3ServicesId
+  description: Show Company Service
+  source_operation: openapi/brickwork-openapi.yml#GetLocaleApiV3ServicesId
+  method: GET
+  path: /{locale}/api/v3/services/{id}/
+- name: GetLocaleApiV3ServicesIdStores
+  description: Show Company Service Stores
+  source_operation: openapi/brickwork-openapi.yml#GetLocaleApiV3ServicesIdStores
+  method: GET
+  path: /{locale}/api/v3/services/{id}/stores
+- name: PostEventsStore_event_idRsvps
+  description: Create RSVP for a Store Event
+  source_operation: openapi/brickwork-openapi.yml#PostEventsStore_event_idRsvps
+  method: POST
+  path: /events/{store_event_id}/rsvps
+- name: GetLocaleApiV3StoresStore_idStore_services
+  description: Store Services List
+  source_operation: openapi/brickwork-openapi.yml#GetLocaleApiV3StoresStore_idStore_services
+  method: GET
+  path: /{locale}/api/v3/stores/{store_id}/store_services
+- name: GetLocaleApiV3StoresStore_idStore_servicesStore_service_id
+  description: Store Service
+  source_operation: openapi/brickwork-openapi.yml#GetLocaleApiV3StoresStore_idStore_servicesStore_service_id
+  method: GET
+  path: /{locale}/api/v3/stores/{store_id}/store_services/{store_service_id}
+- name: GetLocaleLocale
+  description: Locale
+  source_operation: openapi/brickwork-openapi.yml#GetLocaleLocale
+  method: GET
+  path: /{locale}/locale

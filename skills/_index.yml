@@ -1,0 +1,16 @@
+generated: '2026-07-18'
+method: generated
+api: openapi/brickwork-openapi.yml
+skills:
+- file: brickwork-book-store-appointment.md
+  name: Book a store appointment
+  api: openapi/brickwork-openapi.yml
+  operations: [GetApiV3Stores, GetLocaleApiV3StoresStore_idStore_services, PostLocaleApiV3AdminCustomers, PostApiV3AdminStoresStore_id_or_numberAppointments, GetLocaleApiV3AdminStoresStore_id_or_numberAppointmentsId_or_code]
+- file: brickwork-manage-store-profile.md
+  name: Manage a store profile and hours
+  api: openapi/brickwork-openapi.yml
+  operations: [GetApiV3AdminStores, PostApiV3AdminStores, PutApiV3AdminStoresId_or_number, PostApiV3AdminStoresStore_id_or_numberRegular_hours]
+- file: brickwork-publish-store-event.md
+  name: Publish a store event and take RSVPs
+  api: openapi/brickwork-openapi.yml
+  operations: [GetLocaleApiV3AdminStore_events, PostLocaleApiV3AdminStore_events, PutLocaleApiV3AdminStore_eventsId, PostEventsStore_event_idRsvps]

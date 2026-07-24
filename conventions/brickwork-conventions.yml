@@ -1,0 +1,39 @@
+generated: '2026-07-18'
+method: derived
+source: openapi/brickwork-openapi.yml
+authentication:
+  style: api_key
+  location: query
+  parameter: api_key
+  notes: Admin endpoints require a company api_key passed as a query parameter; see authentication/brickwork-authentication.yml
+pagination:
+  style: page-number
+  params:
+  - page
+  response_fields:
+  - meta
+  notes: List endpoints accept a page query parameter; paginated collections return a meta object with pagination details.
+filtering:
+  style: nested-query-object
+  params:
+  - query[...]
+  notes: List endpoints accept a nested query object (e.g. query[start_date], query[store_ids], query[state]) for filtering
+    and ordering.
+localization:
+  style: path-prefix
+  notes: Most endpoints accept an optional leading /{locale}/ path segment to localize responses; a Languages resource enumerates
+    supported locales.
+date_time:
+  notes: Dates use YYYY-MM-DD; utc_offset query parameter controls timezone. Encode + as %2B.
+idempotency:
+  supported: false
+  notes: No idempotency-key mechanism is documented in the provider reference.
+versioning:
+  style: uri-path
+  current: v3
+  notes: Version is embedded in the path (/api/v3/).
+media_type: application/json
+cross_links:
+  authentication: authentication/brickwork-authentication.yml
+  lifecycle: lifecycle/brickwork-lifecycle.yml
+  data_model: data-model/brickwork-data-model.yml

@@ -1,0 +1,17 @@
+generated: '2026-07-18'
+method: searched
+source: https://production.brickworksoftware.com/api_docs/
+versioning:
+  scheme: uri-path
+  current: v3
+  docs: https://production.brickworksoftware.com/api_docs/
+deprecation:
+  policy_url: null
+  sunset_header: false
+  notes: No deprecation policy or Sunset/Deprecation header support documented.
+sla:
+  url: null
+status_page: null
+notes: Brickwork is now operated by DevHub (devhub.com). API reference published at production.brickworksoftware.com/api_docs
+  (apiDoc). No public status page or deprecation policy located.
+deprecated_operations: []

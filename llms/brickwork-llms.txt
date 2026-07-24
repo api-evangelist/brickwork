@@ -1,0 +1,26 @@
+# Brickwork API
+
+> Brickwork (now part of DevHub) is an omnichannel retail platform that powers a digital presence for physical stores — store pages, store locators, appointments, in-store events with RSVPs, local services, and customer records. The Brickwork API v3 exposes admin management and public front-end store data. Admin endpoints authenticate with a company api_key query parameter.
+
+## APIs
+- [Brickwork API v3 (OpenAPI)](https://raw.githubusercontent.com/api-evangelist/brickwork/refs/heads/main/openapi/brickwork-openapi.yml): 107 operations across stores, appointments, events, RSVPs, services, customers, hours, and transactions.
+
+## Docs
+- [Brickwork API Reference (apiDoc)](https://production.brickworksoftware.com/api_docs/): provider-published API reference.
+- [DevHub platform](https://www.devhub.com/platform/): the platform Brickwork now operates under.
+- [DevHub pricing](https://www.devhub.com/pricing/)
+- [DevHub FAQ / support](https://www.devhub.com/faq/)
+- [Terms of Service](https://www.devhub.com/terms/)
+- [Privacy Policy](https://www.devhub.com/privacy/)
+
+## Specs & Artifacts
+- [Authentication profile](https://raw.githubusercontent.com/api-evangelist/brickwork/refs/heads/main/authentication/brickwork-authentication.yml)
+- [API conventions](https://raw.githubusercontent.com/api-evangelist/brickwork/refs/heads/main/conventions/brickwork-conventions.yml)
+- [Data model](https://raw.githubusercontent.com/api-evangelist/brickwork/refs/heads/main/data-model/brickwork-data-model.yml)
+- [Conformance](https://raw.githubusercontent.com/api-evangelist/brickwork/refs/heads/main/conformance/brickwork-conformance.yml)
+- [Lifecycle](https://raw.githubusercontent.com/api-evangelist/brickwork/refs/heads/main/lifecycle/brickwork-lifecycle.yml)
+- [MCP candidate tools](https://raw.githubusercontent.com/api-evangelist/brickwork/refs/heads/main/mcp/brickwork-mcp.yml)
+- [Agent Skills index](https://raw.githubusercontent.com/api-evangelist/brickwork/refs/heads/main/skills/_index.yml)
+
+## Source
+- [GitHub: BrickworkSoftware](https://github.com/BrickworkSoftware)
