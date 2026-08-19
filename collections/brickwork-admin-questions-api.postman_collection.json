@@ -1,0 +1,309 @@
+{
+  "item": [
+    {
+      "id": "51e1c307-5b7c-4589-8a5e-a1dd2bf83e46",
+      "name": "Admin Questions",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "d7616eb3-5266-408d-b2ac-3bf033d2fc1e",
+          "name": "List all questions",
+          "request": {
+            "name": "List all questions",
+            "description": {
+              "content": "Example: `http://company.com/api/v3/admin/questions?query[key]=favorite_color`",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                ":locale",
+                "api",
+                "v3",
+                "admin",
+                "questions"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "page",
+                  "value": "<integer>",
+                  "description": "Page number of your query"
+                },
+                {
+                  "disabled": false,
+                  "key": "query[key]",
+                  "value": "<string>",
+                  "description": "Filter questions by key ['key1', key2, key3]"
+                },
+                {
+                  "disabled": false,
+                  "key": "query[code]",
+                  "value": "<string>",
+                  "description": "Filter questions by question_type ['question_type1','question_type2','question_type3']"
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "locale",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "apikey",
+              "apikey": [
+                {
+                  "key": "key",
+                  "value": "api_key"
+                },
+                {
+                  "key": "value",
+                  "value": "{{apiKey}}"
+                },
+                {
+                  "key": "in",
+                  "value": "query"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "865dd0ae-4fae-453d-bef1-b93816eb31b1",
+              "name": "Successful response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    ":locale",
+                    "api",
+                    "v3",
+                    "admin",
+                    "questions"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "page",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "query[key]",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "query[code]",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "api_key",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "locale",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "278dd71e-310e-4e32-915e-066838c7edbd",
+          "name": "Show question",
+          "request": {
+            "name": "Show question",
+            "description": {
+              "content": "Example: `http://company.com/api/v3/admin/questions/:question_id`",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                ":locale",
+                "api",
+                "v3",
+                "admin",
+                "questions",
+                ":question_id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "question_id",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "locale",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "apikey",
+              "apikey": [
+                {
+                  "key": "key",
+                  "value": "api_key"
+                },
+                {
+                  "key": "value",
+                  "value": "{{apiKey}}"
+                },
+                {
+                  "key": "in",
+                  "value": "query"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "aa62cd18-b95c-45e8-acfb-d024098260a4",
+              "name": "Successful response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    ":locale",
+                    "api",
+                    "v3",
+                    "admin",
+                    "questions",
+                    ":question_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "api_key",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "question_id",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "locale",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": 3496,\n  \"key\": 9847,\n  \"display_text\": \"string\",\n  \"question_type\": \"string\",\n  \"position\": 6826,\n  \"status\": 1291,\n  \"props\": {},\n  \"nextgen_id\": \"string\",\n  \"global_appointment\": true,\n  \"assignments\": {},\n  \"created_at\": \"string\",\n  \"updated_at\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://production.brickworksoftware.com",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "cbd67050-e9cc-44f5-a1ed-4d9788ba85c2",
+    "name": "Brickwork Admin Appointments Admin Questions API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Brickwork (now part of DevHub) omnichannel retail platform API v3. Powers store pages, store locators, appointments, events, RSVPs, in-store services, customers, and local store content for physical retail. Admin endpoints are authenticated with an api_key; front-end store endpoints surface public store, service, and event data. Derived from the provider-published apiDoc reference at production.brickworksoftware.com/api_docs.\n\nContact Support:\n Name: Brickwork / DevHub",
+      "type": "text/plain"
+    }
+  }
+}

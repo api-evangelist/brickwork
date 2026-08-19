@@ -1,0 +1,37 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Brickwork Admin Appointments Utilities API",
+    "version": "v3"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Utilities",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Locale",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://production.brickworksoftware.com/:locale/locale",
+            "params": [
+              {
+                "name": "locale",
+                "value": "",
+                "type": "path",
+                "description": "The locale for company translations"
+              }
+            ]
+          },
+          "docs": "Locale"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

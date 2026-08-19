@@ -1,0 +1,88 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Brickwork Admin Appointments Services API",
+    "version": "v3"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Services",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List Company Services",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://production.brickworksoftware.com/:locale/api/v3/services",
+            "params": [
+              {
+                "name": "locale",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "appointment_only",
+                "value": "",
+                "type": "query",
+                "description": "Only return list of services that can have an appointment scheduled for this service"
+              }
+            ]
+          },
+          "docs": "Example: `http://company.com/api/v3/services/`\n\nExample: `http://company.com/api/v3/services?appointment_only=true`"
+        },
+        {
+          "info": {
+            "name": "Show Company Service",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://production.brickworksoftware.com/:locale/api/v3/services/:id/",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "locale",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Show Company Service"
+        },
+        {
+          "info": {
+            "name": "Show Company Service Stores",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://production.brickworksoftware.com/:locale/api/v3/services/:id/stores",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "locale",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Show Company Service Stores"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

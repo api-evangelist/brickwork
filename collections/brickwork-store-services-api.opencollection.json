@@ -1,0 +1,69 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Brickwork Admin Appointments Store Services API",
+    "version": "v3"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Store Services",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Store Services List",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://production.brickworksoftware.com/:locale/api/v3/stores/:store_id/store_services",
+            "params": [
+              {
+                "name": "locale",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "store_id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Example: `http://company.com/api/v3/stores/:store_id/store_services`"
+        },
+        {
+          "info": {
+            "name": "Store Service",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://production.brickworksoftware.com/:locale/api/v3/stores/:store_id/store_services/:store_service_id",
+            "params": [
+              {
+                "name": "locale",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "store_id",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "store_service_id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Example: `http://company.com/api/v3/stores/:store_id/store_services/:store_service_id`"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

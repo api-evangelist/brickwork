@@ -1,0 +1,154 @@
+{
+  "item": [
+    {
+      "id": "2f31f189-a1d3-4749-a78e-7447eac90aaf",
+      "name": "Service Appointments",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "074b60ae-d337-4c0c-8a0a-9628330d38b2",
+          "name": "Service Appointment Timeslots",
+          "request": {
+            "name": "Service Appointment Timeslots",
+            "description": {
+              "content": "Example: `http://company.com/api/v3/store_services/:id/appointment_timeslots.json?date=2001-01-30`",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                ":locale",
+                "api",
+                "v3",
+                "store_services",
+                ":id",
+                "appointment_timeslots"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "date",
+                  "value": "<string>",
+                  "description": "(Required) Appointment Date 2015-05-09"
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "id",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "locale",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "4fa1dfc5-64f8-4cf2-a513-907f5ecb78ce",
+              "name": "Successful response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    ":locale",
+                    "api",
+                    "v3",
+                    "store_services",
+                    ":id",
+                    "appointment_timeslots"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "date",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "locale",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"store_service\": {}\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://production.brickworksoftware.com",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "2169b2e1-20ee-43b2-85d5-bb1ccd53d03d",
+    "name": "Brickwork Admin Appointments Service Appointments API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Brickwork (now part of DevHub) omnichannel retail platform API v3. Powers store pages, store locators, appointments, events, RSVPs, in-store services, customers, and local store content for physical retail. Admin endpoints are authenticated with an api_key; front-end store endpoints surface public store, service, and event data. Derived from the provider-published apiDoc reference at production.brickworksoftware.com/api_docs.\n\nContact Support:\n Name: Brickwork / DevHub",
+      "type": "text/plain"
+    }
+  }
+}

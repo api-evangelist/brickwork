@@ -1,0 +1,47 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Brickwork Admin Appointments Admin Customer Rsvps API",
+    "version": "v3"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Admin Customer Rsvps",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List all Customer Rsvps",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://production.brickworksoftware.com/:locale/api/v3/admin/customers/:customer_id/rsvps",
+            "params": [
+              {
+                "name": "customer_id",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "locale",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "auth": {
+              "type": "apikey",
+              "key": "api_key",
+              "value": "{{api_key}}",
+              "placement": "query"
+            }
+          },
+          "docs": "List all Customer Rsvps"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

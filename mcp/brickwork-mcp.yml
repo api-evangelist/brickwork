@@ -5,8 +5,8 @@ source: openapi/brickwork-openapi.yml
 server:
   name: brickwork
   transport: http
-notes: Candidate MCP tool surface derived one-to-one from Brickwork API v3 operations. No official Brickwork/DevHub MCP server
-  was found; this is a starting point for an agent wrapper.
+notes: Candidate MCP tool surface derived one-to-one from Brickwork API v3 operations. No official Brickwork/DevHub
+  MCP server was found; this is a starting point for an agent wrapper.
 tools:
 - name: GetLocaleApiV3AdminAppointments
   description: List all Appointments
@@ -543,3 +543,9 @@ tools:
   source_operation: openapi/brickwork-openapi.yml#GetLocaleLocale
   method: GET
   path: /{locale}/locale
+deployment:
+  mode: none
+  verified: derived
+  tools: 107
+  checked: '2026-08-12'
+  source: catalog MCP census

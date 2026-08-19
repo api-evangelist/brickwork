@@ -1,0 +1,146 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Brickwork Admin Appointments Admin Stores API",
+    "version": "v3"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Admin Stores",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Store List",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://production.brickworksoftware.com/api/v3/admin/stores",
+            "params": [
+              {
+                "name": "locale",
+                "value": "",
+                "type": "query",
+                "description": "The locale for store data display"
+              },
+              {
+                "name": "number",
+                "value": "",
+                "type": "query",
+                "description": "Query stores by number"
+              },
+              {
+                "name": "state",
+                "value": "",
+                "type": "query",
+                "description": "Query stores by state"
+              },
+              {
+                "name": "country_code",
+                "value": "",
+                "type": "query",
+                "description": "Query stores by country_code"
+              },
+              {
+                "name": "postal_code",
+                "value": "",
+                "type": "query",
+                "description": "Query stores by postal_code"
+              }
+            ],
+            "auth": {
+              "type": "apikey",
+              "key": "api_key",
+              "value": "{{api_key}}",
+              "placement": "query"
+            }
+          },
+          "docs": "Store List"
+        },
+        {
+          "info": {
+            "name": "Create Store",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://production.brickworksoftware.com/api/v3/admin/stores",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "apikey",
+              "key": "api_key",
+              "value": "{{api_key}}",
+              "placement": "query"
+            }
+          },
+          "docs": "Create Store"
+        },
+        {
+          "info": {
+            "name": "Show Store",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://production.brickworksoftware.com/api/v3/admin/stores/:id_or_number",
+            "params": [
+              {
+                "name": "id_or_number",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "locale",
+                "value": "",
+                "type": "query",
+                "description": "The locale for store data display"
+              }
+            ],
+            "auth": {
+              "type": "apikey",
+              "key": "api_key",
+              "value": "{{api_key}}",
+              "placement": "query"
+            }
+          },
+          "docs": "Example: `http://company.com/api/v3/admin/stores/:store_id`\n\nExample: `http://company.com/api/v3/admin/stores/:store_number?store_number=true`"
+        },
+        {
+          "info": {
+            "name": "Update Store",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://production.brickworksoftware.com/api/v3/admin/stores/:id_or_number",
+            "params": [
+              {
+                "name": "id_or_number",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "apikey",
+              "key": "api_key",
+              "value": "{{api_key}}",
+              "placement": "query"
+            }
+          },
+          "docs": "Example: `http://company.com/api/v3/admin/stores/:store_id`\n\nExample: `http://company.com/api/v3/admin/stores/:store_number?store_number=true`"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

@@ -1,0 +1,899 @@
+{
+  "item": [
+    {
+      "id": "17188c7f-3745-4d84-af02-797e93454bff",
+      "name": "Admin Appointments",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "ee7de672-e952-4426-83d7-db41b21db0a0",
+          "name": "List all Appointments",
+          "request": {
+            "name": "List all Appointments",
+            "description": {
+              "content": "Example: `http://company.com/api/v3/admin/appointments?query[start_date]=2016-05-28&query[filter_start_time]=true`",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                ":locale",
+                "api",
+                "v3",
+                "admin",
+                "appointments"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "page",
+                  "value": "<integer>",
+                  "description": "Page number of your query"
+                },
+                {
+                  "disabled": false,
+                  "key": "query[filter_start_time]",
+                  "value": "<boolean>",
+                  "description": "When true, it will filter and order all appointments by their start time, by default it will filter by created date"
+                },
+                {
+                  "disabled": false,
+                  "key": "query[start_date]",
+                  "value": "<string>",
+                  "description": "Store appointments select start date \"YYYY-MM-DD\", defaults to 30 days back, if query[filter_start_time]=true it is set to today's date"
+                },
+                {
+                  "disabled": false,
+                  "key": "query[end_date]",
+                  "value": "<string>",
+                  "description": "Store appointments select end date \"YYYY-MM-DD\", defaults to today, if query[filter_start_time]=true it is set to 30 days ahead"
+                },
+                {
+                  "disabled": false,
+                  "key": "query[utc_offset]",
+                  "value": "<string>",
+                  "description": "Store appointments select date timezone, defaults to +0000 \"-1\", \"-0100\", \"-01:00\". Be sure to encode positive utc_offsets - Encoding for a \"+\" is \"%2B\""
+                },
+                {
+                  "disabled": false,
+                  "key": "query[store_ids]",
+                  "value": "<array>",
+                  "description": "Filter appointments by store ids [1,2,3]"
+                },
+                {
+                  "disabled": false,
+                  "key": "query[service_ids]",
+                  "value": "<array>",
+                  "description": "Filter appointments by service ids [1,2,3]"
+                },
+                {
+                  "disabled": false,
+                  "key": "query[associate_ids]",
+                  "value": "<array>",
+                  "description": "Filter appointments by associates [1,2,3]"
+                },
+                {
+                  "disabled": false,
+                  "key": "query[state]",
+                  "value": "<string>",
+                  "description": "Filter appointments by state new, customer_requested, confirmed, reassigned, canceled, checked_in, no_show, occured"
+                },
+                {
+                  "disabled": false,
+                  "key": "query[code]",
+                  "value": "<array>",
+                  "description": "Filter appointments by code ['code1','code2','code3']"
+                },
+                {
+                  "disabled": false,
+                  "key": "query[associate_codes]",
+                  "value": "<array>",
+                  "description": "Filter appointments by associate codes ['code1','code2','code3']"
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "locale",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "apikey",
+              "apikey": [
+                {
+                  "key": "key",
+                  "value": "api_key"
+                },
+                {
+                  "key": "value",
+                  "value": "{{apiKey}}"
+                },
+                {
+                  "key": "in",
+                  "value": "query"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "3c0d3abc-0087-42c8-a825-d40698d207a1",
+              "name": "Successful response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    ":locale",
+                    "api",
+                    "v3",
+                    "admin",
+                    "appointments"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "page",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "query[filter_start_time]",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "query[start_date]",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "query[end_date]",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "query[utc_offset]",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "query[store_ids]",
+                      "value": "<array>"
+                    },
+                    {
+                      "key": "query[service_ids]",
+                      "value": "<array>"
+                    },
+                    {
+                      "key": "query[associate_ids]",
+                      "value": "<array>"
+                    },
+                    {
+                      "key": "query[state]",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "query[code]",
+                      "value": "<array>"
+                    },
+                    {
+                      "key": "query[associate_codes]",
+                      "value": "<array>"
+                    },
+                    {
+                      "key": "api_key",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "locale",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "d9bbed6a-a80c-46ff-8b51-d1910961abe8",
+          "name": "List Store Appointments",
+          "request": {
+            "name": "List Store Appointments",
+            "description": {
+              "content": "Example: `http://company.com/api/v3/admin/stores/:store_id/appointments?query[state]=confirmed`\n\nExample: `http://company.com/api/v3/stores/:store_id/appointments`\n\nExample: `http://company.com/api/v3/stores/:store_number/appointments?store_number=true`",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                ":locale",
+                "api",
+                "v3",
+                "admin",
+                "stores",
+                ":store_id_or_number",
+                "appointments"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "page",
+                  "value": "<integer>",
+                  "description": "Page number of your query"
+                },
+                {
+                  "disabled": false,
+                  "key": "query[service_ids]",
+                  "value": "<array>",
+                  "description": "Filter store appointments by store service ids [1,2,3]"
+                },
+                {
+                  "disabled": false,
+                  "key": "query[associate_ids]",
+                  "value": "<array>",
+                  "description": "Filter store appointments by associates [1,2,3]"
+                },
+                {
+                  "disabled": false,
+                  "key": "query[state]",
+                  "value": "<string>",
+                  "description": "Filter store appointments by state new, customer_requested, confirmed, reassigned, canceled, checked_in, no_show, occured"
+                },
+                {
+                  "disabled": false,
+                  "key": "query[code]",
+                  "value": "<array>",
+                  "description": "Filter store appointments by code ['code1','code2','code3']"
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "store_id_or_number",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "locale",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "apikey",
+              "apikey": [
+                {
+                  "key": "key",
+                  "value": "api_key"
+                },
+                {
+                  "key": "value",
+                  "value": "{{apiKey}}"
+                },
+                {
+                  "key": "in",
+                  "value": "query"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "635ba8ad-2ec1-42d6-8645-1a52bdf31dec",
+              "name": "Successful response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    ":locale",
+                    "api",
+                    "v3",
+                    "admin",
+                    "stores",
+                    ":store_id_or_number",
+                    "appointments"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "page",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "query[service_ids]",
+                      "value": "<array>"
+                    },
+                    {
+                      "key": "query[associate_ids]",
+                      "value": "<array>"
+                    },
+                    {
+                      "key": "query[state]",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "query[code]",
+                      "value": "<array>"
+                    },
+                    {
+                      "key": "api_key",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "store_id_or_number",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "locale",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "e95e0a2f-6c07-4e34-baac-29526baedc90",
+          "name": "Show Appointment",
+          "request": {
+            "name": "Show Appointment",
+            "description": {
+              "content": "Example: `http://company.com/api/v3/stores/:store_id/appointments/:id_or_code`\n\nExample: `http://company.com/api/v3/stores/:store_number/appointments/:id_or_code?store_number=true`\n\nExample: `http://company.com/api/v3/stores/:store_id_or_number/appointments/:id`\n\nExample: `http://company.com/api/v3/stores/:store_id_or_number/appointments/:code`",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                ":locale",
+                "api",
+                "v3",
+                "admin",
+                "stores",
+                ":store_id_or_number",
+                "appointments",
+                ":id_or_code"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "id_or_code",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "store_id_or_number",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "locale",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "apikey",
+              "apikey": [
+                {
+                  "key": "key",
+                  "value": "api_key"
+                },
+                {
+                  "key": "value",
+                  "value": "{{apiKey}}"
+                },
+                {
+                  "key": "in",
+                  "value": "query"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "dfe45533-38f8-4980-b43c-9c4250f4faa5",
+              "name": "Successful response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    ":locale",
+                    "api",
+                    "v3",
+                    "admin",
+                    "stores",
+                    ":store_id_or_number",
+                    "appointments",
+                    ":id_or_code"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "api_key",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id_or_code",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "store_id_or_number",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "locale",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"appointment\": {}\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "4386172f-bfa1-4972-9d8d-d8241df8ffe0",
+          "name": "Update Appointment",
+          "request": {
+            "name": "Update Appointment",
+            "description": {
+              "content": "Example: `http://company.com/api/v3/stores/:store_id/appointments/:id_or_code`\n\nExample: `http://company.com/api/v3/stores/:store_number/appointments/:id_or_code?store_number=true`\n\nExample: `http://company.com/api/v3/stores/:store_id_or_number/appointments/:id`\n\nExample: `http://company.com/api/v3/stores/:store_id_or_number/appointments/:code`",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                ":locale",
+                "api",
+                "v3",
+                "admin",
+                "stores",
+                ":store_id_or_number",
+                "appointments",
+                ":id_or_code"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "id_or_code",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "store_id_or_number",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "locale",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "PUT",
+            "auth": {
+              "type": "apikey",
+              "apikey": [
+                {
+                  "key": "key",
+                  "value": "api_key"
+                },
+                {
+                  "key": "value",
+                  "value": "{{apiKey}}"
+                },
+                {
+                  "key": "in",
+                  "value": "query"
+                }
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"appointment\": \"<object>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "1fbe661f-e6d2-4ee7-a17c-3e88ae5e59c7",
+              "name": "Successful response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    ":locale",
+                    "api",
+                    "v3",
+                    "admin",
+                    "stores",
+                    ":store_id_or_number",
+                    "appointments",
+                    ":id_or_code"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "api_key",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id_or_code",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "store_id_or_number",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "locale",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"appointment\": \"<object>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"appointment\": {}\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "8b867e71-18a9-450a-861d-5f3c91e9f4fb",
+          "name": "Create an Appointment",
+          "request": {
+            "name": "Create an Appointment",
+            "description": {
+              "content": "Example: `http://company.com/api/v3/stores/:store_id/appointments/`\n\nExample: `http://company.com/api/v3/stores/:store_number/appointments/?store_number=true`",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "v3",
+                "admin",
+                "stores",
+                ":store_id_or_number",
+                "appointments"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "store_id_or_number",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": {
+              "type": "apikey",
+              "apikey": [
+                {
+                  "key": "key",
+                  "value": "api_key"
+                },
+                {
+                  "key": "value",
+                  "value": "{{apiKey}}"
+                },
+                {
+                  "key": "in",
+                  "value": "query"
+                }
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"appointment\": \"<object>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "40c9da95-3774-4aff-b9dd-679d1b2cf82b",
+              "name": "Successful response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v3",
+                    "admin",
+                    "stores",
+                    ":store_id_or_number",
+                    "appointments"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "api_key",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "store_id_or_number",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"appointment\": \"<object>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"appointment\": {}\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://production.brickworksoftware.com",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "88408725-83f7-406d-8a26-b7b902ffe9f6",
+    "name": "Brickwork Admin Appointments API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Brickwork (now part of DevHub) omnichannel retail platform API v3. Powers store pages, store locators, appointments, events, RSVPs, in-store services, customers, and local store content for physical retail. Admin endpoints are authenticated with an api_key; front-end store endpoints surface public store, service, and event data. Derived from the provider-published apiDoc reference at production.brickworksoftware.com/api_docs.\n\nContact Support:\n Name: Brickwork / DevHub",
+      "type": "text/plain"
+    }
+  }
+}

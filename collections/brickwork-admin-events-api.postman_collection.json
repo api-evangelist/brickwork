@@ -1,0 +1,588 @@
+{
+  "item": [
+    {
+      "id": "02eb79a9-a1ea-4dd3-bfaf-80351d924158",
+      "name": "Admin Events",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "ca01393b-119b-403d-9d26-d0a9170a7657",
+          "name": "List company events",
+          "request": {
+            "name": "List company events",
+            "description": {
+              "content": "Example: `http://company.com/api/v3/admin/events?query[published]=true`",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                ":locale",
+                "api",
+                "v3",
+                "admin",
+                "events"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "query[start_date]",
+                  "value": "<string>",
+                  "description": "Store events select start date \"YYYY-MM-DD\", defaults to 30 days back"
+                },
+                {
+                  "disabled": false,
+                  "key": "query[end_date]",
+                  "value": "<string>",
+                  "description": "Store events select end date \"YYYY-MM-DD\", defaults to today"
+                },
+                {
+                  "disabled": false,
+                  "key": "query[published]",
+                  "value": "<string>",
+                  "description": "Filter store events that are published"
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "locale",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "apikey",
+              "apikey": [
+                {
+                  "key": "key",
+                  "value": "api_key"
+                },
+                {
+                  "key": "value",
+                  "value": "{{apiKey}}"
+                },
+                {
+                  "key": "in",
+                  "value": "query"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "0529a1dd-4446-44f5-9c88-ab09571b3545",
+              "name": "Successful response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    ":locale",
+                    "api",
+                    "v3",
+                    "admin",
+                    "events"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "query[start_date]",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "query[end_date]",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "query[published]",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "api_key",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "locale",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "c1cd1cc7-f937-4b78-b323-359522757028",
+          "name": "Create Company Event",
+          "request": {
+            "name": "Create Company Event",
+            "description": {},
+            "url": {
+              "path": [
+                ":locale",
+                "api",
+                "v3",
+                "admin",
+                "events"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "locale",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": {
+              "type": "apikey",
+              "apikey": [
+                {
+                  "key": "key",
+                  "value": "api_key"
+                },
+                {
+                  "key": "value",
+                  "value": "{{apiKey}}"
+                },
+                {
+                  "key": "in",
+                  "value": "query"
+                }
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"title\": \"<string>\",\n  \"start_time\": \"<string>\",\n  \"end_time\": \"<string>\",\n  \"published_at\": \"<string>\",\n  \"store_ids\": \"<array>\",\n  \"store_department_ids\": \"<array>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "3b9e97cf-671a-4ab2-b8cb-5df1832fd70b",
+              "name": "Successful response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    ":locale",
+                    "api",
+                    "v3",
+                    "admin",
+                    "events"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "api_key",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "locale",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"title\": \"<string>\",\n  \"start_time\": \"<string>\",\n  \"end_time\": \"<string>\",\n  \"published_at\": \"<string>\",\n  \"store_ids\": \"<array>\",\n  \"store_department_ids\": \"<array>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": \"string\",\n  \"managing_entity_id\": 6050,\n  \"managing_entity_type\": \"string\",\n  \"title\": \"string\",\n  \"subtitle\": \"string\",\n  \"description\": \"string\",\n  \"legal\": \"string\",\n  \"promo_code\": \"string\",\n  \"total_attendees\": 7197,\n  \"max_attendees\": 7227,\n  \"start_time\": \"string\",\n  \"end_time\": \"string\",\n  \"published_at\": \"string\",\n  \"location\": \"string\",\n  \"type\": \"string\",\n  \"event_image\": \"string\",\n  \"allow_rsvp\": false,\n  \"address_1\": \"string\",\n  \"address_2\": \"string\",\n  \"address_3\": \"string\",\n  \"city\": \"string\",\n  \"state\": \"string\",\n  \"postal_code\": \"string\",\n  \"country_code\": \"string\",\n  \"canceled_at\": \"string\",\n  \"title_locked\": true,\n  \"start_time_locked\": true,\n  \"end_time_locked\": true,\n  \"subtitle_locked\": false,\n  \"description_locked\": false,\n  \"promo_code_locked\": false,\n  \"collect_rsvp_locked\": false,\n  \"event_max_attendees_locked\": true,\n  \"legal_locked\": true,\n  \"event_image_locked\": true,\n  \"created_at\": \"string\",\n  \"updated_at\": \"string\",\n  \"meta\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "32b663fe-792b-4d89-bca2-9296b8ad3297",
+          "name": "Show Company Event",
+          "request": {
+            "name": "Show Company Event",
+            "description": {},
+            "url": {
+              "path": [
+                ":locale",
+                "api",
+                "v3",
+                "admin",
+                "events",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "locale",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "id",
+                  "description": "(Required) Event ID"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "apikey",
+              "apikey": [
+                {
+                  "key": "key",
+                  "value": "api_key"
+                },
+                {
+                  "key": "value",
+                  "value": "{{apiKey}}"
+                },
+                {
+                  "key": "in",
+                  "value": "query"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "ff37c878-3c92-42fa-99a9-9b30ce036b3e",
+              "name": "Successful response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    ":locale",
+                    "api",
+                    "v3",
+                    "admin",
+                    "events",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "api_key",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "locale",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) Event ID"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": \"string\",\n  \"managing_entity_id\": 6050,\n  \"managing_entity_type\": \"string\",\n  \"title\": \"string\",\n  \"subtitle\": \"string\",\n  \"description\": \"string\",\n  \"legal\": \"string\",\n  \"promo_code\": \"string\",\n  \"total_attendees\": 7197,\n  \"max_attendees\": 7227,\n  \"start_time\": \"string\",\n  \"end_time\": \"string\",\n  \"published_at\": \"string\",\n  \"location\": \"string\",\n  \"type\": \"string\",\n  \"event_image\": \"string\",\n  \"allow_rsvp\": false,\n  \"address_1\": \"string\",\n  \"address_2\": \"string\",\n  \"address_3\": \"string\",\n  \"city\": \"string\",\n  \"state\": \"string\",\n  \"postal_code\": \"string\",\n  \"country_code\": \"string\",\n  \"canceled_at\": \"string\",\n  \"title_locked\": true,\n  \"start_time_locked\": true,\n  \"end_time_locked\": true,\n  \"subtitle_locked\": false,\n  \"description_locked\": false,\n  \"promo_code_locked\": false,\n  \"collect_rsvp_locked\": false,\n  \"event_max_attendees_locked\": true,\n  \"legal_locked\": true,\n  \"event_image_locked\": true,\n  \"created_at\": \"string\",\n  \"updated_at\": \"string\",\n  \"meta\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "27d35c9b-4ba5-42f7-97d0-e01eeb7cb1fd",
+          "name": "Update a Company Event",
+          "request": {
+            "name": "Update a Company Event",
+            "description": {},
+            "url": {
+              "path": [
+                ":locale",
+                "api",
+                "v3",
+                "admin",
+                "events",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "id",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "locale",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "PUT",
+            "auth": {
+              "type": "apikey",
+              "apikey": [
+                {
+                  "key": "key",
+                  "value": "api_key"
+                },
+                {
+                  "key": "value",
+                  "value": "{{apiKey}}"
+                },
+                {
+                  "key": "in",
+                  "value": "query"
+                }
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"title\": \"<string>\",\n  \"start_time\": \"<string>\",\n  \"end_time\": \"<string>\",\n  \"published_at\": \"<string>\",\n  \"store_ids\": \"<array>\",\n  \"store_department_ids\": \"<array>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "85e01ad5-5355-422b-8cf3-c2761878db54",
+              "name": "Successful response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    ":locale",
+                    "api",
+                    "v3",
+                    "admin",
+                    "events",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "api_key",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "locale",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"title\": \"<string>\",\n  \"start_time\": \"<string>\",\n  \"end_time\": \"<string>\",\n  \"published_at\": \"<string>\",\n  \"store_ids\": \"<array>\",\n  \"store_department_ids\": \"<array>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": \"string\",\n  \"managing_entity_id\": 6050,\n  \"managing_entity_type\": \"string\",\n  \"title\": \"string\",\n  \"subtitle\": \"string\",\n  \"description\": \"string\",\n  \"legal\": \"string\",\n  \"promo_code\": \"string\",\n  \"total_attendees\": 7197,\n  \"max_attendees\": 7227,\n  \"start_time\": \"string\",\n  \"end_time\": \"string\",\n  \"published_at\": \"string\",\n  \"location\": \"string\",\n  \"type\": \"string\",\n  \"event_image\": \"string\",\n  \"allow_rsvp\": false,\n  \"address_1\": \"string\",\n  \"address_2\": \"string\",\n  \"address_3\": \"string\",\n  \"city\": \"string\",\n  \"state\": \"string\",\n  \"postal_code\": \"string\",\n  \"country_code\": \"string\",\n  \"canceled_at\": \"string\",\n  \"title_locked\": true,\n  \"start_time_locked\": true,\n  \"end_time_locked\": true,\n  \"subtitle_locked\": false,\n  \"description_locked\": false,\n  \"promo_code_locked\": false,\n  \"collect_rsvp_locked\": false,\n  \"event_max_attendees_locked\": true,\n  \"legal_locked\": true,\n  \"event_image_locked\": true,\n  \"created_at\": \"string\",\n  \"updated_at\": \"string\",\n  \"meta\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://production.brickworksoftware.com",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "b35efd60-3e6a-462e-9111-5eb3197ba25e",
+    "name": "Brickwork Admin Appointments Admin Events API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Brickwork (now part of DevHub) omnichannel retail platform API v3. Powers store pages, store locators, appointments, events, RSVPs, in-store services, customers, and local store content for physical retail. Admin endpoints are authenticated with an api_key; front-end store endpoints surface public store, service, and event data. Derived from the provider-published apiDoc reference at production.brickworksoftware.com/api_docs.\n\nContact Support:\n Name: Brickwork / DevHub",
+      "type": "text/plain"
+    }
+  }
+}

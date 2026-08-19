@@ -1,0 +1,122 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Brickwork Admin Appointments Admin Groups API",
+    "version": "v3"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Admin Groups",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Groups List",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://production.brickworksoftware.com/api/v3/admin/groups",
+            "params": [
+              {
+                "name": "locale",
+                "value": "",
+                "type": "query",
+                "description": "The locale for group data display"
+              }
+            ],
+            "auth": {
+              "type": "apikey",
+              "key": "api_key",
+              "value": "{{api_key}}",
+              "placement": "query"
+            }
+          },
+          "docs": "Groups List"
+        },
+        {
+          "info": {
+            "name": "Create Group",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://production.brickworksoftware.com/api/v3/admin/groups",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "apikey",
+              "key": "api_key",
+              "value": "{{api_key}}",
+              "placement": "query"
+            }
+          },
+          "docs": "Create Group"
+        },
+        {
+          "info": {
+            "name": "Show Group",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://production.brickworksoftware.com/api/v3/admin/groups/:id",
+            "params": [
+              {
+                "name": "locale",
+                "value": "",
+                "type": "query",
+                "description": "The locale for group data display"
+              },
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "auth": {
+              "type": "apikey",
+              "key": "api_key",
+              "value": "{{api_key}}",
+              "placement": "query"
+            }
+          },
+          "docs": "Show Group"
+        },
+        {
+          "info": {
+            "name": "Update Group",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://production.brickworksoftware.com/api/v3/admin/groups/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "apikey",
+              "key": "api_key",
+              "value": "{{api_key}}",
+              "placement": "query"
+            }
+          },
+          "docs": "Update Group"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

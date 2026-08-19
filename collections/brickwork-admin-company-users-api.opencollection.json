@@ -1,0 +1,146 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Brickwork Admin Appointments Admin Company Users API",
+    "version": "v3"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Admin Company Users",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Show all Users",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://production.brickworksoftware.com/api/v3/admin/users",
+            "params": [
+              {
+                "name": "query",
+                "value": "",
+                "type": "query",
+                "description": "Query parameters for all company users"
+              },
+              {
+                "name": "query[start_date]",
+                "value": "",
+                "type": "query",
+                "description": "Filter Company users by created at start date \"YYYY-MM-DD\", defaults to 30 days back"
+              },
+              {
+                "name": "query[end_date]",
+                "value": "",
+                "type": "query",
+                "description": "Filter Company users by created at end date \"YYYY-MM-DD\", defaults to today"
+              },
+              {
+                "name": "query[code]",
+                "value": "",
+                "type": "query",
+                "description": "Filter users by user code [CODE1,CODE2,CODE3]"
+              },
+              {
+                "name": "query[store_id]",
+                "value": "",
+                "type": "query",
+                "description": "Filter users by store_id"
+              },
+              {
+                "name": "query[store_nextgen_id]",
+                "value": "",
+                "type": "query",
+                "description": "Filter users by store_nextgen_id"
+              }
+            ],
+            "auth": {
+              "type": "apikey",
+              "key": "api_key",
+              "value": "{{api_key}}",
+              "placement": "query"
+            }
+          },
+          "docs": "Example: `http://company.com/api/v3/admin/users?query[code]=123abc`"
+        },
+        {
+          "info": {
+            "name": "Create User",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://production.brickworksoftware.com/api/v3/admin/users",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "apikey",
+              "key": "api_key",
+              "value": "{{api_key}}",
+              "placement": "query"
+            }
+          },
+          "docs": "Create User"
+        },
+        {
+          "info": {
+            "name": "Show User by ID or Code",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://production.brickworksoftware.com/api/v3/admin/users/:id_or_code",
+            "params": [
+              {
+                "name": "id_or_code",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "auth": {
+              "type": "apikey",
+              "key": "api_key",
+              "value": "{{api_key}}",
+              "placement": "query"
+            }
+          },
+          "docs": "Example: `http://company.com/api/v3/admin/users/:user_id`\n\nExample: `http://company.com/api/v3/admin/users/:code?user_code=true`"
+        },
+        {
+          "info": {
+            "name": "Update User by ID or Code",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://production.brickworksoftware.com/api/v3/admin/users/:id_or_code",
+            "params": [
+              {
+                "name": "id_or_code",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "apikey",
+              "key": "api_key",
+              "value": "{{api_key}}",
+              "placement": "query"
+            }
+          },
+          "docs": "Example: `http://company.com/api/v3/admin/users/:user_id`\n\nExample: `http://company.com/api/v3/admin/users/:code?user_code=true`"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

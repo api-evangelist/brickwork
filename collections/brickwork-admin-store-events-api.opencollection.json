@@ -1,0 +1,169 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Brickwork Admin Appointments Admin Store Events API",
+    "version": "v3"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Admin Store Events",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List store events",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://production.brickworksoftware.com/:locale/api/v3/admin/store_events",
+            "params": [
+              {
+                "name": "locale",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "query",
+                "value": "",
+                "type": "query",
+                "description": "Query parameters for all company events"
+              },
+              {
+                "name": "query[start_date]",
+                "value": "",
+                "type": "query",
+                "description": "Store events select start date \"YYYY-MM-DD\", defaults to 30 days back"
+              },
+              {
+                "name": "query[end_date]",
+                "value": "",
+                "type": "query",
+                "description": "Store events select end date \"YYYY-MM-DD\", defaults to today"
+              },
+              {
+                "name": "query[store_id]",
+                "value": "",
+                "type": "query",
+                "description": "Filter by specific store id"
+              },
+              {
+                "name": "query[store_department_id]",
+                "value": "",
+                "type": "query",
+                "description": "Filter by specific store_department id"
+              },
+              {
+                "name": "query[published]",
+                "value": "",
+                "type": "query",
+                "description": "Filter store events that are published"
+              }
+            ],
+            "auth": {
+              "type": "apikey",
+              "key": "api_key",
+              "value": "{{api_key}}",
+              "placement": "query"
+            }
+          },
+          "docs": "Example: `http://company.com/api/v3/admin/store_events?query[start_date]=2016-05-28`"
+        },
+        {
+          "info": {
+            "name": "Create Store Event",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://production.brickworksoftware.com/:locale/api/v3/admin/store_events",
+            "params": [
+              {
+                "name": "locale",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "apikey",
+              "key": "api_key",
+              "value": "{{api_key}}",
+              "placement": "query"
+            }
+          },
+          "docs": "Create Store Event"
+        },
+        {
+          "info": {
+            "name": "Show Store Event",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://production.brickworksoftware.com/:locale/api/v3/admin/store_events/:id",
+            "params": [
+              {
+                "name": "locale",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "Event ID"
+              }
+            ],
+            "auth": {
+              "type": "apikey",
+              "key": "api_key",
+              "value": "{{api_key}}",
+              "placement": "query"
+            }
+          },
+          "docs": "Show Store Event"
+        },
+        {
+          "info": {
+            "name": "Update a Store Event",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://production.brickworksoftware.com/:locale/api/v3/admin/store_events/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "locale",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "apikey",
+              "key": "api_key",
+              "value": "{{api_key}}",
+              "placement": "query"
+            }
+          },
+          "docs": "Update a Store Event"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

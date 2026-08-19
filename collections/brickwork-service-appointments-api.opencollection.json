@@ -1,0 +1,47 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Brickwork Admin Appointments Service Appointments API",
+    "version": "v3"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Service Appointments",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Service Appointment Timeslots",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://production.brickworksoftware.com/:locale/api/v3/store_services/:id/appointment_timeslots",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "locale",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "date",
+                "value": "",
+                "type": "query",
+                "description": "Appointment Date 2015-05-09"
+              }
+            ]
+          },
+          "docs": "Example: `http://company.com/api/v3/store_services/:id/appointment_timeslots.json?date=2001-01-30`"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

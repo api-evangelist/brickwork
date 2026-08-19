@@ -1,0 +1,144 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Brickwork Admin Appointments Admin Store Alerts API",
+    "version": "v3"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Admin Store Alerts",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Alerts List",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://production.brickworksoftware.com/api/v3/admin/stores/:id_or_number/alerts",
+            "params": [
+              {
+                "name": "id_or_number",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "locale",
+                "value": "",
+                "type": "query",
+                "description": "The locale for store data display"
+              }
+            ],
+            "auth": {
+              "type": "apikey",
+              "key": "api_key",
+              "value": "{{api_key}}",
+              "placement": "query"
+            }
+          },
+          "docs": "Example: `http://company.com/api/v3/admin/stores/:store_id/alerts`\n\nExample: `http://company.com/api/v3/admin/stores/:store_number/alerts?store_number=true`"
+        },
+        {
+          "info": {
+            "name": "Create Alert",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://production.brickworksoftware.com/api/v3/admin/stores/:id_or_number/alerts",
+            "params": [
+              {
+                "name": "id_or_number",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "apikey",
+              "key": "api_key",
+              "value": "{{api_key}}",
+              "placement": "query"
+            }
+          },
+          "docs": "Create Alert"
+        },
+        {
+          "info": {
+            "name": "Show Alert",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://production.brickworksoftware.com/api/v3/admin/stores/:id_or_number/alerts/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "id_or_number",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "locale",
+                "value": "",
+                "type": "query",
+                "description": "The locale for store data display"
+              }
+            ],
+            "auth": {
+              "type": "apikey",
+              "key": "api_key",
+              "value": "{{api_key}}",
+              "placement": "query"
+            }
+          },
+          "docs": "Example: `http://company.com/api/v3/stores/:store_id/alerts/:id`\n\nExample: `http://company.com/api/v3/stores/:store_number/alerts/:id?store_number=true`"
+        },
+        {
+          "info": {
+            "name": "Update Alert",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://production.brickworksoftware.com/api/v3/admin/stores/:id_or_number/alerts/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "id_or_number",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "apikey",
+              "key": "api_key",
+              "value": "{{api_key}}",
+              "placement": "query"
+            }
+          },
+          "docs": "Example: `http://company.com/api/v3/admin/stores/:store_id/alerts/:id`\n\nExample: `http://company.com/api/v3/admin/stores/:store_number/alerts/:id?store_number=true`"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

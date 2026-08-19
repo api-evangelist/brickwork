@@ -1,0 +1,546 @@
+{
+  "item": [
+    {
+      "id": "3edaa1aa-b510-45e8-9ac7-3a88f69e4f07",
+      "name": "Admin Company Users",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "fb990aef-39e9-4afb-b5c5-af19003feb51",
+          "name": "Show all Users",
+          "request": {
+            "name": "Show all Users",
+            "description": {
+              "content": "Example: `http://company.com/api/v3/admin/users?query[code]=123abc`",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "v3",
+                "admin",
+                "users"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "query[start_date]",
+                  "value": "<string>",
+                  "description": "Filter Company users by created at start date \"YYYY-MM-DD\", defaults to 30 days back"
+                },
+                {
+                  "disabled": false,
+                  "key": "query[end_date]",
+                  "value": "<string>",
+                  "description": "Filter Company users by created at end date \"YYYY-MM-DD\", defaults to today"
+                },
+                {
+                  "disabled": false,
+                  "key": "query[code]",
+                  "value": "<array>",
+                  "description": "Filter users by user code [CODE1,CODE2,CODE3]"
+                },
+                {
+                  "disabled": false,
+                  "key": "query[store_id]",
+                  "value": "<integer>",
+                  "description": "Filter users by store_id"
+                },
+                {
+                  "disabled": false,
+                  "key": "query[store_nextgen_id]",
+                  "value": "<string>",
+                  "description": "Filter users by store_nextgen_id"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "apikey",
+              "apikey": [
+                {
+                  "key": "key",
+                  "value": "api_key"
+                },
+                {
+                  "key": "value",
+                  "value": "{{apiKey}}"
+                },
+                {
+                  "key": "in",
+                  "value": "query"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "8a78cadc-9ab1-4816-945c-74163d2fe7eb",
+              "name": "Successful response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v3",
+                    "admin",
+                    "users"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "query[start_date]",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "query[end_date]",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "query[code]",
+                      "value": "<array>"
+                    },
+                    {
+                      "key": "query[store_id]",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "query[store_nextgen_id]",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "api_key",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "4d4c6ae5-d43e-4043-8154-6abde9bb99e0",
+          "name": "Create User",
+          "request": {
+            "name": "Create User",
+            "description": {},
+            "url": {
+              "path": [
+                "api",
+                "v3",
+                "admin",
+                "users"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": {
+              "type": "apikey",
+              "apikey": [
+                {
+                  "key": "key",
+                  "value": "api_key"
+                },
+                {
+                  "key": "value",
+                  "value": "{{apiKey}}"
+                },
+                {
+                  "key": "in",
+                  "value": "query"
+                }
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"code\": \"<string>\",\n  \"role\": \"<string>\",\n  \"first_name\": \"<string>\",\n  \"last_name\": \"<string>\",\n  \"email\": \"<string>\",\n  \"store_id\": \"<integer>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "38a5adee-3474-4b62-92db-a2f7ec43b975",
+              "name": "Successful response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v3",
+                    "admin",
+                    "users"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "api_key",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"code\": \"<string>\",\n  \"role\": \"<string>\",\n  \"first_name\": \"<string>\",\n  \"last_name\": \"<string>\",\n  \"email\": \"<string>\",\n  \"store_id\": \"<integer>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": 7145,\n  \"code\": \"string\",\n  \"store_id\": 7253,\n  \"first_name\": \"string\",\n  \"last_name\": \"string\",\n  \"role\": \"string\",\n  \"api_key\": \"string\",\n  \"email\": \"string\",\n  \"phone\": \"string\",\n  \"avatar\": \"string\",\n  \"profile_image_url\": \"string\",\n  \"position\": \"string\",\n  \"encrypted_password\": \"string\",\n  \"reset_password_token\": \"string\",\n  \"reset_password_sent_at\": \"string\",\n  \"remember_created_at\": \"string\",\n  \"sign_in_count\": 3294,\n  \"current_sign_in_at\": \"string\",\n  \"current_sign_in_ip\": \"string\",\n  \"setup_completed_at\": \"string\",\n  \"last_schedule_reminder_sent_at\": \"string\",\n  \"archived_number\": \"string\",\n  \"archived_at\": \"string\",\n  \"created_at\": \"string\",\n  \"updated_at\": \"string\",\n  \"company_id\": 3664,\n  \"nextgen_id\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "2b501998-aeab-4345-a74c-3d8299797d5f",
+          "name": "Show User by ID or Code",
+          "request": {
+            "name": "Show User by ID or Code",
+            "description": {
+              "content": "Example: `http://company.com/api/v3/admin/users/:user_id`\n\nExample: `http://company.com/api/v3/admin/users/:code?user_code=true`",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "v3",
+                "admin",
+                "users",
+                ":id_or_code"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "id_or_code",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "apikey",
+              "apikey": [
+                {
+                  "key": "key",
+                  "value": "api_key"
+                },
+                {
+                  "key": "value",
+                  "value": "{{apiKey}}"
+                },
+                {
+                  "key": "in",
+                  "value": "query"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "e7431865-9cf5-4365-821c-fc696047b365",
+              "name": "Successful response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v3",
+                    "admin",
+                    "users",
+                    ":id_or_code"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "api_key",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id_or_code",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": 7145,\n  \"code\": \"string\",\n  \"store_id\": 7253,\n  \"first_name\": \"string\",\n  \"last_name\": \"string\",\n  \"role\": \"string\",\n  \"api_key\": \"string\",\n  \"email\": \"string\",\n  \"phone\": \"string\",\n  \"avatar\": \"string\",\n  \"profile_image_url\": \"string\",\n  \"position\": \"string\",\n  \"encrypted_password\": \"string\",\n  \"reset_password_token\": \"string\",\n  \"reset_password_sent_at\": \"string\",\n  \"remember_created_at\": \"string\",\n  \"sign_in_count\": 3294,\n  \"current_sign_in_at\": \"string\",\n  \"current_sign_in_ip\": \"string\",\n  \"setup_completed_at\": \"string\",\n  \"last_schedule_reminder_sent_at\": \"string\",\n  \"archived_number\": \"string\",\n  \"archived_at\": \"string\",\n  \"created_at\": \"string\",\n  \"updated_at\": \"string\",\n  \"company_id\": 3664,\n  \"nextgen_id\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "45fc3f71-f550-407b-9531-da8db4bdbd82",
+          "name": "Update User by ID or Code",
+          "request": {
+            "name": "Update User by ID or Code",
+            "description": {
+              "content": "Example: `http://company.com/api/v3/admin/users/:user_id`\n\nExample: `http://company.com/api/v3/admin/users/:code?user_code=true`",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "v3",
+                "admin",
+                "users",
+                ":id_or_code"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "id_or_code",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "PUT",
+            "auth": {
+              "type": "apikey",
+              "apikey": [
+                {
+                  "key": "key",
+                  "value": "api_key"
+                },
+                {
+                  "key": "value",
+                  "value": "{{apiKey}}"
+                },
+                {
+                  "key": "in",
+                  "value": "query"
+                }
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"code\": \"<string>\",\n  \"role\": \"<string>\",\n  \"first_name\": \"<string>\",\n  \"last_name\": \"<string>\",\n  \"email\": \"<string>\",\n  \"store_id\": \"<integer>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "8e4ebc46-5916-4d81-badf-bdc470937258",
+              "name": "Successful response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v3",
+                    "admin",
+                    "users",
+                    ":id_or_code"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "api_key",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id_or_code",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"code\": \"<string>\",\n  \"role\": \"<string>\",\n  \"first_name\": \"<string>\",\n  \"last_name\": \"<string>\",\n  \"email\": \"<string>\",\n  \"store_id\": \"<integer>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": 7145,\n  \"code\": \"string\",\n  \"store_id\": 7253,\n  \"first_name\": \"string\",\n  \"last_name\": \"string\",\n  \"role\": \"string\",\n  \"api_key\": \"string\",\n  \"email\": \"string\",\n  \"phone\": \"string\",\n  \"avatar\": \"string\",\n  \"profile_image_url\": \"string\",\n  \"position\": \"string\",\n  \"encrypted_password\": \"string\",\n  \"reset_password_token\": \"string\",\n  \"reset_password_sent_at\": \"string\",\n  \"remember_created_at\": \"string\",\n  \"sign_in_count\": 3294,\n  \"current_sign_in_at\": \"string\",\n  \"current_sign_in_ip\": \"string\",\n  \"setup_completed_at\": \"string\",\n  \"last_schedule_reminder_sent_at\": \"string\",\n  \"archived_number\": \"string\",\n  \"archived_at\": \"string\",\n  \"created_at\": \"string\",\n  \"updated_at\": \"string\",\n  \"company_id\": 3664,\n  \"nextgen_id\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://production.brickworksoftware.com",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "9a77c90b-071c-4187-af64-9005b73b0476",
+    "name": "Brickwork Admin Appointments Admin Company Users API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Brickwork (now part of DevHub) omnichannel retail platform API v3. Powers store pages, store locators, appointments, events, RSVPs, in-store services, customers, and local store content for physical retail. Admin endpoints are authenticated with an api_key; front-end store endpoints surface public store, service, and event data. Derived from the provider-published apiDoc reference at production.brickworksoftware.com/api_docs.\n\nContact Support:\n Name: Brickwork / DevHub",
+      "type": "text/plain"
+    }
+  }
+}

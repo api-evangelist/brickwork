@@ -1,0 +1,132 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Brickwork Admin Appointments Admin Store Special Hours API",
+    "version": "v3"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Admin Store Special Hours",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List Special Hours",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://production.brickworksoftware.com/api/v3/admin/stores/:store_id_or_number/special_hours",
+            "params": [
+              {
+                "name": "store_id_or_number",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "auth": {
+              "type": "apikey",
+              "key": "api_key",
+              "value": "{{api_key}}",
+              "placement": "query"
+            }
+          },
+          "docs": "Example: `http://company.com/api/v3/admin/stores/:store_id/special_hours/`\n\nExample: `http://company.com/api/v3/admin/stores/:store_number/special_hours/?store_number=true`"
+        },
+        {
+          "info": {
+            "name": "Create Special Hours",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://production.brickworksoftware.com/api/v3/admin/stores/:store_id_or_number/special_hours",
+            "params": [
+              {
+                "name": "store_id_or_number",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "apikey",
+              "key": "api_key",
+              "value": "{{api_key}}",
+              "placement": "query"
+            }
+          },
+          "docs": "Example: `http://company.com/api/v3/admin/stores/:store_id/special_hours/`\n\nExample: `http://company.com/api/v3/admin/stores/:store_number/special_hours/?store_number=true`"
+        },
+        {
+          "info": {
+            "name": "Show Special Hour",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://production.brickworksoftware.com/api/v3/admin/stores/:store_id_or_number/special_hours/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "store_id_or_number",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "auth": {
+              "type": "apikey",
+              "key": "api_key",
+              "value": "{{api_key}}",
+              "placement": "query"
+            }
+          },
+          "docs": "Example: `http://company.com/api/v3/admin/stores/:store_id/special_hours/:id`\n\nExample: `http://company.com/api/v3/admin/stores/:store_number/special_hours/:id?store_number=true`"
+        },
+        {
+          "info": {
+            "name": "Update Special Hours",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://production.brickworksoftware.com/api/v3/admin/stores/:store_id_or_number/special_hours/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "store_id_or_number",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "apikey",
+              "key": "api_key",
+              "value": "{{api_key}}",
+              "placement": "query"
+            }
+          },
+          "docs": "Example: `http://company.com/api/v3/admin/stores/:store_id/special_hours/:id`\n\nExample: `http://company.com/api/v3/admin/stores/:store_number/special_hours/:id?store_number=true`"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

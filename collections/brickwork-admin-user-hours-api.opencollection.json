@@ -1,0 +1,332 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Brickwork Admin Appointments Admin User Hours API",
+    "version": "v3"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Admin User Hours",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Delete User Regular Hour",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://production.brickworksoftware.com/api/v3/admin/users/:code_or_id/regular_hours/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "code_or_id",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "auth": {
+              "type": "apikey",
+              "key": "api_key",
+              "value": "{{api_key}}",
+              "placement": "query"
+            }
+          },
+          "docs": "Delete User Regular Hour"
+        },
+        {
+          "info": {
+            "name": "Delete User Special Hour",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://production.brickworksoftware.com/api/v3/admin/users/:code_or_id/special_hours/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "code_or_id",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "auth": {
+              "type": "apikey",
+              "key": "api_key",
+              "value": "{{api_key}}",
+              "placement": "query"
+            }
+          },
+          "docs": "Delete User Special Hour"
+        },
+        {
+          "info": {
+            "name": "Index User Regular Hours",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://production.brickworksoftware.com/api/v3/admin/users/:user_id_or_code/regular_hours",
+            "params": [
+              {
+                "name": "user_id_or_code",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "query",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "query[day_of_week]",
+                "value": "",
+                "type": "query",
+                "description": "Filter hour ranges by the day of week 0 - Sunday, 6 - Saturday"
+              }
+            ],
+            "auth": {
+              "type": "apikey",
+              "key": "api_key",
+              "value": "{{api_key}}",
+              "placement": "query"
+            }
+          },
+          "docs": "Example: `http://company.com/api/v3/users/:user_id_or_code/regular_hours?query[day_of_week]=4&api_key=123`"
+        },
+        {
+          "info": {
+            "name": "Create User Regular Hour",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://production.brickworksoftware.com/api/v3/admin/users/:user_id_or_code/regular_hours",
+            "params": [
+              {
+                "name": "user_id_or_code",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "apikey",
+              "key": "api_key",
+              "value": "{{api_key}}",
+              "placement": "query"
+            }
+          },
+          "docs": "Create User Regular Hour"
+        },
+        {
+          "info": {
+            "name": "Show User Regular Hour",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://production.brickworksoftware.com/api/v3/admin/users/:user_id_or_code/regular_hours/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "user_id_or_code",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "auth": {
+              "type": "apikey",
+              "key": "api_key",
+              "value": "{{api_key}}",
+              "placement": "query"
+            }
+          },
+          "docs": "Show User Regular Hour"
+        },
+        {
+          "info": {
+            "name": "Update User Regular Hour",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://production.brickworksoftware.com/api/v3/admin/users/:user_id_or_code/regular_hours/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "user_id_or_code",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "apikey",
+              "key": "api_key",
+              "value": "{{api_key}}",
+              "placement": "query"
+            }
+          },
+          "docs": "Update User Regular Hour"
+        },
+        {
+          "info": {
+            "name": "Index User Special Hours",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://production.brickworksoftware.com/api/v3/admin/users/:user_id_or_code/special_hours",
+            "params": [
+              {
+                "name": "user_id_or_code",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "query",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "query[start_date]",
+                "value": "",
+                "type": "query",
+                "description": "Filter hour ranges by date, defaults to today"
+              },
+              {
+                "name": "query[end_date]",
+                "value": "",
+                "type": "query",
+                "description": "Filter hour ranges by date, defaults to 30 days from today"
+              }
+            ],
+            "auth": {
+              "type": "apikey",
+              "key": "api_key",
+              "value": "{{api_key}}",
+              "placement": "query"
+            }
+          },
+          "docs": "Example: `http://company.com/api/v3/users/:user_id_or_code/special_hours?query[start_date]=2018-10-01&query[end_date]=2018-10-30&api_key=123`"
+        },
+        {
+          "info": {
+            "name": "Create User Special Hour",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://production.brickworksoftware.com/api/v3/admin/users/:user_id_or_code/special_hours",
+            "params": [
+              {
+                "name": "user_id_or_code",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "apikey",
+              "key": "api_key",
+              "value": "{{api_key}}",
+              "placement": "query"
+            }
+          },
+          "docs": "Create User Special Hour"
+        },
+        {
+          "info": {
+            "name": "Show User Special Hour",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://production.brickworksoftware.com/api/v3/admin/users/:user_id_or_code/special_hours/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "user_id_or_code",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "auth": {
+              "type": "apikey",
+              "key": "api_key",
+              "value": "{{api_key}}",
+              "placement": "query"
+            }
+          },
+          "docs": "Show User Special Hour"
+        },
+        {
+          "info": {
+            "name": "Update User Special Hour",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://production.brickworksoftware.com/api/v3/admin/users/:user_id_or_code/special_hours/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "user_id_or_code",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "apikey",
+              "key": "api_key",
+              "value": "{{api_key}}",
+              "placement": "query"
+            }
+          },
+          "docs": "Update User Special Hour"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

@@ -1,0 +1,170 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Brickwork Admin Appointments Front End Stores API",
+    "version": "v3"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Front End Stores",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Store List",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://production.brickworksoftware.com/api/v3/stores",
+            "params": [
+              {
+                "name": "locale",
+                "value": "",
+                "type": "query",
+                "description": "The locale for store data display"
+              }
+            ]
+          },
+          "docs": "Store List"
+        },
+        {
+          "info": {
+            "name": "Store and Partner Stores List",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://production.brickworksoftware.com/api/v3/stores/combined",
+            "params": [
+              {
+                "name": "locale",
+                "value": "",
+                "type": "query",
+                "description": "The locale for store data display"
+              }
+            ]
+          },
+          "docs": "Store and Partner Stores List"
+        },
+        {
+          "info": {
+            "name": "Store",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://production.brickworksoftware.com/api/v3/stores/:id_or_number",
+            "params": [
+              {
+                "name": "id_or_number",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "locale",
+                "value": "",
+                "type": "query",
+                "description": "Defaults to \"en\", language to display store attributes"
+              },
+              {
+                "name": "store[id]",
+                "value": "",
+                "type": "query",
+                "description": "Store ID as the main param"
+              }
+            ]
+          },
+          "docs": "Example: `http://company.com/api/v3/stores/:store_id/`\n\nExample: `http://company.com/api/v3/stores/:store_number/store_number`"
+        },
+        {
+          "info": {
+            "name": "List of store locations",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://production.brickworksoftware.com/api/v3/stores/locations"
+          },
+          "docs": "List of store locations"
+        },
+        {
+          "info": {
+            "name": "Store Featured Associates",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://production.brickworksoftware.com/api/v3/stores/:store_id_or_slug/featured_associates",
+            "params": [
+              {
+                "name": "store_id_or_slug",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "locale",
+                "value": "",
+                "type": "query",
+                "description": "Defaults to \"en\", language to display store attributes"
+              }
+            ]
+          },
+          "docs": "Example: `http://company.com/api/v3/stores/:store_slug/featured_associates`\n\nExample: `http://company.com/api/v3/stores/:store_id/featured_associates`"
+        },
+        {
+          "info": {
+            "name": "Store Number Lookup",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://production.brickworksoftware.com/api/v3/stores/:store_number",
+            "params": [
+              {
+                "name": "store_number",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "locale",
+                "value": "",
+                "type": "query",
+                "description": "Defaults to \"en\", language to display store attributes"
+              },
+              {
+                "name": "store[number]",
+                "value": "",
+                "type": "query",
+                "description": "Store number as the main param"
+              }
+            ]
+          },
+          "docs": "Example: `http://company.com/api/v3/stores/:store_number/store_lookup`"
+        },
+        {
+          "info": {
+            "name": "Basic Company Store Information",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://production.brickworksoftware.com/api/v3/stores/store_search",
+            "params": [
+              {
+                "name": "locale",
+                "value": "",
+                "type": "query",
+                "description": "Defaults to \"en\", language to display store attributes"
+              }
+            ]
+          },
+          "docs": "Example: `http://company.com/api/v3/stores/store_search`"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

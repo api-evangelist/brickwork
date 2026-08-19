@@ -1,0 +1,259 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Brickwork Admin Appointments Admin Transactions API",
+    "version": "v3"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Admin Transactions",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Customer Transactions",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://production.brickworksoftware.com/:locale/api/v3/admin/customers/:customer_id_or_code/transactions",
+            "params": [
+              {
+                "name": "customer_id_or_code",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "locale",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "auth": {
+              "type": "apikey",
+              "key": "api_key",
+              "value": "{{api_key}}",
+              "placement": "query"
+            }
+          },
+          "docs": "Customer Transactions"
+        },
+        {
+          "info": {
+            "name": "Index Transactions",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://production.brickworksoftware.com/:locale/api/v3/admin/transactions",
+            "params": [
+              {
+                "name": "locale",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "page",
+                "value": "",
+                "type": "query",
+                "description": "Page number of your query"
+              },
+              {
+                "name": "query",
+                "value": "",
+                "type": "query",
+                "description": "Query parameters for all company transactions"
+              },
+              {
+                "name": "query[start_date]",
+                "value": "",
+                "type": "query",
+                "description": "Company transactions select start date \"YYYY-MM-DD\", defaults to 30 days back"
+              },
+              {
+                "name": "query[end_date]",
+                "value": "",
+                "type": "query",
+                "description": "Company transactions select end date \"YYYY-MM-DD\", defaults to today"
+              },
+              {
+                "name": "query[code]",
+                "value": "",
+                "type": "query",
+                "description": "Filter transactions by codes [1,2,3]"
+              }
+            ],
+            "auth": {
+              "type": "apikey",
+              "key": "api_key",
+              "value": "{{api_key}}",
+              "placement": "query"
+            }
+          },
+          "docs": "Example: `http://company.com/api/v3/admin/transactions?query[start_date]=2016-05-28`"
+        },
+        {
+          "info": {
+            "name": "Create Transaction",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://production.brickworksoftware.com/:locale/api/v3/admin/transactions",
+            "params": [
+              {
+                "name": "locale",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "apikey",
+              "key": "api_key",
+              "value": "{{api_key}}",
+              "placement": "query"
+            }
+          },
+          "docs": "Create Transaction"
+        },
+        {
+          "info": {
+            "name": "Show Transaction",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://production.brickworksoftware.com/:locale/api/v3/admin/transactions/:id_or_code",
+            "params": [
+              {
+                "name": "id_or_code",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "locale",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "auth": {
+              "type": "apikey",
+              "key": "api_key",
+              "value": "{{api_key}}",
+              "placement": "query"
+            }
+          },
+          "docs": "Show Transaction"
+        },
+        {
+          "info": {
+            "name": "Update Transaction",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://production.brickworksoftware.com/:locale/api/v3/admin/transactions/:id_or_code",
+            "params": [
+              {
+                "name": "id_or_code",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "locale",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "apikey",
+              "key": "api_key",
+              "value": "{{api_key}}",
+              "placement": "query"
+            }
+          },
+          "docs": "Update Transaction"
+        },
+        {
+          "info": {
+            "name": "Add appointment Transaction",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://production.brickworksoftware.com/:locale/api/v3/admin/appointments/:appointment_id_or_code/transactions/:id_or_code",
+            "params": [
+              {
+                "name": "id_or_code",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "appointment_id_or_code",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "locale",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "auth": {
+              "type": "apikey",
+              "key": "api_key",
+              "value": "{{api_key}}",
+              "placement": "query"
+            }
+          },
+          "docs": "Add appointment Transaction"
+        },
+        {
+          "info": {
+            "name": "Add Customer Transaction",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://production.brickworksoftware.com/:locale/api/v3/admin/customers/:customer_id_or_code/transactions/:id_or_code",
+            "params": [
+              {
+                "name": "id_or_code",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "customer_id_or_code",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "locale",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "auth": {
+              "type": "apikey",
+              "key": "api_key",
+              "value": "{{api_key}}",
+              "placement": "query"
+            }
+          },
+          "docs": "Add Customer Transaction"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

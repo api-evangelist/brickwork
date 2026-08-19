@@ -1,0 +1,554 @@
+{
+  "item": [
+    {
+      "id": "fcbe94bd-23fb-4cc8-8b51-4645ace53417",
+      "name": "Admin Stores",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "d4115524-e2c0-45d8-9f20-f21583d7c113",
+          "name": "Store List",
+          "request": {
+            "name": "Store List",
+            "description": {},
+            "url": {
+              "path": [
+                "api",
+                "v3",
+                "admin",
+                "stores"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "locale",
+                  "value": "<string>",
+                  "description": "The locale for store data display"
+                },
+                {
+                  "disabled": false,
+                  "key": "number",
+                  "value": "<string>",
+                  "description": "Query stores by number"
+                },
+                {
+                  "disabled": false,
+                  "key": "state",
+                  "value": "<string>",
+                  "description": "Query stores by state"
+                },
+                {
+                  "disabled": false,
+                  "key": "country_code",
+                  "value": "<string>",
+                  "description": "Query stores by country_code"
+                },
+                {
+                  "disabled": false,
+                  "key": "postal_code",
+                  "value": "<string>",
+                  "description": "Query stores by postal_code"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "apikey",
+              "apikey": [
+                {
+                  "key": "key",
+                  "value": "api_key"
+                },
+                {
+                  "key": "value",
+                  "value": "{{apiKey}}"
+                },
+                {
+                  "key": "in",
+                  "value": "query"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "1e6c227d-b845-4a4e-b095-8cde00b60c2c",
+              "name": "Successful response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v3",
+                    "admin",
+                    "stores"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "locale",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "number",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "state",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "country_code",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "postal_code",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "api_key",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "e1c536ab-5c62-4ea9-9857-920e4fd73081",
+          "name": "Create Store",
+          "request": {
+            "name": "Create Store",
+            "description": {},
+            "url": {
+              "path": [
+                "api",
+                "v3",
+                "admin",
+                "stores"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": {
+              "type": "apikey",
+              "apikey": [
+                {
+                  "key": "key",
+                  "value": "api_key"
+                },
+                {
+                  "key": "value",
+                  "value": "{{apiKey}}"
+                },
+                {
+                  "key": "in",
+                  "value": "query"
+                }
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"locale\": \"<string>\",\n  \"Name\": \"<string>\",\n  \"Number\": \"<string>\",\n  \"address_1\": \"<string>\",\n  \"city\": \"<string>\",\n  \"state\": \"<string>\",\n  \"country_code\": \"<string>\",\n  \"email\": \"<string>\",\n  \"published_at\": \"<string>\",\n  \"description\": \"<string>\",\n  \"address_2\": \"<string>\",\n  \"address_3\": \"<string>\",\n  \"postal_code\": \"<string>\",\n  \"override_geocode\": \"<boolean>\",\n  \"latitude\": \"<number>\",\n  \"longitude\": \"<number>\",\n  \"fedex\": \"<string>\",\n  \"contextual_address\": \"<string>\",\n  \"parking_suggestions\": \"<string>\",\n  \"phone_number\": \"<string>\",\n  \"send_from_email\": \"<string>\",\n  \"keywords\": \"<string>\",\n  \"notes\": \"<string>\",\n  \"allow_subscriptions\": \"<boolean>\",\n  \"max_appointments\": \"<integer>\",\n  \"capacity_type\": \"<string>\",\n  \"online_capacity_pct\": \"<integer>\",\n  \"type_id\": \"<integer>\",\n  \"feature_ids\": \"<array>\",\n  \"language_ids\": \"<array>\",\n  \"group_ids\": \"<array>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "d75471b0-e1a3-41cb-a35f-c3ec61bd1c99",
+              "name": "Successful response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v3",
+                    "admin",
+                    "stores"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "api_key",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"locale\": \"<string>\",\n  \"Name\": \"<string>\",\n  \"Number\": \"<string>\",\n  \"address_1\": \"<string>\",\n  \"city\": \"<string>\",\n  \"state\": \"<string>\",\n  \"country_code\": \"<string>\",\n  \"email\": \"<string>\",\n  \"published_at\": \"<string>\",\n  \"description\": \"<string>\",\n  \"address_2\": \"<string>\",\n  \"address_3\": \"<string>\",\n  \"postal_code\": \"<string>\",\n  \"override_geocode\": \"<boolean>\",\n  \"latitude\": \"<number>\",\n  \"longitude\": \"<number>\",\n  \"fedex\": \"<string>\",\n  \"contextual_address\": \"<string>\",\n  \"parking_suggestions\": \"<string>\",\n  \"phone_number\": \"<string>\",\n  \"send_from_email\": \"<string>\",\n  \"keywords\": \"<string>\",\n  \"notes\": \"<string>\",\n  \"allow_subscriptions\": \"<boolean>\",\n  \"max_appointments\": \"<integer>\",\n  \"capacity_type\": \"<string>\",\n  \"online_capacity_pct\": \"<integer>\",\n  \"type_id\": \"<integer>\",\n  \"feature_ids\": \"<array>\",\n  \"language_ids\": \"<array>\",\n  \"group_ids\": \"<array>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": 9439,\n  \"slug\": \"string\",\n  \"number\": 8783,\n  \"name\": \"string\",\n  \"description\": \"string\",\n  \"address_1\": \"string\",\n  \"address_2\": \"string\",\n  \"address_3\": \"string\",\n  \"city\": \"string\",\n  \"state\": \"string\",\n  \"neighborhood\": \"string\",\n  \"postal_code\": \"string\",\n  \"country_code\": \"string\",\n  \"contextual_address\": \"string\",\n  \"parking_suggestions\": \"string\",\n  \"phone_number\": \"string\",\n  \"email\": \"string\",\n  \"send_from_email\": \"string\",\n  \"keywords\": \"string\",\n  \"instagram_handle\": \"string\",\n  \"notes\": \"string\",\n  \"timezone\": \"string\",\n  \"latitude\": 7791.634892306412,\n  \"longitude\": 4666.532267056465,\n  \"override_geocode\": false,\n  \"fedex\": \"string\",\n  \"allow_subscriptions\": true,\n  \"max_appointments\": 1834,\n  \"online_capacity\": 9195,\n  \"total_capacity\": 7892,\n  \"capacity_type\": \"string\",\n  \"online_capacity_pct\": 7287,\n  \"editorial_url\": \"string\",\n  \"type\": {},\n  \"type_id\": 3334,\n  \"metatags\": \"string\",\n  \"hide_from_robots\": true,\n  \"hide_from_api\": true,\n  \"published_at\": \"string\",\n  \"close_date\": \"string\",\n  \"created_at\": \"string\",\n  \"updated_at\": \"string\",\n  \"nextgen_id\": \"string\",\n  \"organization_nextgen_id\": \"string\",\n  \"meta\": {}\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "637a60b5-f84a-4a70-ae49-6dabf23c4814",
+          "name": "Show Store",
+          "request": {
+            "name": "Show Store",
+            "description": {
+              "content": "Example: `http://company.com/api/v3/admin/stores/:store_id`\n\nExample: `http://company.com/api/v3/admin/stores/:store_number?store_number=true`",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "v3",
+                "admin",
+                "stores",
+                ":id_or_number"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "locale",
+                  "value": "<string>",
+                  "description": "The locale for store data display"
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "id_or_number",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "apikey",
+              "apikey": [
+                {
+                  "key": "key",
+                  "value": "api_key"
+                },
+                {
+                  "key": "value",
+                  "value": "{{apiKey}}"
+                },
+                {
+                  "key": "in",
+                  "value": "query"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "35257f2d-c7bc-4696-a3e6-71428fb4cbec",
+              "name": "Successful response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v3",
+                    "admin",
+                    "stores",
+                    ":id_or_number"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "locale",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "api_key",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id_or_number",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": 9439,\n  \"slug\": \"string\",\n  \"number\": 8783,\n  \"name\": \"string\",\n  \"description\": \"string\",\n  \"address_1\": \"string\",\n  \"address_2\": \"string\",\n  \"address_3\": \"string\",\n  \"city\": \"string\",\n  \"state\": \"string\",\n  \"neighborhood\": \"string\",\n  \"postal_code\": \"string\",\n  \"country_code\": \"string\",\n  \"contextual_address\": \"string\",\n  \"parking_suggestions\": \"string\",\n  \"phone_number\": \"string\",\n  \"email\": \"string\",\n  \"send_from_email\": \"string\",\n  \"keywords\": \"string\",\n  \"instagram_handle\": \"string\",\n  \"notes\": \"string\",\n  \"timezone\": \"string\",\n  \"latitude\": 7791.634892306412,\n  \"longitude\": 4666.532267056465,\n  \"override_geocode\": false,\n  \"fedex\": \"string\",\n  \"allow_subscriptions\": true,\n  \"max_appointments\": 1834,\n  \"online_capacity\": 9195,\n  \"total_capacity\": 7892,\n  \"capacity_type\": \"string\",\n  \"online_capacity_pct\": 7287,\n  \"editorial_url\": \"string\",\n  \"type\": {},\n  \"type_id\": 3334,\n  \"metatags\": \"string\",\n  \"hide_from_robots\": true,\n  \"hide_from_api\": true,\n  \"published_at\": \"string\",\n  \"close_date\": \"string\",\n  \"created_at\": \"string\",\n  \"updated_at\": \"string\",\n  \"nextgen_id\": \"string\",\n  \"organization_nextgen_id\": \"string\",\n  \"meta\": {}\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "fd491a01-9992-43f6-8fb7-71caa7e10f34",
+          "name": "Update Store",
+          "request": {
+            "name": "Update Store",
+            "description": {
+              "content": "Example: `http://company.com/api/v3/admin/stores/:store_id`\n\nExample: `http://company.com/api/v3/admin/stores/:store_number?store_number=true`",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "v3",
+                "admin",
+                "stores",
+                ":id_or_number"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "id_or_number",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "PUT",
+            "auth": {
+              "type": "apikey",
+              "apikey": [
+                {
+                  "key": "key",
+                  "value": "api_key"
+                },
+                {
+                  "key": "value",
+                  "value": "{{apiKey}}"
+                },
+                {
+                  "key": "in",
+                  "value": "query"
+                }
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"locale\": \"<string>\",\n  \"custom_slug\": \"<string>\",\n  \"name\": \"<string>\",\n  \"description\": \"<string>\",\n  \"address_1\": \"<string>\",\n  \"address_2\": \"<string>\",\n  \"address_3\": \"<string>\",\n  \"city\": \"<string>\",\n  \"state\": \"<string>\",\n  \"postal_code\": \"<string>\",\n  \"country_code\": \"<string>\",\n  \"override_geocode\": \"<boolean>\",\n  \"latitude\": \"<number>\",\n  \"longitude\": \"<number>\",\n  \"fedex\": \"<string>\",\n  \"contextual_address\": \"<string>\",\n  \"parking_suggestions\": \"<string>\",\n  \"phone_number\": \"<string>\",\n  \"email\": \"<string>\",\n  \"send_from_email\": \"<string>\",\n  \"keywords\": \"<string>\",\n  \"notes\": \"<string>\",\n  \"allow_subscriptions\": \"<boolean>\",\n  \"max_appointments\": \"<integer>\",\n  \"capacity_type\": \"<string>\",\n  \"online_capacity_pct\": \"<integer>\",\n  \"type_id\": \"<integer>\",\n  \"feature_ids\": \"<array>\",\n  \"language_ids\": \"<array>\",\n  \"group_ids\": \"<array>\",\n  \"published_at\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "4bd27c1f-cddf-403b-8cd2-1e50a17c3f66",
+              "name": "Successful response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v3",
+                    "admin",
+                    "stores",
+                    ":id_or_number"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "api_key",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id_or_number",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"locale\": \"<string>\",\n  \"custom_slug\": \"<string>\",\n  \"name\": \"<string>\",\n  \"description\": \"<string>\",\n  \"address_1\": \"<string>\",\n  \"address_2\": \"<string>\",\n  \"address_3\": \"<string>\",\n  \"city\": \"<string>\",\n  \"state\": \"<string>\",\n  \"postal_code\": \"<string>\",\n  \"country_code\": \"<string>\",\n  \"override_geocode\": \"<boolean>\",\n  \"latitude\": \"<number>\",\n  \"longitude\": \"<number>\",\n  \"fedex\": \"<string>\",\n  \"contextual_address\": \"<string>\",\n  \"parking_suggestions\": \"<string>\",\n  \"phone_number\": \"<string>\",\n  \"email\": \"<string>\",\n  \"send_from_email\": \"<string>\",\n  \"keywords\": \"<string>\",\n  \"notes\": \"<string>\",\n  \"allow_subscriptions\": \"<boolean>\",\n  \"max_appointments\": \"<integer>\",\n  \"capacity_type\": \"<string>\",\n  \"online_capacity_pct\": \"<integer>\",\n  \"type_id\": \"<integer>\",\n  \"feature_ids\": \"<array>\",\n  \"language_ids\": \"<array>\",\n  \"group_ids\": \"<array>\",\n  \"published_at\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": 9439,\n  \"slug\": \"string\",\n  \"number\": 8783,\n  \"name\": \"string\",\n  \"description\": \"string\",\n  \"address_1\": \"string\",\n  \"address_2\": \"string\",\n  \"address_3\": \"string\",\n  \"city\": \"string\",\n  \"state\": \"string\",\n  \"neighborhood\": \"string\",\n  \"postal_code\": \"string\",\n  \"country_code\": \"string\",\n  \"contextual_address\": \"string\",\n  \"parking_suggestions\": \"string\",\n  \"phone_number\": \"string\",\n  \"email\": \"string\",\n  \"send_from_email\": \"string\",\n  \"keywords\": \"string\",\n  \"instagram_handle\": \"string\",\n  \"notes\": \"string\",\n  \"timezone\": \"string\",\n  \"latitude\": 7791.634892306412,\n  \"longitude\": 4666.532267056465,\n  \"override_geocode\": false,\n  \"fedex\": \"string\",\n  \"allow_subscriptions\": true,\n  \"max_appointments\": 1834,\n  \"online_capacity\": 9195,\n  \"total_capacity\": 7892,\n  \"capacity_type\": \"string\",\n  \"online_capacity_pct\": 7287,\n  \"editorial_url\": \"string\",\n  \"type\": {},\n  \"type_id\": 3334,\n  \"metatags\": \"string\",\n  \"hide_from_robots\": true,\n  \"hide_from_api\": true,\n  \"published_at\": \"string\",\n  \"close_date\": \"string\",\n  \"created_at\": \"string\",\n  \"updated_at\": \"string\",\n  \"nextgen_id\": \"string\",\n  \"organization_nextgen_id\": \"string\",\n  \"meta\": {}\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://production.brickworksoftware.com",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "79f3256b-af49-4aaf-b95d-f4aa75f8d5a4",
+    "name": "Brickwork Admin Appointments Admin Stores API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Brickwork (now part of DevHub) omnichannel retail platform API v3. Powers store pages, store locators, appointments, events, RSVPs, in-store services, customers, and local store content for physical retail. Admin endpoints are authenticated with an api_key; front-end store endpoints surface public store, service, and event data. Derived from the provider-published apiDoc reference at production.brickworksoftware.com/api_docs.\n\nContact Support:\n Name: Brickwork / DevHub",
+      "type": "text/plain"
+    }
+  }
+}

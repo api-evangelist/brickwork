@@ -1,0 +1,101 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Brickwork Admin Appointments Admin Question Answers API",
+    "version": "v3"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Admin Question Answers",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List all question answers",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://production.brickworksoftware.com/:locale/api/v3/admin/question_answers",
+            "params": [
+              {
+                "name": "locale",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "page",
+                "value": "",
+                "type": "query",
+                "description": "Page number of your query"
+              },
+              {
+                "name": "query",
+                "value": "",
+                "type": "query",
+                "description": "Query parameters for all company question_answers"
+              },
+              {
+                "name": "query[question_id]",
+                "value": "",
+                "type": "query",
+                "description": "Filter question_answers by question_id ['question_id1', 'question_id2', 'question_id3']"
+              },
+              {
+                "name": "query[customer_id]",
+                "value": "",
+                "type": "query",
+                "description": "Filter question_answers by customer_id ['customer_id1','customer_id2','customer_id3']"
+              },
+              {
+                "name": "query[appointment_id]",
+                "value": "",
+                "type": "query",
+                "description": "Filter question_answers by appointment_id ['appointment_id1','appointment_id2','appointment_id3']"
+              }
+            ],
+            "auth": {
+              "type": "apikey",
+              "key": "api_key",
+              "value": "{{api_key}}",
+              "placement": "query"
+            }
+          },
+          "docs": "Example: `http://company.com/api/v3/admin/question_answers?query[question_id]=123`"
+        },
+        {
+          "info": {
+            "name": "Show question",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://production.brickworksoftware.com/:locale/api/v3/admin/question_answers/:question_id",
+            "params": [
+              {
+                "name": "question_id",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "locale",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "auth": {
+              "type": "apikey",
+              "key": "api_key",
+              "value": "{{api_key}}",
+              "placement": "query"
+            }
+          },
+          "docs": "Example: `http://company.com/api/v3/admin/question_answers/:question_answer_id`"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

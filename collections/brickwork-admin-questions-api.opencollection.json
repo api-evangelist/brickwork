@@ -1,0 +1,95 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Brickwork Admin Appointments Admin Questions API",
+    "version": "v3"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Admin Questions",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List all questions",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://production.brickworksoftware.com/:locale/api/v3/admin/questions",
+            "params": [
+              {
+                "name": "locale",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "page",
+                "value": "",
+                "type": "query",
+                "description": "Page number of your query"
+              },
+              {
+                "name": "query",
+                "value": "",
+                "type": "query",
+                "description": "Query parameters for all company questions"
+              },
+              {
+                "name": "query[key]",
+                "value": "",
+                "type": "query",
+                "description": "Filter questions by key ['key1', key2, key3]"
+              },
+              {
+                "name": "query[code]",
+                "value": "",
+                "type": "query",
+                "description": "Filter questions by question_type ['question_type1','question_type2','question_type3']"
+              }
+            ],
+            "auth": {
+              "type": "apikey",
+              "key": "api_key",
+              "value": "{{api_key}}",
+              "placement": "query"
+            }
+          },
+          "docs": "Example: `http://company.com/api/v3/admin/questions?query[key]=favorite_color`"
+        },
+        {
+          "info": {
+            "name": "Show question",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://production.brickworksoftware.com/:locale/api/v3/admin/questions/:question_id",
+            "params": [
+              {
+                "name": "question_id",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "locale",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "auth": {
+              "type": "apikey",
+              "key": "api_key",
+              "value": "{{api_key}}",
+              "placement": "query"
+            }
+          },
+          "docs": "Example: `http://company.com/api/v3/admin/questions/:question_id`"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

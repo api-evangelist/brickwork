@@ -1,0 +1,66 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Brickwork Admin Appointments Questions API",
+    "version": "v3"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Questions",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List all questions",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://production.brickworksoftware.com/:locale/api/v3/questions",
+            "params": [
+              {
+                "name": "locale",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "page",
+                "value": "",
+                "type": "query",
+                "description": "Page number of your query"
+              },
+              {
+                "name": "query",
+                "value": "",
+                "type": "query",
+                "description": "Query parameters for all company questions"
+              },
+              {
+                "name": "query[key]",
+                "value": "",
+                "type": "query",
+                "description": "Filter questions by key ['key1', key2, key3]"
+              },
+              {
+                "name": "query[nextgen_id]",
+                "value": "",
+                "type": "query",
+                "description": "Filter questions by the questions nextgen_id"
+              },
+              {
+                "name": "query[question_type]",
+                "value": "",
+                "type": "query",
+                "description": "Filter questions by question_type ['question_type1','question_type2','question_type3']"
+              }
+            ]
+          },
+          "docs": "Example: `http://company.com/api/v3/questions?query[key]=favorite_color`"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

@@ -1,0 +1,56 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Brickwork Admin Appointments Events API",
+    "version": "v3"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Events",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Event",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://production.brickworksoftware.com/api/v3/events/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "Event ID"
+              }
+            ]
+          },
+          "docs": "Event"
+        },
+        {
+          "info": {
+            "name": "Event List",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://production.brickworksoftware.com/:locale/api/v3/events",
+            "params": [
+              {
+                "name": "locale",
+                "value": "",
+                "type": "path",
+                "description": "The locale for store data display"
+              }
+            ]
+          },
+          "docs": "Event List"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

@@ -1,0 +1,574 @@
+{
+  "item": [
+    {
+      "id": "6ba2a2dc-21a1-4846-89b4-3f3c7bba6c6a",
+      "name": "Admin Store Services",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "ce374e21-21af-41e6-9c95-fc49da457ad8",
+          "name": "List Store Services",
+          "request": {
+            "name": "List Store Services",
+            "description": {
+              "content": "Example: `http://company.com/api/v3/admin/stores/:store_id/store_services`\n\nExample: `http://company.com/api/v3/admin/stores/:store_number/store_services?store_number=true`",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "v3",
+                "admin",
+                "stores",
+                ":store_id_or_number",
+                "store_services"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "store_id_or_number",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "apikey",
+              "apikey": [
+                {
+                  "key": "key",
+                  "value": "api_key"
+                },
+                {
+                  "key": "value",
+                  "value": "{{apiKey}}"
+                },
+                {
+                  "key": "in",
+                  "value": "query"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "c5a7bd64-24b2-4b16-8f77-7c0bfbaa47f8",
+              "name": "Successful response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v3",
+                    "admin",
+                    "stores",
+                    ":store_id_or_number",
+                    "store_services"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "api_key",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "store_id_or_number",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"private\": false\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "bfb54967-5fac-458a-a044-1a04ef2a1251",
+          "name": "Create Store Service",
+          "request": {
+            "name": "Create Store Service",
+            "description": {
+              "content": "Example: `http://company.com/api/v3/admin/stores/:store_id/store_services/:id`\n\nExample: `http://company.com/api/v3/admin/stores/:store_number/store_services/:id?store_number=true`",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "v3",
+                "admin",
+                "stores",
+                ":store_id_or_number",
+                "store_services"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "store_id_or_number",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": {
+              "type": "apikey",
+              "apikey": [
+                {
+                  "key": "key",
+                  "value": "api_key"
+                },
+                {
+                  "key": "value",
+                  "value": "{{apiKey}}"
+                },
+                {
+                  "key": "in",
+                  "value": "query"
+                }
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"service_id\": \"<integer>\",\n  \"appointments_enabled\": \"<boolean>\",\n  \"associate_required\": \"<boolean>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "d4778668-1c8b-40be-a16c-95546f7b8acc",
+              "name": "Successful response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v3",
+                    "admin",
+                    "stores",
+                    ":store_id_or_number",
+                    "store_services"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "api_key",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "store_id_or_number",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"service_id\": \"<integer>\",\n  \"appointments_enabled\": \"<boolean>\",\n  \"associate_required\": \"<boolean>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": 5592,\n  \"service_id\": 3593,\n  \"store_id\": 7034,\n  \"appointments_enabled\": false,\n  \"associate_required\": true,\n  \"store_service_image\": \"string\",\n  \"allow_anonymous\": true,\n  \"private\": true,\n  \"created_at\": \"string\",\n  \"updated_at\": \"string\",\n  \"nextgen_uri\": \"string\",\n  \"organization_nextgen_id\": \"string\",\n  \"set_custom_capacity\": true,\n  \"override_store_capacity\": false,\n  \"total_capacity\": 8159,\n  \"capacity_type\": \"string\",\n  \"online_capacity_pct\": 5280.457112854101,\n  \"online_capacity\": 3371,\n  \"waitlist\": true,\n  \"required_lead_time\": 5457,\n  \"book_with\": \"string\",\n  \"auto_confirm_appt_requests\": false,\n  \"allow_associate_selection\": true,\n  \"store_capacity\": {}\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "eb10c634-8cee-4348-9d89-725ad14f54e8",
+          "name": "Show Store Service",
+          "request": {
+            "name": "Show Store Service",
+            "description": {
+              "content": "Example: `http://company.com/api/v3/admin/stores/:store_id/store_services/:id`\n\nExample: `http://company.com/api/v3/admin/stores/:store_number/store_services/:id?store_number=true`",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "v3",
+                "admin",
+                "stores",
+                ":store_id_or_number",
+                "store_services",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "id",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "store_id_or_number",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "apikey",
+              "apikey": [
+                {
+                  "key": "key",
+                  "value": "api_key"
+                },
+                {
+                  "key": "value",
+                  "value": "{{apiKey}}"
+                },
+                {
+                  "key": "in",
+                  "value": "query"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "72a9eb2c-c44c-48d7-a434-7056ef1a601f",
+              "name": "Successful response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v3",
+                    "admin",
+                    "stores",
+                    ":store_id_or_number",
+                    "store_services",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "api_key",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "store_id_or_number",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": 5592,\n  \"service_id\": 3593,\n  \"store_id\": 7034,\n  \"appointments_enabled\": false,\n  \"associate_required\": true,\n  \"store_service_image\": \"string\",\n  \"allow_anonymous\": true,\n  \"private\": true,\n  \"created_at\": \"string\",\n  \"updated_at\": \"string\",\n  \"nextgen_uri\": \"string\",\n  \"organization_nextgen_id\": \"string\",\n  \"set_custom_capacity\": true,\n  \"override_store_capacity\": false,\n  \"total_capacity\": 8159,\n  \"capacity_type\": \"string\",\n  \"online_capacity_pct\": 5280.457112854101,\n  \"online_capacity\": 3371,\n  \"waitlist\": true,\n  \"required_lead_time\": 5457,\n  \"book_with\": \"string\",\n  \"auto_confirm_appt_requests\": false,\n  \"allow_associate_selection\": true,\n  \"store_capacity\": {}\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "6b2aa5e6-e8f4-49dc-bb7e-f11e3af9302c",
+          "name": "Update Store Service",
+          "request": {
+            "name": "Update Store Service",
+            "description": {
+              "content": "Example: `http://company.com/api/v3/admin/stores/:store_id/store_services/:id`\n\nExample: `http://company.com/api/v3/admin/stores/:store_number/store_services/:id?store_number=true`",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "v3",
+                "admin",
+                "stores",
+                ":store_id_or_number",
+                "store_services",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "id",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "store_id_or_number",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "PUT",
+            "auth": {
+              "type": "apikey",
+              "apikey": [
+                {
+                  "key": "key",
+                  "value": "api_key"
+                },
+                {
+                  "key": "value",
+                  "value": "{{apiKey}}"
+                },
+                {
+                  "key": "in",
+                  "value": "query"
+                }
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"service_id\": \"<integer>\",\n  \"appointments_enabled\": \"<boolean>\",\n  \"associate_required\": \"<boolean>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "63f7350c-22c2-47e6-af07-fa203ce8918b",
+              "name": "Successful response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v3",
+                    "admin",
+                    "stores",
+                    ":store_id_or_number",
+                    "store_services",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "api_key",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "store_id_or_number",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"service_id\": \"<integer>\",\n  \"appointments_enabled\": \"<boolean>\",\n  \"associate_required\": \"<boolean>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": 5592,\n  \"service_id\": 3593,\n  \"store_id\": 7034,\n  \"appointments_enabled\": false,\n  \"associate_required\": true,\n  \"store_service_image\": \"string\",\n  \"allow_anonymous\": true,\n  \"private\": true,\n  \"created_at\": \"string\",\n  \"updated_at\": \"string\",\n  \"nextgen_uri\": \"string\",\n  \"organization_nextgen_id\": \"string\",\n  \"set_custom_capacity\": true,\n  \"override_store_capacity\": false,\n  \"total_capacity\": 8159,\n  \"capacity_type\": \"string\",\n  \"online_capacity_pct\": 5280.457112854101,\n  \"online_capacity\": 3371,\n  \"waitlist\": true,\n  \"required_lead_time\": 5457,\n  \"book_with\": \"string\",\n  \"auto_confirm_appt_requests\": false,\n  \"allow_associate_selection\": true,\n  \"store_capacity\": {}\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://production.brickworksoftware.com",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "8781034d-4d58-4fea-9deb-755a3a174249",
+    "name": "Brickwork Admin Appointments Admin Store Services API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Brickwork (now part of DevHub) omnichannel retail platform API v3. Powers store pages, store locators, appointments, events, RSVPs, in-store services, customers, and local store content for physical retail. Admin endpoints are authenticated with an api_key; front-end store endpoints surface public store, service, and event data. Derived from the provider-published apiDoc reference at production.brickworksoftware.com/api_docs.\n\nContact Support:\n Name: Brickwork / DevHub",
+      "type": "text/plain"
+    }
+  }
+}

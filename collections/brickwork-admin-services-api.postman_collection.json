@@ -1,0 +1,518 @@
+{
+  "item": [
+    {
+      "id": "81e8fb15-4d4b-42f1-b108-226424151feb",
+      "name": "Admin Services",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "9b86ad34-9bfa-4e7b-86a7-162c58f725b2",
+          "name": "Services List",
+          "request": {
+            "name": "Services List",
+            "description": {},
+            "url": {
+              "path": [
+                "api",
+                "v3",
+                "admin",
+                "services"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "locale",
+                  "value": "<string>",
+                  "description": "The locale for store data display"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "apikey",
+              "apikey": [
+                {
+                  "key": "key",
+                  "value": "api_key"
+                },
+                {
+                  "key": "value",
+                  "value": "{{apiKey}}"
+                },
+                {
+                  "key": "in",
+                  "value": "query"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "2b80f170-1295-4790-a959-3c99090b8843",
+              "name": "Successful response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v3",
+                    "admin",
+                    "services"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "locale",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "api_key",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "565da670-b904-4b4d-b4a4-51bd000947a2",
+          "name": "Create Service",
+          "request": {
+            "name": "Create Service",
+            "description": {},
+            "url": {
+              "path": [
+                "api",
+                "v3",
+                "admin",
+                "services"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": {
+              "type": "apikey",
+              "apikey": [
+                {
+                  "key": "key",
+                  "value": "api_key"
+                },
+                {
+                  "key": "value",
+                  "value": "{{apiKey}}"
+                },
+                {
+                  "key": "in",
+                  "value": "query"
+                }
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": \"<string>\",\n  \"locale\": \"<string>\",\n  \"number\": \"<integer>\",\n  \"priority\": \"<integer>\",\n  \"description\": \"<string>\",\n  \"custom_slug\": \"<string>\",\n  \"allow_appointments_default\": \"<boolean>\",\n  \"appointment_length\": \"<integer>\",\n  \"image_url\": \"<string>\",\n  \"icon_url\": \"<string>\",\n  \"private\": \"<boolean>\",\n  \"long_description\": \"<string>\",\n  \"enable_landing_page\": \"<boolean>\",\n  \"long_description_position\": \"<string>\",\n  \"display_stores_count\": \"<integer>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "8aa1df54-30f1-4eef-927d-d7bfea4fb7c4",
+              "name": "Successful response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v3",
+                    "admin",
+                    "services"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "api_key",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"name\": \"<string>\",\n  \"locale\": \"<string>\",\n  \"number\": \"<integer>\",\n  \"priority\": \"<integer>\",\n  \"description\": \"<string>\",\n  \"custom_slug\": \"<string>\",\n  \"allow_appointments_default\": \"<boolean>\",\n  \"appointment_length\": \"<integer>\",\n  \"image_url\": \"<string>\",\n  \"icon_url\": \"<string>\",\n  \"private\": \"<boolean>\",\n  \"long_description\": \"<string>\",\n  \"enable_landing_page\": \"<boolean>\",\n  \"long_description_position\": \"<string>\",\n  \"display_stores_count\": \"<integer>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": 8593,\n  \"number\": 597,\n  \"priority\": 6998,\n  \"name\": \"string\",\n  \"description\": \"string\",\n  \"slug\": \"string\",\n  \"custom_slug\": \"string\",\n  \"long_description\": \"string\",\n  \"enable_landing_page\": false,\n  \"long_description_position\": \"string\",\n  \"display_stores_count\": 4001,\n  \"allow_appointments_default\": true,\n  \"appointment_length\": 4577,\n  \"image_url\": \"string\",\n  \"icon_url\": \"string\",\n  \"private\": true,\n  \"created_at\": \"string\",\n  \"updated_at\": \"string\",\n  \"nextgen_id\": \"string\",\n  \"organization_nextgen_id\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "900ce516-8da6-4bb5-97a9-17ad8c6c1954",
+          "name": "Service",
+          "request": {
+            "name": "Service",
+            "description": {},
+            "url": {
+              "path": [
+                "api",
+                "v3",
+                "admin",
+                "services",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "locale",
+                  "value": "<string>",
+                  "description": "The locale for store data display"
+                },
+                {
+                  "disabled": false,
+                  "key": "service_id",
+                  "value": "<string>",
+                  "description": "(Required) Id of the Company Service"
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "apikey",
+              "apikey": [
+                {
+                  "key": "key",
+                  "value": "api_key"
+                },
+                {
+                  "key": "value",
+                  "value": "{{apiKey}}"
+                },
+                {
+                  "key": "in",
+                  "value": "query"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "3cd5e6ce-d704-4a67-abfb-333245b9f7a2",
+              "name": "Successful response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v3",
+                    "admin",
+                    "services",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "locale",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "service_id",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "api_key",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": 8593,\n  \"number\": 597,\n  \"priority\": 6998,\n  \"name\": \"string\",\n  \"description\": \"string\",\n  \"slug\": \"string\",\n  \"custom_slug\": \"string\",\n  \"long_description\": \"string\",\n  \"enable_landing_page\": false,\n  \"long_description_position\": \"string\",\n  \"display_stores_count\": 4001,\n  \"allow_appointments_default\": true,\n  \"appointment_length\": 4577,\n  \"image_url\": \"string\",\n  \"icon_url\": \"string\",\n  \"private\": true,\n  \"created_at\": \"string\",\n  \"updated_at\": \"string\",\n  \"nextgen_id\": \"string\",\n  \"organization_nextgen_id\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "32a97e32-5b84-4c84-9804-fe84716c1c73",
+          "name": "Update Service",
+          "request": {
+            "name": "Update Service",
+            "description": {},
+            "url": {
+              "path": [
+                "api",
+                "v3",
+                "admin",
+                "services",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "PUT",
+            "auth": {
+              "type": "apikey",
+              "apikey": [
+                {
+                  "key": "key",
+                  "value": "api_key"
+                },
+                {
+                  "key": "value",
+                  "value": "{{apiKey}}"
+                },
+                {
+                  "key": "in",
+                  "value": "query"
+                }
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": \"<string>\",\n  \"locale\": \"<string>\",\n  \"number\": \"<integer>\",\n  \"priority\": \"<integer>\",\n  \"description\": \"<string>\",\n  \"custom_slug\": \"<string>\",\n  \"allow_appointments_default\": \"<boolean>\",\n  \"appointment_length\": \"<integer>\",\n  \"image_url\": \"<string>\",\n  \"icon_url\": \"<string>\",\n  \"private\": \"<boolean>\",\n  \"long_description\": \"<string>\",\n  \"enable_landing_page\": \"<boolean>\",\n  \"long_description_position\": \"<string>\",\n  \"display_stores_count\": \"<integer>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "165589d4-79cc-4279-9e10-576bf311998a",
+              "name": "Successful response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v3",
+                    "admin",
+                    "services",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "api_key",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"name\": \"<string>\",\n  \"locale\": \"<string>\",\n  \"number\": \"<integer>\",\n  \"priority\": \"<integer>\",\n  \"description\": \"<string>\",\n  \"custom_slug\": \"<string>\",\n  \"allow_appointments_default\": \"<boolean>\",\n  \"appointment_length\": \"<integer>\",\n  \"image_url\": \"<string>\",\n  \"icon_url\": \"<string>\",\n  \"private\": \"<boolean>\",\n  \"long_description\": \"<string>\",\n  \"enable_landing_page\": \"<boolean>\",\n  \"long_description_position\": \"<string>\",\n  \"display_stores_count\": \"<integer>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": 8593,\n  \"number\": 597,\n  \"priority\": 6998,\n  \"name\": \"string\",\n  \"description\": \"string\",\n  \"slug\": \"string\",\n  \"custom_slug\": \"string\",\n  \"long_description\": \"string\",\n  \"enable_landing_page\": false,\n  \"long_description_position\": \"string\",\n  \"display_stores_count\": 4001,\n  \"allow_appointments_default\": true,\n  \"appointment_length\": 4577,\n  \"image_url\": \"string\",\n  \"icon_url\": \"string\",\n  \"private\": true,\n  \"created_at\": \"string\",\n  \"updated_at\": \"string\",\n  \"nextgen_id\": \"string\",\n  \"organization_nextgen_id\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://production.brickworksoftware.com",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "b66fce96-6780-4c90-8adb-11cce03051f6",
+    "name": "Brickwork Admin Appointments Admin Services API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Brickwork (now part of DevHub) omnichannel retail platform API v3. Powers store pages, store locators, appointments, events, RSVPs, in-store services, customers, and local store content for physical retail. Admin endpoints are authenticated with an api_key; front-end store endpoints surface public store, service, and event data. Derived from the provider-published apiDoc reference at production.brickworksoftware.com/api_docs.\n\nContact Support:\n Name: Brickwork / DevHub",
+      "type": "text/plain"
+    }
+  }
+}

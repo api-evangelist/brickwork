@@ -1,0 +1,279 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Brickwork Admin Appointments API",
+    "version": "v3"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Admin Appointments",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List all Appointments",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://production.brickworksoftware.com/:locale/api/v3/admin/appointments",
+            "params": [
+              {
+                "name": "locale",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "page",
+                "value": "",
+                "type": "query",
+                "description": "Page number of your query"
+              },
+              {
+                "name": "query",
+                "value": "",
+                "type": "query",
+                "description": "Query parameters for all company appointments"
+              },
+              {
+                "name": "query[filter_start_time]",
+                "value": "",
+                "type": "query",
+                "description": "When true, it will filter and order all appointments by their start time, by default it will filter by created date"
+              },
+              {
+                "name": "query[start_date]",
+                "value": "",
+                "type": "query",
+                "description": "Store appointments select start date \"YYYY-MM-DD\", defaults to 30 days back, if query[filter_start_time]=true it is set to today's date"
+              },
+              {
+                "name": "query[end_date]",
+                "value": "",
+                "type": "query",
+                "description": "Store appointments select end date \"YYYY-MM-DD\", defaults to today, if query[filter_start_time]=true it is set to 30 days ahead"
+              },
+              {
+                "name": "query[utc_offset]",
+                "value": "",
+                "type": "query",
+                "description": "Store appointments select date timezone, defaults to +0000 \"-1\", \"-0100\", \"-01:00\". Be sure to encode positive utc_offsets - Encoding for a \"+\" is \"%2B\""
+              },
+              {
+                "name": "query[store_ids]",
+                "value": "",
+                "type": "query",
+                "description": "Filter appointments by store ids [1,2,3]"
+              },
+              {
+                "name": "query[service_ids]",
+                "value": "",
+                "type": "query",
+                "description": "Filter appointments by service ids [1,2,3]"
+              },
+              {
+                "name": "query[associate_ids]",
+                "value": "",
+                "type": "query",
+                "description": "Filter appointments by associates [1,2,3]"
+              },
+              {
+                "name": "query[state]",
+                "value": "",
+                "type": "query",
+                "description": "Filter appointments by state new, customer_requested, confirmed, reassigned, canceled, checked_in, no_show, occured"
+              },
+              {
+                "name": "query[code]",
+                "value": "",
+                "type": "query",
+                "description": "Filter appointments by code ['code1','code2','code3']"
+              },
+              {
+                "name": "query[associate_codes]",
+                "value": "",
+                "type": "query",
+                "description": "Filter appointments by associate codes ['code1','code2','code3']"
+              }
+            ],
+            "auth": {
+              "type": "apikey",
+              "key": "api_key",
+              "value": "{{api_key}}",
+              "placement": "query"
+            }
+          },
+          "docs": "Example: `http://company.com/api/v3/admin/appointments?query[start_date]=2016-05-28&query[filter_start_time]=true`"
+        },
+        {
+          "info": {
+            "name": "List Store Appointments",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://production.brickworksoftware.com/:locale/api/v3/admin/stores/:store_id_or_number/appointments",
+            "params": [
+              {
+                "name": "store_id_or_number",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "locale",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "page",
+                "value": "",
+                "type": "query",
+                "description": "Page number of your query"
+              },
+              {
+                "name": "query",
+                "value": "",
+                "type": "query",
+                "description": "Query parameters for all stores appointments"
+              },
+              {
+                "name": "query[service_ids]",
+                "value": "",
+                "type": "query",
+                "description": "Filter store appointments by store service ids [1,2,3]"
+              },
+              {
+                "name": "query[associate_ids]",
+                "value": "",
+                "type": "query",
+                "description": "Filter store appointments by associates [1,2,3]"
+              },
+              {
+                "name": "query[state]",
+                "value": "",
+                "type": "query",
+                "description": "Filter store appointments by state new, customer_requested, confirmed, reassigned, canceled, checked_in, no_show, occured"
+              },
+              {
+                "name": "query[code]",
+                "value": "",
+                "type": "query",
+                "description": "Filter store appointments by code ['code1','code2','code3']"
+              }
+            ],
+            "auth": {
+              "type": "apikey",
+              "key": "api_key",
+              "value": "{{api_key}}",
+              "placement": "query"
+            }
+          },
+          "docs": "Example: `http://company.com/api/v3/admin/stores/:store_id/appointments?query[state]=confirmed`\n\nExample: `http://company.com/api/v3/stores/:store_id/appointments`\n\nExample: `http://company.com/api/v3/stores/:store_number/appointments?store_number=true`"
+        },
+        {
+          "info": {
+            "name": "Show Appointment",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://production.brickworksoftware.com/:locale/api/v3/admin/stores/:store_id_or_number/appointments/:id_or_code",
+            "params": [
+              {
+                "name": "id_or_code",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "store_id_or_number",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "locale",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "auth": {
+              "type": "apikey",
+              "key": "api_key",
+              "value": "{{api_key}}",
+              "placement": "query"
+            }
+          },
+          "docs": "Example: `http://company.com/api/v3/stores/:store_id/appointments/:id_or_code`\n\nExample: `http://company.com/api/v3/stores/:store_number/appointments/:id_or_code?store_number=true`\n\nExample: `http://company.com/api/v3/stores/:store_id_or_number/appointments/:id`\n\nExample: `http://company.com/api/v3/stores/:store_id_or_number/appointments/:code`"
+        },
+        {
+          "info": {
+            "name": "Update Appointment",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://production.brickworksoftware.com/:locale/api/v3/admin/stores/:store_id_or_number/appointments/:id_or_code",
+            "params": [
+              {
+                "name": "id_or_code",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "store_id_or_number",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "locale",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "apikey",
+              "key": "api_key",
+              "value": "{{api_key}}",
+              "placement": "query"
+            }
+          },
+          "docs": "Example: `http://company.com/api/v3/stores/:store_id/appointments/:id_or_code`\n\nExample: `http://company.com/api/v3/stores/:store_number/appointments/:id_or_code?store_number=true`\n\nExample: `http://company.com/api/v3/stores/:store_id_or_number/appointments/:id`\n\nExample: `http://company.com/api/v3/stores/:store_id_or_number/appointments/:code`"
+        },
+        {
+          "info": {
+            "name": "Create an Appointment",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://production.brickworksoftware.com/api/v3/admin/stores/:store_id_or_number/appointments",
+            "params": [
+              {
+                "name": "store_id_or_number",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "apikey",
+              "key": "api_key",
+              "value": "{{api_key}}",
+              "placement": "query"
+            }
+          },
+          "docs": "Example: `http://company.com/api/v3/stores/:store_id/appointments/`\n\nExample: `http://company.com/api/v3/stores/:store_number/appointments/?store_number=true`"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}
