@@ -39,6 +39,16 @@ tags:
 - Omnichannel
 - Store Locator
 - Appointments
+- Event
+- Location Data
+- CMS
+tags_raw:
+- Company
+- Consumer
+- Retail
+- Omnichannel
+- Store Locator
+- Appointments
 - Events
 - Location Data
 - CMS
@@ -110,6 +120,8 @@ apis:
   humanURL: https://production.brickworksoftware.com/api_docs/
   baseURL: https://production.brickworksoftware.com
   tags:
+  - Admin - Events
+  tags_raw:
   - Admin Events
   properties:
   - type: OpenAPI
@@ -304,6 +316,8 @@ apis:
   humanURL: https://production.brickworksoftware.com/api_docs/
   baseURL: https://production.brickworksoftware.com
   tags:
+  - Event
+  tags_raw:
   - Events
   properties:
   - type: OpenAPI
