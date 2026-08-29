@@ -410,6 +410,9 @@ maintainers:
 - FN: APIs.json
   email: info@apis.io
 common:
+- type: CapabilityMap
+  url: capabilities/brickwork-capability-edges.yml
+  name: Brickwork Business Capability Map
 - type: Overlay
   url: overlays/brickwork-openapi-overlay.yaml
 - type: Website
