@@ -132,7 +132,7 @@ apis:
   humanURL: https://production.brickworksoftware.com/api_docs/
   baseURL: https://production.brickworksoftware.com
   tags:
-  - Admin Events
+  - Admin - Events
   tags_raw:
   - Admin Events
   properties:
