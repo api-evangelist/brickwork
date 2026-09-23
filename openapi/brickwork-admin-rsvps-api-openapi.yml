@@ -1,6 +1,6 @@
-openapi: 3.0.3
+openapi: 3.2.0
 info:
-  title: Brickwork Admin Appointments Admin Rsvps API
+  title: Brickwork Admin Rsvps API
   version: v3
   description: Brickwork (now part of DevHub) omnichannel retail platform API v3. Powers store pages, store locators, appointments, events, RSVPs, in-store services, customers, and local store content for physical retail. Admin endpoints are authenticated with an api_key; front-end store endpoints surface public store, service, and event data. Derived from the provider-published apiDoc reference at production.brickworksoftware.com/api_docs.
   contact:
