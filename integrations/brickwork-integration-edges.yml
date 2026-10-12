@@ -1,0 +1,16 @@
+generated: '2026-10-12'
+method: none
+source:
+- https://zapier.com/apps/brickwork/integrations
+- https://n8n.io/integrations/brickwork/
+- https://composio.dev/toolkits/brickwork
+- https://monid.ai/tools/brickwork
+checked:
+- https://composio.dev/toolkits/brickwork
+- https://monid.ai/tools/brickwork
+- https://n8n.io/integrations/brickwork/
+- https://zapier.com/apps/brickwork/integrations
+summary: null
+marketplace_apps: []
+edges: []
+templates: []
